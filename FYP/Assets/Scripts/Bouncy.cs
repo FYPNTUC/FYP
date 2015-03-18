@@ -1,27 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bouncy : MonoBehaviour 
+public class Bouncy : MonoBehaviour
 {
-	public float speed = 6.0F;
-	public float jumpSpeed = 8.0F;
-	public float gravity = 20.0F;
-	private Vector3 moveDirection = Vector3.zero;
+    public float speed = 6.0F;
+    public float jumpSpeed = 8.0F;
+    public float gravity = 20.0F;
+    private Vector3 moveDirection = Vector3.zero;
     private int ChargeCount;
 
-	bool done = false;
-	// Use this for initialization
-	void Start () 
-	{
+    bool done = false;
+    // Use this for initialization
+    void Start()
+    {
         ChargeCount = 0;
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         Physics.IgnoreLayerCollision(8, 9);
 
-	}
+    }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -59,6 +59,11 @@ public class Bouncy : MonoBehaviour
             done = false;
             ChargeCount = 0;
         }
+
+        //if (hit.gameObject.tag == "Platform")
+        //{
+        //    gameObject.transform.parent = hit.gameObject.transform;
+        //    Debug.Log("hit");
+        //}
     }
 }
-	
