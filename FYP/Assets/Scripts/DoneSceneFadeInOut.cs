@@ -19,9 +19,25 @@ public class DoneSceneFadeInOut : MonoBehaviour
 	void Update ()
 	{
 		// If the scene is starting...
-		if(sceneStarting)
-			// ... call the StartScene function.
-			StartScene();
+        if (sceneStarting)
+        {
+            // ... call the StartScene function.
+            StartScene();
+        }
+
+        if (GameObject.Find("PlayerFell").GetComponent<PlayerFell>().PlayerFallen == true)
+        {
+            guiTexture.enabled = true;
+            // Start fading towards black.
+            FadeToBlack();
+
+            // If the screen is almost black...
+            if (guiTexture.color.a >= 0.95f)
+            {
+                guiTexture.color = Color.black;
+                Application.LoadLevel(0);
+            }
+        }
 	}
 	
 	
@@ -55,8 +71,7 @@ public class DoneSceneFadeInOut : MonoBehaviour
 			sceneStarting = false;
 		}
 	}
-	
-	
+
 	public void EndScene ()
 	{
 		// Make sure the texture is enabled.

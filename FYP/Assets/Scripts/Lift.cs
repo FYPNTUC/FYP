@@ -3,16 +3,18 @@ using System.Collections;
 
 public class Lift : MonoBehaviour 
 {
+    public Animator anim;
     public int AmountToTravel;
     public float LiftSpeed;
     public bool IsTurnBack;
     public bool IsTurning;
-    private bool StartEvent;
+    public bool StartEvent;
     private bool LiftIsMoving;
     public bool PlayerInLift;
 	// Use this for initialization
 	void Start () 
     {
+        anim = GameObject.Find("Lift").GetComponent<Animator>();
         IsTurning = false;
         IsTurnBack = false;
         LiftIsMoving = false;
@@ -32,48 +34,50 @@ public class Lift : MonoBehaviour
 
 	void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        if (hit.gameObject.tag == ("Breakable"))
+        {
+            Destroy(hit.gameObject);
+        }
         if (StartEvent == true)
         {
-            if (hit.gameObject.name == "LiftRight")
+            anim.enabled = true;
+            
+            //if (hit.gameObject.name == "LiftRight")
+            //{
+            //    IsTurning = true;
+            //    IsTurnBack = false;
+            //}
+
+            //if (hit.gameObject.name == "LiftLeft" && IsTurning == true)
+            //{
+            //    IsTurning = false;
+            //    IsTurnBack = true;
+            //}
+        }
+
+        if (GameObject.Find("PlayerEnteredBuilding").GetComponent<PlayerEnteredBuilding>().PlayerIsInBuilding == false)
+        {
+            if (hit.gameObject.name == "LiftRight" || hit.gameObject.name == "LiftLeft")
             {
-                IsTurning = true;
-                IsTurnBack = false;
+                //GameObject.Find("Lift").transform.Translate(Vector3.up * Time.deltaTime);
+
             }
 
-            if (hit.gameObject.name == "LiftLeft" && IsTurning == true)
+            if (GameObject.Find("Lift").transform.position.y >= AmountToTravel)
             {
-                IsTurning = false;
-                IsTurnBack = true;
+                LiftIsMoving = false;
+                gameObject.transform.parent = null;
+                StartEvent = true;
+
+            }
+
+            if (LiftIsMoving == true)
+            {
+                MoveTheLift();
+                gameObject.transform.parent = GameObject.Find("Lift").transform;
             }
         }
-
-        if (hit.gameObject.name == "LiftRight" || hit.gameObject.name == "LiftLeft")
-        {
-            //GameObject.Find("Lift").transform.Translate(Vector3.up * Time.deltaTime);
-
-        }
-
-        if (GameObject.Find("Lift").transform.position.y >= AmountToTravel)
-        {
-            LiftIsMoving = false;
-            gameObject.transform.parent = null;
-            StartEvent = true;
-           
-        }
-
-        if (LiftIsMoving == true)
-        {
-            MoveTheLift();
-            gameObject.transform.parent = GameObject.Find("Lift").transform;
-        }
-
-        //if (LiftIsMoving = false && StartEvent == true)
-        //{
-            
-            
-        //    GameObject.Find("Lift").gameObject.transform.eulerAngles =
-        //}
-       
+    
 	}
 
     void MoveTheLift()
