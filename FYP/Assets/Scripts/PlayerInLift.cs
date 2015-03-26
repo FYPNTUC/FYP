@@ -18,19 +18,17 @@ public class PlayerInLift : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "First Person Controller")
+        if (col.gameObject.tag=="Player") 
         {
-            GameObject.Find("First Person Controller").GetComponent<Lift>().PlayerInLift = true;
-            Debug.Log("in");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().PlayerInLift = true;
         }
     }
 
     void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.name == "First Person Controller")
+        if (col.gameObject.tag == "Player")
         {
-            GameObject.Find("First Person Controller").GetComponent<Lift>().PlayerInLift = false;
-            Debug.Log("out");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().PlayerInLift = false;
         }
     }
 }

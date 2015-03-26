@@ -18,6 +18,7 @@ public class Lift : MonoBehaviour
         IsTurning = false;
         IsTurnBack = false;
         LiftIsMoving = false;
+        StartEvent = false;
 	}
 	
 	// Update is called once per frame
@@ -25,7 +26,7 @@ public class Lift : MonoBehaviour
     {
         if (PlayerInLift == true)
         {
-            if (Input.GetKey("e"))
+            if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
                 LiftIsMoving = true;
             }
@@ -40,28 +41,28 @@ public class Lift : MonoBehaviour
         }
         if (StartEvent == true)
         {
-            anim.enabled = true;
-            
-            //if (hit.gameObject.name == "LiftRight")
-            //{
-            //    IsTurning = true;
-            //    IsTurnBack = false;
-            //}
+            //anim.enabled = true;
 
-            //if (hit.gameObject.name == "LiftLeft" && IsTurning == true)
-            //{
-            //    IsTurning = false;
-            //    IsTurnBack = true;
-            //}
+            if (hit.gameObject.name == "LiftRight")
+            {
+                IsTurning = true;
+                IsTurnBack = false;
+            }
+
+            if (hit.gameObject.name == "LiftLeft" && IsTurning == true)
+            {
+                IsTurning = false;
+                IsTurnBack = true;
+            }
         }
 
         if (GameObject.Find("PlayerEnteredBuilding").GetComponent<PlayerEnteredBuilding>().PlayerIsInBuilding == false)
         {
-            if (hit.gameObject.name == "LiftRight" || hit.gameObject.name == "LiftLeft")
-            {
-                //GameObject.Find("Lift").transform.Translate(Vector3.up * Time.deltaTime);
+            //if (hit.gameObject.name == "LiftRight" || hit.gameObject.name == "LiftLeft")
+            //{
+            //    //GameObject.Find("Lift").transform.Translate(Vector3.up * Time.deltaTime);
 
-            }
+            //}
 
             if (GameObject.Find("Lift").transform.position.y >= AmountToTravel)
             {

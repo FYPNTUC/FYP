@@ -13,16 +13,16 @@ public class Break : MonoBehaviour
 			Destroy(gameObject);
 			Instantiate(brokenObject, transform.position, transform.rotation);
 			brokenObject.localScale = transform.localScale;
-			Vector3 explosionPos = transform.position;
-			Collider[] colliders = Physics.OverlapSphere (explosionPos, radius);
+			//Vector3 explosionPos = transform.position;
+			//Collider[] colliders = Physics.OverlapSphere (explosionPos, radius);
 
-			foreach (Collider hit in colliders)
-			{
-				if (hit.rigidbody)
-				{
-					hit.rigidbody.AddExplosionForce(power*collision.relativeVelocity.magnitude, explosionPos, radius, upwards);
-				}
-			}
+            //foreach (Collider hit in colliders)
+            //{
+            //    if (hit.rigidbody)
+            //    {
+            //        hit.rigidbody.AddExplosionForce(power*collision.relativeVelocity.magnitude, explosionPos, radius, upwards);
+            //    }
+            //}
 		}
 	}
 
@@ -35,8 +35,8 @@ public class Break : MonoBehaviour
             Destroy(gameObject);
             Instantiate(brokenObject, transform.position, transform.rotation);
             brokenObject.localScale = transform.localScale;
-            Vector3 explosionPos = transform.position;
-            Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+            //Vector3 explosionPos = transform.position;
+            //Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
         }
     }
 }

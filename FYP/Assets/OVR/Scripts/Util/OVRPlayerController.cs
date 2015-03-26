@@ -206,8 +206,8 @@ public class OVRPlayerController : MonoBehaviour
 			MoveScale = 0.70710678f;
 
 		// No positional movement if we are in the air
-		if (!Controller.isGrounded)
-			MoveScale = 0.0f;
+        //if (!Controller.isGrounded)
+        //    MoveScale = 0.0f;
 
 		MoveScale *= SimulationRate * Time.deltaTime;
 
@@ -261,8 +261,13 @@ public class OVRPlayerController : MonoBehaviour
 		
 		if (Input.GetKey(KeyCode.F)) 
 		{
-			Jump();
+            Jump();
 		}
+
+        if (OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.X))
+        {
+            Jump();
+        }
 
 #if !UNITY_ANDROID // LeftTrigger not avail on Android game pad
 		moveInfluence *= 1.0f + OVRGamepadController.GPC_GetAxis(OVRGamepadController.Axis.LeftTrigger);

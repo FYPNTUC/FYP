@@ -20,11 +20,11 @@ public class PlayerEnteredBuilding : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.name == "First Person Controller")
+        if (col.gameObject.tag ==("Player"))
         {
             PlayerIsInBuilding = true;
             Destroy(lift);
-            GameObject.Find("First Person Controller").GetComponent<Lift>().StartEvent = false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().StartEvent = false;
         }
     }
 }

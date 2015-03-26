@@ -13,9 +13,9 @@ public class CheckTilt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.Find("First Person Controller").GetComponent<Lift>().IsTurning == true)
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().IsTurning == true)
         {
-            GameObject.Find("Lift").gameObject.transform.Rotate(Vector3.right * Time.deltaTime * SpeedOfTurning);
+            GameObject.Find("Lift").gameObject.transform.Rotate(Vector3.forward * Time.deltaTime * SpeedOfTurning);
         }
     }
 }
