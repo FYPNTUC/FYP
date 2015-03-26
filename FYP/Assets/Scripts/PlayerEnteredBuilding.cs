@@ -23,7 +23,7 @@ public class PlayerEnteredBuilding : MonoBehaviour
         if (col.gameObject.tag ==("Player"))
         {
             PlayerIsInBuilding = true;
-            Destroy(lift);
+            //Destroy(lift);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().StartEvent = false;
         }
     }

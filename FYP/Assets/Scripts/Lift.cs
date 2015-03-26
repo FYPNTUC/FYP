@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Lift : MonoBehaviour 
+public class Lift : MonoBehaviour
 {
     public Animator anim;
     public int AmountToTravel;
@@ -9,19 +9,19 @@ public class Lift : MonoBehaviour
     public bool IsTurnBack;
     public bool IsTurning;
     public bool StartEvent;
-    private bool LiftIsMoving;
+    public bool LiftIsMoving;
     public bool PlayerInLift;
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
         anim = GameObject.Find("Lift").GetComponent<Animator>();
         IsTurning = false;
         IsTurnBack = false;
         LiftIsMoving = false;
         StartEvent = false;
-	}
-	
-	// Update is called once per frame
+    }
+
+    // Update is called once per frame
     void Update()
     {
         if (PlayerInLift == true)
@@ -33,7 +33,7 @@ public class Lift : MonoBehaviour
         }
     }
 
-	void OnControllerColliderHit(ControllerColliderHit hit)
+    void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.gameObject.tag == ("Breakable"))
         {
@@ -67,9 +67,10 @@ public class Lift : MonoBehaviour
             if (GameObject.Find("Lift").transform.position.y >= AmountToTravel)
             {
                 LiftIsMoving = false;
-                gameObject.transform.parent = null;
                 StartEvent = true;
-
+               
+                gameObject.transform.parent = null;
+                gameObject.transform.Translate(0.01f, 0.01f, 0.01f);
             }
 
             if (LiftIsMoving == true)
@@ -78,8 +79,8 @@ public class Lift : MonoBehaviour
                 gameObject.transform.parent = GameObject.Find("Lift").transform;
             }
         }
-    
-	}
+
+    }
 
     void MoveTheLift()
     {

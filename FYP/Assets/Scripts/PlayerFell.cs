@@ -17,16 +17,16 @@ public class PlayerFell : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-
+     
 	}
 
     void OnTriggerEnter(Collider col)
      {
-         if (GameObject.Find("PlayerEnteredBuilding").GetComponent<PlayerEnteredBuilding>().PlayerIsInBuilding == true)
+         if (GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().LiftIsMoving == false)
          {
-             if (GameObject.FindGameObjectWithTag("Player"))
+             if ( col.gameObject.tag == ("Player"))
              {
-                 GameObject.Find("OVRPlayerController").GetComponent<FadeInOut>().ChangeLevelFade = true;
+                 GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ChangeLevelFade = true;
              }
 
          }
