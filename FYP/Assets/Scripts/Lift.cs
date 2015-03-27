@@ -11,6 +11,7 @@ public class Lift : MonoBehaviour
     public bool StartEvent;
     public bool LiftIsMoving;
     public bool PlayerInLift;
+    bool DoOnce;
     // Use this for initialization
     void Start()
     {
@@ -19,6 +20,7 @@ public class Lift : MonoBehaviour
         IsTurnBack = false;
         LiftIsMoving = false;
         StartEvent = false;
+        DoOnce = false;
     }
 
     // Update is called once per frame
@@ -56,7 +58,7 @@ public class Lift : MonoBehaviour
             }
         }
 
-        if (GameObject.Find("PlayerEnteredBuilding").GetComponent<PlayerEnteredBuilding>().PlayerIsInBuilding == false)
+        if (GameObject.Find("PlayerInBuildingTrigger").GetComponent<PlayerEnteredBuilding>().PlayerIsInBuilding == false)
         {
             //if (hit.gameObject.name == "LiftRight" || hit.gameObject.name == "LiftLeft")
             //{
@@ -70,8 +72,15 @@ public class Lift : MonoBehaviour
                 StartEvent = true;
                
                 gameObject.transform.parent = null;
-                gameObject.transform.Translate(0.01f, 0.01f, 0.01f);
-            }
+
+                if (DoOnce == false)
+                {
+                    gameObject.transform.Translate(0.1f, 0, 0);
+                }
+
+                DoOnce = true;
+            
+            };
 
             if (LiftIsMoving == true)
             {

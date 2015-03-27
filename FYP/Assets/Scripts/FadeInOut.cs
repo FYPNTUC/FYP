@@ -6,7 +6,7 @@ public class FadeInOut : MonoBehaviour
     public Transform BlackCubeL;
     public Transform BlackCubeR;
 
-    GameObject ResetLocation;
+   public GameObject ResetLocation;
     GameObject Player;
 
     public bool fade;
@@ -32,6 +32,7 @@ public class FadeInOut : MonoBehaviour
         fade = false;
         ChangingLevel = false;
         ResetLocation = GameObject.Find("ResetLocation");
+        Player = GameObject.FindGameObjectWithTag("Player");
 	}
 	 
 	// Update is called once per frame
@@ -59,8 +60,20 @@ public class FadeInOut : MonoBehaviour
                //gameObject.transform.position = ResetLocation.transform.position;
                if (ChangeLevelFade == true)
                {
-                   ChangingLevel = true;
-                   Application.LoadLevel(levelToLoad);
+                   //ChangingLevel = true;
+                   //Application.LoadLevel(levelToLoad);
+                   Player.transform.position = ResetLocation.transform.position;
+                   BlackCubeL.renderer.material.color = EndColor;
+                   
+                   if (BlackCubeL.renderer.material.color == EndColor)
+                   {
+                       FadeToDarkTimer = 0;
+                       FadeToLightTimer += Time.deltaTime;
+                       BlackCubeL.renderer.material.color = Color.Lerp(EndColor, StartColor, FadeToLightTimer);
+                       BlackCubeR.renderer.material.color = Color.Lerp(EndColor, StartColor, FadeToLightTimer);
+                       GameObject.Find("PlayerFallTrigger").GetComponent<PlayerFell>().PlayerFallen = false;
+                       ChangeLevelFade = false;   
+                   }
                }
             }
         }

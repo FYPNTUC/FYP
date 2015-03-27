@@ -18,10 +18,9 @@ public class CheckTilt : MonoBehaviour
             GameObject.Find("Lift").gameObject.transform.Rotate(Vector3.forward * Time.deltaTime * SpeedOfTurning);
         }
 
-        if (GameObject.Find("Lift").GetComponent<Transform>().eulerAngles.z > 30)
-        {
-           GameObject.Find("Lift").gameObject.transform.Translate(Vector3.down * Time.deltaTime * 10);
-           
-        }
+        //if (GameObject.Find("Lift").GetComponent<Transform>().eulerAngles.z >= 30)
+        //{
+        //    
+        //}
     }
 }   

@@ -16,7 +16,7 @@ public class CheckTiltL : MonoBehaviour
     {
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().IsTurnBack == true && GameObject.Find("Lift").GetComponent<Transform>().eulerAngles.z >= 0.1)
         {
-            GameObject.Find("Lift").gameObject.transform.Rotate(Vector3.forward * Time.deltaTime * -SpeedOfTurning);
+            //GameObject.Find("Lift").gameObject.transform.Rotate(Vector3.forward * Time.deltaTime * -SpeedOfTurning);
         }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fbc0e66ca0ec6674384aa31594f6eb69
+guid: 860ca9db510b64247b6724969fc96042
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Construction_Building
+    4300000: Scaffold__Short_:Scaffold__Short_:polySurface91
     9500000: //RootNode
   materials:
     importMaterials: 1
