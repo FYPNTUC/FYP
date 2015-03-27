@@ -71,7 +71,7 @@ public class Lift : MonoBehaviour
                 LiftIsMoving = false;
                 StartEvent = true;
                
-                gameObject.transform.parent = null;
+                //gameObject.transform.parent = null;
 
                 if (DoOnce == false)
                 {
