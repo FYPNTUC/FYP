@@ -31,7 +31,6 @@ public class PlayerFell : MonoBehaviour
                 {
                     GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ChangeLevelFade = true;
                 }
-
             }
         }
     }
