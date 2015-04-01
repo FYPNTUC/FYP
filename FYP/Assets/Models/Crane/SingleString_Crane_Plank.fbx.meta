@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5abf9ef7616421148892004a4b305020
+guid: 865ca9ed94d1fc146b26b6b2f8e89f7b
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: MainBuilding
+    4300000: SingleString_Crane_Plank
     9500000: //RootNode
   materials:
     importMaterials: 1

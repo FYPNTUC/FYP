@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 860ca9db510b64247b6724969fc96042
+guid: 2e294495997435140b6a1da663c6da7f
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Scaffold__Short_:Scaffold__Short_:polySurface91
+    4300000: CraneHook
     9500000: //RootNode
   materials:
     importMaterials: 1

@@ -6,6 +6,7 @@ public class LadderScript : MonoBehaviour
     GameObject Player;
     bool PlayerMove;
     bool PlayerMoveL;
+    bool IsChecking;
     Vector3 temp;
 	// Use this for initialization
 	void Start () 
@@ -13,6 +14,7 @@ public class LadderScript : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         PlayerMove = false;
         PlayerMoveL = false;
+        IsChecking = false;
 	}
 	
 	// Update is called once per frame
@@ -20,23 +22,25 @@ public class LadderScript : MonoBehaviour
     {
         if (Player.GetComponent<Lift>().PlayerNearLadder == true)
         {
-            if (Input.GetKey("g") || Input.GetButtonDown("cButtonA"))
+            if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
                 PlayerMove = true;
                 Player.GetComponent<OVRPlayerController>().enabled = false;
                 temp = Player.transform.position;
                 temp.y += 2;
+                IsChecking = true;
             }
         }
 
         else if (Player.GetComponent<Lift>().PlayerNearLLadder == true)
         {
-            if (Input.GetKey("g") || Input.GetButtonDown("cButtonA"))
+            if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
                 PlayerMoveL = true;
                 Player.GetComponent<OVRPlayerController>().enabled = false;
                 temp = Player.transform.position;
                 temp.y += 3f;
+                IsChecking = true;
             }
 
         }
@@ -50,11 +54,14 @@ public class LadderScript : MonoBehaviour
         {
             MoveThePlayerL();
         }
-        if(Player.transform.position.y >= temp.y)
+        if (IsChecking == true)
         {
-            PlayerMove = false;
-            PlayerMoveL = false;
-            Player.GetComponent<OVRPlayerController>().enabled = true;
+            if (Player.transform.position.y >= temp.y)
+            {
+                PlayerMove = false;
+                PlayerMoveL = false;
+                Player.GetComponent<OVRPlayerController>().enabled = true;
+            }
         }
 	}
 
