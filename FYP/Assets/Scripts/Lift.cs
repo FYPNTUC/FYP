@@ -12,6 +12,7 @@ public class Lift : MonoBehaviour
     public bool LiftIsMoving;
     public bool PlayerInLift;
     public bool PlayerNearLadder;
+    public bool PlayerNearLLadder;
     bool DoOnce;
     // Use this for initialization
     void Start()
@@ -23,6 +24,7 @@ public class Lift : MonoBehaviour
         StartEvent = false;
         DoOnce = false;
         PlayerNearLadder = false;
+        PlayerNearLLadder = false;
     }
 
     // Update is called once per frame
