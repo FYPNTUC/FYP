@@ -24,8 +24,9 @@ public class ThirdPersonTest : MonoBehaviour
             {
                 temp = GameObject.FindGameObjectWithTag("Player").transform.position;
                 gameObject.GetComponent<FadeInOut>().ResetLocation = ThirdPerson;
-                gameObject.GetComponent<OVRPlayerController>().enabled = false;//     <OVRPlayerController>().enabled = false;
-                GameObject.Find("PlayerModel").renderer.enabled = false;
+                gameObject.GetComponent<OVRPlayerController>().enabled = false;
+                //GameObject.Find("PlayerModel").SetActive(false);
+                GameObject.Find("PlayerModel").transform.Translate(100, 100, 100);
                 GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ChangeLevelFade = true;
                 IsThirdPerson = true;
             }
@@ -33,7 +34,8 @@ public class ThirdPersonTest : MonoBehaviour
             else if (IsThirdPerson == true)
             { 
                 gameObject.GetComponent<FadeInOut>().ChangeLevelFade = true;
-                GameObject.Find("PlayerModel").renderer.enabled = true;
+                //GameObject.Find("PlayerModel").SetActive(true);
+                GameObject.Find("PlayerModel").transform.Translate(-100, -100, -100);
                 ThirdPerson.transform.position = temp;
                 gameObject.GetComponent<OVRPlayerController>().enabled = true;
                 IsThirdPerson = false;       

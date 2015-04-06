@@ -1,21 +1,13 @@
 fileFormatVersion: 2
-guid: 87aa2dd6625107347a7c13d95f3549eb
+guid: ef92b2bf59a95314585c84f07744a48f
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: back
-    100002: bottom
-    100004: left
-    100006: //RootNode
-    100008: WindowCleanerLift
-    400000: back
-    400002: bottom
-    400004: left
-    400006: //RootNode
-    400008: WindowCleanerLift
-    2300000: WindowCleanerLift
-    3300000: WindowCleanerLift
-    4300000: WindowCleanerLift
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: PlatformBuilding2
     9500000: //RootNode
   materials:
     importMaterials: 1

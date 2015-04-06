@@ -245,11 +245,11 @@ public class OVRPlayerController : MonoBehaviour
 		prevHatRight = curHatRight;
 
 		//Use keys to ratchet rotation
-		if (Input.GetKeyDown(KeyCode.Q))
-			YRotation -= RotationRatchet;
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //    YRotation -= RotationRatchet;
 
-		if (Input.GetKeyDown(KeyCode.E))
-			YRotation += RotationRatchet;
+        //if (Input.GetKeyDown(KeyCode.E))
+        //    YRotation += RotationRatchet;
 
 		float rotateInfluence = SimulationRate * Time.deltaTime * RotationAmount * RotationScaleMultiplier;
 
