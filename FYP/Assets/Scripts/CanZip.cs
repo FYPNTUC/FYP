@@ -4,10 +4,11 @@ using System.Collections;
 public class CanZip : MonoBehaviour
 {
     GameObject Handle;
-
+    GameObject GUI;
 	// Use this for initialization
 	void Start () 
-    {
+    { 
+        GUI = GameObject.Find("GUI");
         Handle = GameObject.Find("FlyingFoxHandle");
 	}
 	
@@ -22,6 +23,7 @@ public class CanZip : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Handle.GetComponent<FlyingFox>().NearZip = true;
+            GUI.GetComponent<Renderer>().enabled = true;
         }
     }
 
@@ -30,6 +32,7 @@ public class CanZip : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Handle.GetComponent<FlyingFox>().NearZip = false;
+            GUI.GetComponent<Renderer>().enabled = false;
 
         }
     }

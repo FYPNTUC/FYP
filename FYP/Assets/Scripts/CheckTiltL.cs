@@ -14,9 +14,16 @@ public class CheckTiltL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().IsTurnBack == true && GameObject.Find("Lift").GetComponent<Transform>().eulerAngles.z >= 0.1)
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().IsTurnBack == true &&GameObject.Find("Lift").GetComponent<Transform>().eulerAngles.x > 0 )
         {
-            //GameObject.Find("Lift").gameObject.transform.Rotate(Vector3.forward * Time.deltaTime * -SpeedOfTurning);
+            GameObject.Find("Lift").gameObject.transform.Rotate(Vector3.right * Time.deltaTime * SpeedOfTurning);           
+        }
+
+        if (GameObject.Find("Lift").GetComponent<Transform>().eulerAngles.x > 0 && GameObject.Find("Lift").GetComponent<Transform>().eulerAngles.x < 5)
+        {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().LimitReachedL = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().IsTurnBack = false;
+            Debug.Log("hit");
         }
     }
 }

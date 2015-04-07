@@ -7,6 +7,7 @@ public class CraneMover : MonoBehaviour
     GameObject Trolley;
     GameObject Rope;
     GameObject Player;
+    GameObject Checker;
 
     public bool PlatformMoving;
     bool PlatformDone;
@@ -20,6 +21,7 @@ public class CraneMover : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         PlatformMoving = false;
         PlatformDone = false;
+        Checker = GameObject.Find("CraneTrigger");
 	}
 	
 	// Update is called once per frame
@@ -31,6 +33,9 @@ public class CraneMover : MonoBehaviour
             {
                 PlatformMoving = true;
                 Player.transform.parent = Platform.transform;
+                Checker.GetComponent<BoxCollider>().enabled = false;
+                GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
+                
             }
         }
 

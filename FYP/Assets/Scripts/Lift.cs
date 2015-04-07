@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Lift : MonoBehaviour
 {
+    GameObject CheckPlayer;
     public Animator anim;
     public int AmountToTravel;
     public float LiftSpeed;
@@ -13,6 +14,8 @@ public class Lift : MonoBehaviour
     public bool PlayerInLift;
     public bool PlayerNearLadder;
     public bool PlayerNearLLadder;
+    public bool LimitReached;
+    public bool LimitReachedL;
     bool DoOnce;
     // Use this for initialization
     void Start()
@@ -25,6 +28,9 @@ public class Lift : MonoBehaviour
         DoOnce = false;
         PlayerNearLadder = false;
         PlayerNearLLadder = false;
+        LimitReached = false;
+        LimitReachedL = false;
+        CheckPlayer = GameObject.Find("CheckPlayer");
     }
 
     // Update is called once per frame
@@ -35,6 +41,8 @@ public class Lift : MonoBehaviour
             if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
                 LiftIsMoving = true;
+                Destroy(CheckPlayer);
+                GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
             }
         }
     }
@@ -48,17 +56,22 @@ public class Lift : MonoBehaviour
         if (StartEvent == true)
         {
             //anim.enabled = true;
-
-            if (hit.gameObject.name == "LiftRight")
+            if (LimitReached == false)
             {
-                IsTurning = true;
-                IsTurnBack = false;
+                if (hit.gameObject.name == "LiftRight")
+                {
+                    IsTurning = true;
+                    IsTurnBack = false;
+                }
             }
 
-            if (hit.gameObject.name == "LiftLeft" && IsTurning == true)
+            if (LimitReachedL == false)
             {
-                IsTurning = false;
-                IsTurnBack = true;
+                if (hit.gameObject.name == "LiftLeft")// && IsTurning == true)
+                {
+                    IsTurning = false;
+                    IsTurnBack = true;
+                }
             }
         }
 
@@ -75,7 +88,7 @@ public class Lift : MonoBehaviour
                 LiftIsMoving = false;
                 StartEvent = true;
                
-                //gameObject.transform.parent = null;
+                gameObject.transform.parent = null;
 
                 if (DoOnce == false)
                 {

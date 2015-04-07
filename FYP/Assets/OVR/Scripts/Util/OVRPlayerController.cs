@@ -190,6 +190,7 @@ public class OVRPlayerController : MonoBehaviour
 		if (OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.Up))
 		{
 			moveForward = true;
+           // GameObject.Find("PlayerModel").GetComponent<Animation>().animation.Play("Balancing");
 			dpad_move   = true;
 
 		}
@@ -264,7 +265,7 @@ public class OVRPlayerController : MonoBehaviour
             Jump();
 		}
 
-        if (OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.X))
+        if (OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.B))
         {
             Jump();
         }
@@ -281,6 +282,8 @@ public class OVRPlayerController : MonoBehaviour
 			if(leftAxisY > 0.0f)
 	    		MoveThrottle += leftAxisY
 					* DirXform.TransformDirection(Vector3.forward * moveInfluence);
+            //GameObject.Find("PlayerModel").GetComponent<Animation>().animation.Play("Balancing");
+
 
 			if(leftAxisY < 0.0f)
 	    		MoveThrottle += Mathf.Abs(leftAxisY)

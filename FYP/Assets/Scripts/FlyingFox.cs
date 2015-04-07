@@ -26,6 +26,7 @@ public class FlyingFox : MonoBehaviour
                 ZipIsMoving = true;
                 Player.transform.parent = gameObject.transform;
                 Player.GetComponent<OVRPlayerController>().enabled = false;
+                GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
             }
         }
         if (ZipIsMoving == true)
@@ -44,6 +45,6 @@ public class FlyingFox : MonoBehaviour
 
     void MoveTheZip()
     {
-        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * 15);
+        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * 35);
     }
 }

@@ -1,13 +1,17 @@
 fileFormatVersion: 2
-guid: 4ecd576acf7284e4bb53bccdb43ef754
+guid: 7a7c9d36d40abe94e9d4f82a4e3e16e7
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: FlyingFoxPole
+    100000: back
+    100002: //RootNode
+    100004: Key
+    400000: back
+    400002: //RootNode
+    400004: Key
+    2300000: Key
+    3300000: Key
+    4300000: Key
     9500000: //RootNode
   materials:
     importMaterials: 1

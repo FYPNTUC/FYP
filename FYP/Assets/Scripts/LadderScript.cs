@@ -67,7 +67,7 @@ public class LadderScript : MonoBehaviour
 
     void MoveThePlayer()
     {
-        Player.transform.Translate(Vector3.up * Time.deltaTime *0.5f);
+        Player.transform.Translate(Vector3.up * Time.deltaTime *0.2f);
         Player.transform.Translate(Vector3.forward * Time.deltaTime * 0.05f);
     }
     void MoveThePlayerL()

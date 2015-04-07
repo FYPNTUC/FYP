@@ -3,12 +3,13 @@ using System.Collections;
 
 public class AtLadderCheck : MonoBehaviour 
 {
-
+    GameObject GUI;
     GameObject Player;
 	// Use this for initialization
 	void Start () 
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        GUI = GameObject.Find("GUI");
 	}
 	
 	// Update is called once per frame
@@ -22,7 +23,8 @@ public class AtLadderCheck : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Player.GetComponent<Lift>().PlayerNearLadder = true;
-            Debug.Log("in");
+            GUI.GetComponent<Renderer>().enabled = true;
+            
         }
     }
 
@@ -31,7 +33,8 @@ public class AtLadderCheck : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Player.GetComponent<Lift>().PlayerNearLadder = false;
-            Debug.Log("out");
+            GUI.GetComponent<Renderer>().enabled = false;
+
         }
     }
 }

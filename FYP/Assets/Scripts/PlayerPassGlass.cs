@@ -21,7 +21,7 @@ public class PlayerPassGlass : MonoBehaviour
         if (col.gameObject.tag == ("Player"))
         {  
             GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocation3");
-            GameObject.Find("PlayerFallTrigger").GetComponent<PlayerFell>().IsChecking = false;
+            //GameObject.Find("PlayerFallTrigger").GetComponent<PlayerFell>().IsChecking = false;
         }
     }
 }
