@@ -7,7 +7,11 @@ public class ShakePlank : MonoBehaviour
     bool Shake;
     bool ShakeLeft;
     bool ShakeRight;
-
+    public int Screw;
+    bool PlayerNear;
+    bool StopShake;
+    GameObject Checker2;
+    GameObject GUI;
     // Use this for initialization
     void Start()
     {
@@ -15,42 +19,58 @@ public class ShakePlank : MonoBehaviour
         Shake = false;
         ShakeLeft = true;
         ShakeRight = false;
-       
+        PlayerNear = false;
+        StopShake = false;
+        Checker2 = GameObject.Find("PlankCheckF");
+        GUI = GameObject.Find("GUI");
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Shake == true)
+        if (StopShake == false)
         {
-            //if (Plank.GetComponent<Transform>().eulerAngles.x > 15) 
-            //{            
-            //    Plank.transform.Rotate(Vector3.back * Time.deltaTime * 150);
-            //}
-            //else if (Plank.GetComponent<Transform>().eulerAngles.x < 15)
-            //{
-            //    Plank.transform.Rotate(Vector3.forward * Time.deltaTime * 150);
-            //}
-            if (ShakeLeft == true)
+            if (Shake == true)
             {
-                Plank.transform.Rotate(Vector3.back * Time.deltaTime * 150);
-                if (Plank.GetComponent<Transform>().eulerAngles.z > 15)
+                //if (Plank.GetComponent<Transform>().eulerAngles.x > 15) 
+                //{            
+                //    Plank.transform.Rotate(Vector3.back * Time.deltaTime * 150);
+                //}
+                //else if (Plank.GetComponent<Transform>().eulerAngles.x < 15)
+                //{
+                //    Plank.transform.Rotate(Vector3.forward * Time.deltaTime * 150);
+                //}
+                if (ShakeLeft == true)
                 {
-                    ShakeLeft = false;
-                    ShakeRight = true;
+                    Plank.transform.Rotate(Vector3.up * Time.deltaTime * 200);
+                    if (Plank.GetComponent<Transform>().eulerAngles.y > 95)
+                    {
+                        ShakeLeft = false;
+                        ShakeRight = true;
+                    }
+                }
+
+                if (ShakeRight == true)
+                {
+
+                    Plank.transform.Rotate(Vector3.down * Time.deltaTime * 200);
+                    if (Plank.GetComponent<Transform>().eulerAngles.y < 94)
+                    {
+                        ShakeLeft = true;
+                        ShakeRight = false;
+                    }
                 }
             }
+        }
 
-            if (ShakeRight == true)
+        if (PlayerNear == true && Screw == 2)
+        {
+            if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
-
-                Plank.transform.Rotate(Vector3.forward * Time.deltaTime * 150);
-                if (Plank.GetComponent<Transform>().eulerAngles.z > 15)
-                {
-                    ShakeLeft = true;
-                    ShakeRight = false;
-                }
+                StopShake = true;
+                Destroy(Checker2);
+                //Debug.Log("shaker has problem");
             }
         }
     }
@@ -60,6 +80,11 @@ public class ShakePlank : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Shake = true;
+            PlayerNear = true;
+            if (Screw == 2)
+            {
+                GUI.GetComponent<Renderer>().enabled = true;
+            }
         }
     }
 
@@ -68,6 +93,11 @@ public class ShakePlank : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Shake = false;
+            PlayerNear = false;
+            if (Screw == 2)
+            {
+                GUI.GetComponent<Renderer>().enabled = false;
+            }
         }
     }
 }

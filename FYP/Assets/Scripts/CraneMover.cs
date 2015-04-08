@@ -35,6 +35,8 @@ public class CraneMover : MonoBehaviour
                 Player.transform.parent = Platform.transform;
                 Checker.GetComponent<BoxCollider>().enabled = false;
                 GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
+                Platform.GetComponent<CranePlatform>().IsOn = false;
+                //Debug.Log("cranemover has problem");
                 
             }
         }

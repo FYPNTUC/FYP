@@ -4,9 +4,53 @@ ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
+    100002: ExtremeTopCrane2:ExtremeTopCrane2:pCube10
+    100004: ExtremeTopCrane2:ExtremeTopCrane2:pCube11
+    100006: ExtremeTopCrane2:ExtremeTopCrane2:pCube12
+    100008: ExtremeTopCrane2:ExtremeTopCrane2:pCube13
+    100010: ExtremeTopCrane2:ExtremeTopCrane2:pCube14
+    100012: ExtremeTopCrane2:ExtremeTopCrane2:pCube15
+    100014: ExtremeTopCrane2:ExtremeTopCrane2:pCube2
+    100016: ExtremeTopCrane2:ExtremeTopCrane2:pCube7
+    100018: ExtremeTopCrane2:ExtremeTopCrane2:pCube8
+    100020: ExtremeTopCrane2:ExtremeTopCrane2:pCube9
+    100022: ExtremeTopCrane2:ExtremeTopCrane2:transform1
+    100024: ExtremeTopCrane2:ExtremeTopCrane2:transform10
+    100026: ExtremeTopCrane2:ExtremeTopCrane2:transform2
+    100028: ExtremeTopCrane2:ExtremeTopCrane2:transform3
+    100030: ExtremeTopCrane2:ExtremeTopCrane2:transform4
+    100032: ExtremeTopCrane2:ExtremeTopCrane2:transform5
+    100034: ExtremeTopCrane2:ExtremeTopCrane2:transform6
+    100036: ExtremeTopCrane2:ExtremeTopCrane2:transform7
+    100038: ExtremeTopCrane2:ExtremeTopCrane2:transform8
+    100040: ExtremeTopCrane2:ExtremeTopCrane2:transform9
+    100042: MainBuilding3
     400000: //RootNode
+    400002: ExtremeTopCrane2:ExtremeTopCrane2:pCube10
+    400004: ExtremeTopCrane2:ExtremeTopCrane2:pCube11
+    400006: ExtremeTopCrane2:ExtremeTopCrane2:pCube12
+    400008: ExtremeTopCrane2:ExtremeTopCrane2:pCube13
+    400010: ExtremeTopCrane2:ExtremeTopCrane2:pCube14
+    400012: ExtremeTopCrane2:ExtremeTopCrane2:pCube15
+    400014: ExtremeTopCrane2:ExtremeTopCrane2:pCube2
+    400016: ExtremeTopCrane2:ExtremeTopCrane2:pCube7
+    400018: ExtremeTopCrane2:ExtremeTopCrane2:pCube8
+    400020: ExtremeTopCrane2:ExtremeTopCrane2:pCube9
+    400022: ExtremeTopCrane2:ExtremeTopCrane2:transform1
+    400024: ExtremeTopCrane2:ExtremeTopCrane2:transform10
+    400026: ExtremeTopCrane2:ExtremeTopCrane2:transform2
+    400028: ExtremeTopCrane2:ExtremeTopCrane2:transform3
+    400030: ExtremeTopCrane2:ExtremeTopCrane2:transform4
+    400032: ExtremeTopCrane2:ExtremeTopCrane2:transform5
+    400034: ExtremeTopCrane2:ExtremeTopCrane2:transform6
+    400036: ExtremeTopCrane2:ExtremeTopCrane2:transform7
+    400038: ExtremeTopCrane2:ExtremeTopCrane2:transform8
+    400040: ExtremeTopCrane2:ExtremeTopCrane2:transform9
+    400042: MainBuilding3
     2300000: //RootNode
+    2300002: MainBuilding3
     3300000: //RootNode
+    3300002: MainBuilding3
     4300000: MainBuilding3
     9500000: //RootNode
   materials:

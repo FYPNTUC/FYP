@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CharacterAnim : MonoBehaviour 
 {
+
     public bool IsBalancing;
     GameObject PlayerModel;
 	// Use this for initialization
@@ -10,11 +11,13 @@ public class CharacterAnim : MonoBehaviour
     {
         PlayerModel = GameObject.Find("PlayerModel");
         IsBalancing = false;
+   
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
+        
         //horizontal controls incase
         //if (Input.GetAxis("cLeftJoystickHori") > 0.19)
         //{

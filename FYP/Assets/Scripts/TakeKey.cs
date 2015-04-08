@@ -1,32 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScrewPickUpCheck : MonoBehaviour 
+public class TakeKey : MonoBehaviour 
 {
     public bool CanPickUp;
-    GameObject Screw;
+    GameObject Key;
+    GameObject Player;
     GameObject GUI;
 	// Use this for initialization
 	void Start () 
-    {   
-        Screw = GameObject.Find("Screw1");
+    {
+        Key = GameObject.Find("Key");
         GUI = GameObject.Find("GUI");
-    
+        Player = GameObject.FindGameObjectWithTag("Player");
+        
 	}
-	
-	// Update is called once per frame
-	void Update () 
+
+    // Update is called once per frame
+    void Update()
     {
         if (CanPickUp == true)
         {
             if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
-                Destroy(Screw);
-                GameObject.Find("PlankCheckS").GetComponent<ShakePlank>().Screw++;
-                Debug.Log("screw pick up");
+                //Debug.Log("key has problem");
+                Destroy(Key);
+                GUI.GetComponent<Renderer>().enabled = false;
+                Player.GetComponent<Lift>().GotKey = true;
+                //GameObject.Find("PlankCheckS").GetComponent<ShakePlank>().Screw++;
             }
         }
-	}
+    }
 
     void OnTriggerEnter(Collider col)
     {

@@ -19,10 +19,13 @@ public class PlayerInLift : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag=="Player") 
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().GotKey == true)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().PlayerInLift = true;
-            GUI.GetComponent<Renderer>().enabled = true;
+            if (col.gameObject.tag == "Player")
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().PlayerInLift = true;
+                GUI.GetComponent<Renderer>().enabled = true;
+            }
         }
     }
 

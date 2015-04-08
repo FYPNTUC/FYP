@@ -4,6 +4,7 @@ using System.Collections;
 public class Lift : MonoBehaviour
 {
     GameObject CheckPlayer;
+    GameObject Rope;
     public Animator anim;
     public int AmountToTravel;
     public float LiftSpeed;
@@ -16,6 +17,7 @@ public class Lift : MonoBehaviour
     public bool PlayerNearLLadder;
     public bool LimitReached;
     public bool LimitReachedL;
+    public bool GotKey;
     bool DoOnce;
     // Use this for initialization
     void Start()
@@ -31,18 +33,24 @@ public class Lift : MonoBehaviour
         LimitReached = false;
         LimitReachedL = false;
         CheckPlayer = GameObject.Find("CheckPlayer");
+        Rope = GameObject.Find("RopeLeft");
+        GotKey = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerInLift == true)
+        if (GotKey == true)
         {
-            if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
+            if (PlayerInLift == true)
             {
-                LiftIsMoving = true;
-                Destroy(CheckPlayer);
-                GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
+                if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
+                {
+                    LiftIsMoving = true;
+                    Destroy(CheckPlayer);
+                    GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
+                    //Debug.Log("lift has problem");
+                }
             }
         }
     }
@@ -73,6 +81,7 @@ public class Lift : MonoBehaviour
                     IsTurnBack = true;
                 }
             }
+            Destroy(Rope);
         }
 
         if (GameObject.Find("PlayerInBuildingTrigger").GetComponent<PlayerEnteredBuilding>().PlayerIsInBuilding == false)

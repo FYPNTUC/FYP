@@ -29,6 +29,7 @@ public class LadderScript : MonoBehaviour
                 temp = Player.transform.position;
                 temp.y += 2;
                 IsChecking = true;
+                //Debug.Log("ladder has problem");
             }
         }
 
@@ -41,6 +42,7 @@ public class LadderScript : MonoBehaviour
                 temp = Player.transform.position;
                 temp.y += 3f;
                 IsChecking = true;
+                //Debug.Log("ladder has problem");
             }
 
         }
