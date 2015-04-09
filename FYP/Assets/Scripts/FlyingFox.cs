@@ -21,12 +21,12 @@ public class FlyingFox : MonoBehaviour
         {
             if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
-                Destroy(Checker);
-                NearZip = true;
-                ZipIsMoving = true;
                 Player.transform.parent = gameObject.transform;
                 Player.GetComponent<OVRPlayerController>().enabled = false;
                 GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
+                Destroy(Checker);
+                NearZip = true;
+                ZipIsMoving = true;                            
                 NearZip = false;
                 //Debug.Log("flyingfox has problem");
             }

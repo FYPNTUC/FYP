@@ -6,12 +6,27 @@ public class ThirdPersonTest : MonoBehaviour
     bool IsThirdPerson;
     GameObject ThirdPerson;
     Vector3 temp;
+    bool CharIsMovingUp;
+    bool CharIsMovingDown;
+    bool CharIsMovingLeft;
+    bool CharIsMovingRight;
+    bool CharIsMovingForward;
+    bool CharIsMovingBackward;
+    Vector3 Temp;
 
 	// Use this for initialization
 	void Start () 
     {
         IsThirdPerson = false;
         ThirdPerson = GameObject.Find("ThirdPerson");
+        CharIsMovingUp = false;
+        CharIsMovingDown = false;
+        CharIsMovingLeft = false;
+        CharIsMovingRight = false;
+        CharIsMovingForward = false;
+        CharIsMovingBackward = false;
+
+
 	}
 	
 	// Update is called once per frame
@@ -38,10 +53,81 @@ public class ThirdPersonTest : MonoBehaviour
                 GameObject.Find("PlayerModel").transform.Translate(-100, -100, -100);
                 ThirdPerson.transform.position = temp;
                 gameObject.GetComponent<OVRPlayerController>().enabled = true;
-                IsThirdPerson = false;       
-            }
-         
+                IsThirdPerson = false;
 
+               
+            }
+           
+        }
+        if (IsThirdPerson == true)
+        {
+            if (Input.GetKeyDown("y"))
+            {
+                temp = GameObject.FindGameObjectWithTag("Player").transform.position;
+                temp.z -= 2f;
+                CharIsMovingBackward = true;
+            }
+        }
+
+        if (CharIsMovingBackward == true)
+        {
+            MoveTheCharBack();
+            if (GameObject.FindGameObjectWithTag("Player").transform.position.z < temp.z)
+            {
+                CharIsMovingBackward = false;
+                CharIsMovingRight = true;
+                temp = GameObject.FindGameObjectWithTag("Player").transform.position;
+                temp.x += 4;
+            }
+        }
+
+        if (CharIsMovingRight == true)
+        {
+            MoveTheCharRight();
+            if (GameObject.FindGameObjectWithTag("Player").transform.position.x > temp.x)
+            {
+                CharIsMovingRight = false;
+                CharIsMovingForward = true;
+                temp = GameObject.FindGameObjectWithTag("Player").transform.position;
+                temp.z += 8;
+            }
+        }
+
+        if (CharIsMovingForward == true)
+        {
+            MoveTheCharForward();
+            if (GameObject.FindGameObjectWithTag("Player").transform.position.z > temp.z)
+            {
+                CharIsMovingForward = false;
+            }
         }
 	}
+
+    void MoveTheCharBack()
+    {
+        GameObject.FindGameObjectWithTag("Player").transform.Translate(Vector3.back * Time.deltaTime);
+    }
+
+    void MoveTheCharForward()
+    {
+        GameObject.FindGameObjectWithTag("Player").transform.Translate(Vector3.forward * Time.deltaTime);
+    }
+    void MoveTheCharLeft()
+    {
+        GameObject.FindGameObjectWithTag("Player").transform.Translate(Vector3.left * Time.deltaTime);
+    }
+    void MoveTheCharRight()
+    {
+        GameObject.FindGameObjectWithTag("Player").transform.Translate(Vector3.right * Time.deltaTime);
+    }
+
+    void MoveTheCharUp()
+    {
+        GameObject.FindGameObjectWithTag("Player").transform.Translate(Vector3.up * Time.deltaTime);
+    }
+
+    void MoveTheCharDown()
+    {
+        GameObject.FindGameObjectWithTag("Player").transform.Translate(Vector3.down * Time.deltaTime);
+    }
 }
