@@ -6,6 +6,7 @@ public class LadderScript : MonoBehaviour
     GameObject Player;
     bool PlayerMove;
     bool PlayerMoveL;
+    bool PlayerMoveC;
     bool IsChecking;
     Vector3 temp;
 	// Use this for initialization
@@ -15,6 +16,7 @@ public class LadderScript : MonoBehaviour
         PlayerMove = false;
         PlayerMoveL = false;
         IsChecking = false;
+        PlayerMoveC = false;
 	}
 	
 	// Update is called once per frame
@@ -46,6 +48,18 @@ public class LadderScript : MonoBehaviour
                 //Debug.Log("ladder has problem");
             }
 
+            
+        }
+        else if (Player.GetComponent<Lift>().PlayerNearCraneL == true)
+        {
+            if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
+            {
+                PlayerMoveC = true;
+                Player.GetComponent<OVRPlayerController>().enabled = false;
+                temp = Player.transform.position;
+                temp.y += 67;
+                IsChecking = true;
+            }
         }
 
         if (PlayerMove == true)
@@ -57,12 +71,17 @@ public class LadderScript : MonoBehaviour
         {
             MoveThePlayerL();
         }
+        if (PlayerMoveC ==true)
+        {
+            MoveThePlayerC();
+        }
         if (IsChecking == true)
         {
             if (Player.transform.position.y >= temp.y)
             {
                 PlayerMove = false;
                 PlayerMoveL = false;
+                PlayerMoveC = false;
                 Player.GetComponent<OVRPlayerController>().enabled = true;
             }
         }
@@ -75,7 +94,13 @@ public class LadderScript : MonoBehaviour
     }
     void MoveThePlayerL()
     {
-        Player.transform.Translate(Vector3.up * Time.deltaTime *0.5f);
+        Player.transform.Translate(Vector3.up * Time.deltaTime *0.2f);
         Player.transform.Translate(Vector3.forward * Time.deltaTime *0.05f);
+    }
+
+    void MoveThePlayerC()
+    {
+        Player.transform.Translate(Vector3.up * Time.deltaTime * 0.2f);
+        //Player.transform.Translate(Vector3.forward * Time.deltaTime * 0.05f);
     }
 }

@@ -15,6 +15,7 @@ public class Lift : MonoBehaviour
     public bool PlayerInLift;
     public bool PlayerNearLadder;
     public bool PlayerNearLLadder;
+    public bool PlayerNearCraneL;
     public bool LimitReached;
     public bool LimitReachedL;
     public bool GotKey;
@@ -23,6 +24,7 @@ public class Lift : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        PlayerNearCraneL = false;
         NoOfScrew = 0;
         anim = GameObject.Find("Lift").GetComponent<Animator>();
         IsTurning = false;
