@@ -18,10 +18,12 @@ public class Lift : MonoBehaviour
     public bool LimitReached;
     public bool LimitReachedL;
     public bool GotKey;
+    public int NoOfScrew;
     bool DoOnce;
     // Use this for initialization
     void Start()
     {
+        NoOfScrew = 0;
         anim = GameObject.Find("Lift").GetComponent<Animator>();
         IsTurning = false;
         IsTurnBack = false;

@@ -12,6 +12,7 @@ public class ShakePlank : MonoBehaviour
     bool StopShake;
     GameObject Checker2;
     GameObject GUI;
+    GameObject GUI2;
     // Use this for initialization
     void Start()
     {
@@ -23,6 +24,7 @@ public class ShakePlank : MonoBehaviour
         StopShake = false;
         Checker2 = GameObject.Find("PlankCheckF");
         GUI = GameObject.Find("GUI");
+        GUI2 = GameObject.Find("GUI4");
         
     }
 
@@ -63,30 +65,43 @@ public class ShakePlank : MonoBehaviour
                 }
             }
         }
-
         if (PlayerNear == true && Screw == 2)
         {
             if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
+                Plank.GetComponent<MeshCollider>().enabled = true;
                 StopShake = true;
                 Destroy(Checker2);
+                GameObject.Find("GUI3").renderer.enabled = false;
+                GameObject.Find("GUI2").renderer.enabled = false;
+                GameObject.Find("GUI").renderer.enabled = false;
                 //Debug.Log("shaker has problem");
             }
         }
     }
 
+
     void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Player")
+        if (StopShake == false)
         {
-            Shake = true;
-            PlayerNear = true;
-            if (Screw == 2)
+            if (col.gameObject.tag == "Player")
             {
-                GUI.GetComponent<Renderer>().enabled = true;
+                Shake = true;
+                PlayerNear = true;
+                if (Screw == 2)
+                {
+                    GUI.GetComponent<Renderer>().enabled = true;
+                }
+
+                if (Screw != 2)
+                {
+                    GUI2.GetComponent<Renderer>().enabled = true;
+                }
             }
         }
     }
+
 
     void OnTriggerExit(Collider col)
     {
@@ -98,6 +113,7 @@ public class ShakePlank : MonoBehaviour
             {
                 GUI.GetComponent<Renderer>().enabled = false;
             }
+            GUI2.GetComponent<Renderer>().enabled = false;
         }
     }
 }

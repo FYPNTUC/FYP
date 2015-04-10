@@ -5,12 +5,16 @@ public class ScrewPickUpCheck2 : MonoBehaviour
 {
     public bool CanPickUp;
     GameObject Screw;
+    GameObject GUI3;
+    GameObject GUI2;
     GameObject GUI;
     // Use this for initialization
     void Start()
     {
         Screw = GameObject.Find("Screw2");
         GUI = GameObject.Find("GUI");
+        GUI2 = GameObject.Find("GUI2");
+        GUI3 = GameObject.Find("GUI3");
     }
 
     // Update is called once per frame
@@ -23,7 +27,20 @@ public class ScrewPickUpCheck2 : MonoBehaviour
                 Destroy(Screw);
                 GameObject.Find("PlankCheckS").GetComponent<ShakePlank>().Screw++;
                 //Debug.Log("scew has problem");
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().NoOfScrew++;
 
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().NoOfScrew == 1)
+                {
+                    GUI2.GetComponent<Renderer>().enabled = true;
+                }
+
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().NoOfScrew == 2)
+                {
+                    GUI2.GetComponent<Renderer>().enabled = false;
+                    GUI3.GetComponent<Renderer>().enabled = true;
+                }
+
+                GUI.GetComponent<Renderer>().enabled = false;
             }
         }
     }

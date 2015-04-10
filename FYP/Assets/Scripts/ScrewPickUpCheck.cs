@@ -4,6 +4,8 @@ using System.Collections;
 public class ScrewPickUpCheck : MonoBehaviour 
 {
     public bool CanPickUp;
+    GameObject GUI3;
+    GameObject GUI2;
     GameObject Screw;
     GameObject GUI;
 	// Use this for initialization
@@ -11,6 +13,8 @@ public class ScrewPickUpCheck : MonoBehaviour
     {   
         Screw = GameObject.Find("Screw1");
         GUI = GameObject.Find("GUI");
+        GUI2 = GameObject.Find("GUI2");
+        GUI3 = GameObject.Find("GUI3");
     
 	}
 	
@@ -23,8 +27,21 @@ public class ScrewPickUpCheck : MonoBehaviour
             {
                 Destroy(Screw);
                 GameObject.Find("PlankCheckS").GetComponent<ShakePlank>().Screw++;
-                Debug.Log("screw pick up");
+                //Debug.Log("screw pick up");
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().NoOfScrew++;
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().NoOfScrew == 1)
+                {
+                    GUI2.GetComponent<Renderer>().enabled = true;
+                }
+
+                if (GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().NoOfScrew == 2)
+                {
+                    GUI2.GetComponent<Renderer>().enabled = false;
+                    GUI3.GetComponent<Renderer>().enabled = true;
+                }
+                GUI.GetComponent<Renderer>().enabled = false;
             }
+           
         }
 	}
 
