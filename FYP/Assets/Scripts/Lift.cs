@@ -61,6 +61,12 @@ public class Lift : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        if (hit.gameObject.tag == ("BreakableG"))
+        {
+            Destroy(hit.gameObject);
+            GameObject.Find("Glass").transform.position = transform.position;
+            GameObject.Find("Glass").GetComponent<AudioSource>().Play();//    .enabled = true;
+        }
         if (hit.gameObject.tag == ("Breakable"))
         {
             Destroy(hit.gameObject);

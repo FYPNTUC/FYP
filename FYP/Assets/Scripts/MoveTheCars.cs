@@ -91,7 +91,6 @@ public class MoveTheCars : MonoBehaviour
     void MoveTheRCars()
     {
         RCars.transform.Translate(Vector3.back * Time.deltaTime * 50);
-        Debug.Log(RCars.transform.position.z);
     }
 
     void MoveTheLTrucks()
