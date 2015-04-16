@@ -260,7 +260,7 @@ public class OVRPlayerController : MonoBehaviour
 		moveInfluence = SimulationRate * Time.deltaTime * Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
 
 		
-		if (Input.GetKey(KeyCode.F)) 
+		if (Input.GetKey(KeyCode.Space)) 
 		{
             Jump();
 		}

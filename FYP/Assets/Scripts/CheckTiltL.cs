@@ -23,7 +23,7 @@ public class CheckTiltL : MonoBehaviour
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().LimitReachedL = true;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().IsTurnBack = false;
-            Debug.Log("hit");
+            //Debug.Log("hit");
         }
     }
 }

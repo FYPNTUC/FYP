@@ -3,14 +3,17 @@ using System.Collections;
 
 public class CharacterAnim : MonoBehaviour 
 {
-
+    public bool IsCarrying;
     public bool IsBalancing;
     GameObject PlayerModel;
+    GameObject PlayerModel2;
 	// Use this for initialization
 	void Start () 
     {
         PlayerModel = GameObject.Find("PlayerModel");
+        PlayerModel2 = GameObject.Find("PlayerModel2");
         IsBalancing = false;
+        IsCarrying = false;
    
 	}
 	
@@ -38,7 +41,29 @@ public class CharacterAnim : MonoBehaviour
         {
            
         }
-        if (IsBalancing == true)
+
+       if (IsCarrying == true)
+        {
+            if (Input.GetAxis("cVerticalDPad") > 0.001)
+            {
+                //PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
+                PlayerModel2.GetComponent<Animation>().animation.Play("MoveTheBox");
+            }
+
+            if (Input.GetKey("w"))
+            {
+                // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
+                PlayerModel2.GetComponent<Animation>().animation.Play("MoveTheBox");
+            }
+
+            if (Input.GetAxis("cLeftJoystickVerti") < 0)
+            {
+                // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
+                PlayerModel2.GetComponent<Animation>().animation.Play("MoveTheBox");
+            }
+        }
+
+        else if (IsBalancing == true)
         {
             if (Input.GetAxis("cVerticalDPad") > 0.001)
             {
@@ -80,15 +105,19 @@ public class CharacterAnim : MonoBehaviour
             }
         }
 
+       
+
         if (Input.anyKey == false && Input.GetAxis("cLeftJoystickVerti") == 0 && Input.GetAxis("cVerticalDPad") == 0) 
         {
             PlayerModel.GetComponent<Animation>().animation.Stop("Walk");
+            PlayerModel2.GetComponent<Animation>().animation.Stop("MoveTheBox");
             PlayerModel.GetComponent<Animation>().animation["Balancing"].speed = 0;
             //PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 0;
         }
 
-        if (Input.GetKey("f") || Input.GetButtonDown("cButtonB"))
+        if (Input.GetKeyDown("space") || Input.GetButtonDown("cButtonB"))
         {
+            PlayerModel.GetComponent<Animation>().animation.Stop("Walk");
             PlayerModel.GetComponent<Animation>().animation["Jump"].speed = 2.5f;
             PlayerModel.GetComponent<Animation>().animation.Play("Jump");
         }
@@ -98,7 +127,10 @@ public class CharacterAnim : MonoBehaviour
             PlayerModel.GetComponent<Animation>().animation.Play("Idle");
         }
 
-       
+        else if (PlayerModel2.GetComponent<Animation>().animation.isPlaying == false)
+        {
+            PlayerModel2.GetComponent<Animation>().animation.Stop("MoveTheBox");
+        }
 	}
 
     //cVerticalDPad cHorizontalDPad

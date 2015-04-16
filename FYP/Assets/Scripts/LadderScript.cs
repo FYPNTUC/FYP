@@ -89,18 +89,18 @@ public class LadderScript : MonoBehaviour
 
     void MoveThePlayer()
     {
-        Player.transform.Translate(Vector3.up * Time.deltaTime *0.2f);
+        Player.transform.Translate(Vector3.up * Time.deltaTime *10);
         Player.transform.Translate(Vector3.forward * Time.deltaTime * 0.05f);
     }
     void MoveThePlayerL()
     {
-        Player.transform.Translate(Vector3.up * Time.deltaTime *0.2f);
+        Player.transform.Translate(Vector3.up * Time.deltaTime *10);
         Player.transform.Translate(Vector3.forward * Time.deltaTime *0.05f);
     }
 
     void MoveThePlayerC()
     {
-        Player.transform.Translate(Vector3.up * Time.deltaTime * 0.2f);
+        Player.transform.Translate(Vector3.up * Time.deltaTime * 10);
         //Player.transform.Translate(Vector3.forward * Time.deltaTime * 0.05f);
     }
 }
