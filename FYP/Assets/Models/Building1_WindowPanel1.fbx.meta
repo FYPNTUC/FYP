@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1cd6019d6a09ba6419a90978f87d42b0
+guid: 7c555a881c2b9f846838e333da4498b3
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,8 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: PlatformBuilding2
-    4300002: SandBag_deposit_plank
+    4300000: Building1_WindowPanel1
     9500000: //RootNode
   materials:
     importMaterials: 1
