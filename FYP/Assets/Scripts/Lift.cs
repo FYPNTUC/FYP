@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Lift : MonoBehaviour
 {
+    public GameObject ShatteredGlass;
+    public GameObject ShatteredScaff;
     GameObject CheckPlayer;
     GameObject Rope;
     public Animator anim;
@@ -24,6 +26,7 @@ public class Lift : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //ShatteredGlass = 
         PlayerNearCraneL = false;
         NoOfScrew = 0;
         anim = GameObject.Find("Lift").GetComponent<Animator>();
@@ -63,13 +66,20 @@ public class Lift : MonoBehaviour
     {
         if (hit.gameObject.tag == ("BreakableG"))
         {
+            Vector3 temp;
+            temp = hit.transform.position;
+            temp.y -= 1;
             Destroy(hit.gameObject);
+            Instantiate(ShatteredGlass, temp, Quaternion.identity);
             GameObject.Find("Glass").transform.position = transform.position;
             GameObject.Find("Glass").GetComponent<AudioSource>().Play();//    .enabled = true;
         }
         if (hit.gameObject.tag == ("Breakable"))
         {
+            Vector3 temp;
+            temp = hit.transform.position;
             Destroy(hit.gameObject);
+            Instantiate(ShatteredScaff, temp, Quaternion.identity);
         }
         if (StartEvent == true)
         {
@@ -108,10 +118,12 @@ public class Lift : MonoBehaviour
                 StartEvent = true;
                
                 gameObject.transform.parent = null;
+               
 
                 if (DoOnce == false)
                 {
                     gameObject.transform.Translate(0.1f, 0, 0);
+                    GameObject.Find("PlayerModel").transform.localScale = new Vector3(1,1,1);
                 }
 
                 DoOnce = true;
