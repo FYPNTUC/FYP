@@ -5,6 +5,7 @@ public class CraneController : MonoBehaviour
 {
     public bool CanBeMoved;
 
+    public GameObject Player;
     public GameObject Crane1;
     public GameObject Crane2;
     public GameObject Crane3;
@@ -26,6 +27,7 @@ public class CraneController : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         CanBeMoved = false;
         Crane1 = GameObject.Find("CraneArm1");
         Crane2 = GameObject.Find("CraneArm2");
@@ -52,6 +54,7 @@ public class CraneController : MonoBehaviour
             //Crane Arm
             if (Input.GetKey("e"))
             {
+                //Player.transform.position = curre
                 CurrentCrane.transform.Rotate(Vector3.down * Time.deltaTime * 10);
                 //Debug.Log("cranearm has problem");
             }

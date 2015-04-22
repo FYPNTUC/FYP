@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CraneCheck2 : MonoBehaviour {
+public class CraneCheck2 : MonoBehaviour 
+{
 
     GameObject Player;
     //GameObject CraneController;
@@ -30,6 +31,15 @@ public class CraneCheck2 : MonoBehaviour {
 
         }
     }
+
+    void OnTriggerStay(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            Player.transform.parent = gameObject.transform;
+        }
+    }
+
 
     void OnTriggerExit(Collider col)
     {

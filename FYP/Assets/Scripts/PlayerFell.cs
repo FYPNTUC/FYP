@@ -23,6 +23,7 @@ public class PlayerFell : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        Debug.Log(GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().LiftIsMoving);
         if (IsChecking == true)
         {
             if (GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().LiftIsMoving == false)

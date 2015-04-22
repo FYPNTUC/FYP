@@ -21,11 +21,21 @@ public class CraneCheck : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
+            Debug.Log("i enter");
             Player.transform.parent = gameObject.transform;
             Player.GetComponent<CraneController>().CanBeMoved = true;
             Player.GetComponent<CraneController>().CurrentCrane = Player.GetComponent<CraneController>().Crane3;
             Player.GetComponent<CraneController>().CurrentTrolley = Player.GetComponent<CraneController>().Trolley3;
             Player.GetComponent<CraneController>().CurrentRope = Player.GetComponent<CraneController>().Rope3;
+        }
+    }
+
+    void OnTriggerStay(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            Debug.Log("i stay");
+            Player.transform.parent = gameObject.transform;
         }
     }
 

@@ -32,6 +32,15 @@ public class CraneCheck3 : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            Player.transform.parent = gameObject.transform;
+        }
+    }
+
+
     void OnTriggerExit(Collider col)
     {
         if (col.gameObject.tag == "Player")

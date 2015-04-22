@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Lift : MonoBehaviour
 {
-    public GameObject ShatteredGlass;
-    public GameObject ShatteredScaff;
     GameObject CheckPlayer;
     GameObject Rope;
     public Animator anim;
@@ -64,23 +62,6 @@ public class Lift : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.tag == ("BreakableG"))
-        {
-            Vector3 temp;
-            temp = hit.transform.position;
-            temp.y -= 1;
-            Destroy(hit.gameObject);
-            Instantiate(ShatteredGlass, temp, Quaternion.identity);
-            GameObject.Find("Glass").transform.position = transform.position;
-            GameObject.Find("Glass").GetComponent<AudioSource>().Play();//    .enabled = true;
-        }
-        if (hit.gameObject.tag == ("Breakable"))
-        {
-            Vector3 temp;
-            temp = hit.transform.position;
-            Destroy(hit.gameObject);
-            Instantiate(ShatteredScaff, temp, Quaternion.identity);
-        }
         if (StartEvent == true)
         {
             //anim.enabled = true;
@@ -116,8 +97,10 @@ public class Lift : MonoBehaviour
             {
                 LiftIsMoving = false;
                 StartEvent = true;
+                
                
-                gameObject.transform.parent = null;
+                //gameObject.transform.parent = null;
+                PlayerInLift = false;
                
 
                 if (DoOnce == false)
@@ -133,7 +116,7 @@ public class Lift : MonoBehaviour
             if (LiftIsMoving == true)
             {
                 MoveTheLift();
-                gameObject.transform.parent = GameObject.Find("Lift").transform;
+                gameObject.transform.position = GameObject.Find("Lift").transform.position;
             }
         }
 

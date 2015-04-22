@@ -36,7 +36,7 @@ public class CraneMover : MonoBehaviour
                 if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                 {
                     PlatformMoving = true;
-                    Player.transform.parent = Platform.transform;
+                   
                     Checker.GetComponent<BoxCollider>().enabled = false;
                     GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
                     Platform.GetComponent<CranePlatform>().IsOn = false;
@@ -48,13 +48,13 @@ public class CraneMover : MonoBehaviour
             if (Trolley.transform.position.x < -3)
             {
                 PlatformDone = false;
-                Player.transform.parent = null;
                 StopPls = true;
             }
 
 
             if (PlatformMoving == true)
             {
+
                 Rope.transform.Translate(Vector3.up * Time.deltaTime * 1f);
             }
 
@@ -79,10 +79,17 @@ public class CraneMover : MonoBehaviour
     void MoveThePlatForm()
     {
         Rope.transform.Translate(Vector3.up * Time.deltaTime * 0.1f);
+        Player.transform.position = Platform.transform.position;
+       // Player.transform.position.y += 1;
     }
 
     void MoveTheTrolley()
     {
+        Vector3 temp;
+        temp = Platform.transform.position;
+        temp.y += 1;
         Trolley.transform.Translate(Vector3.right * Time.deltaTime * 1f);
+        Player.transform.position = temp;
+        //Player.transform.position.y += 1;
     }
 }
