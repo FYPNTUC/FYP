@@ -59,6 +59,7 @@ public class FadeInOut : MonoBehaviour
                //gameObject.transform.position = ResetLocation.transform.position;
                if (ChangeLevelFade == true)
                {
+                   GameObject.Find("PlayerModel").transform.parent = Player.transform;
                    //ChangingLevel = true;
                    //Application.LoadLevel(levelToLoad);
                    Player.transform.position = ResetLocation.transform.position;
@@ -66,6 +67,8 @@ public class FadeInOut : MonoBehaviour
                    
                    if (BlackCubeL.renderer.material.color == EndColor)
                    {
+                       Player.GetComponent<OVRPlayerController>().enabled = true;
+                      
                        FadeToDarkTimer = 0;
                        FadeToLightTimer += Time.deltaTime;
                        BlackCubeL.renderer.material.color = Color.Lerp(EndColor, StartColor, FadeToLightTimer);
