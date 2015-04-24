@@ -45,16 +45,16 @@ public class FadeInOut : MonoBehaviour
 
         if (fade == true || ChangeLevelFade == true)
         {
-            if (BlackCubeL.renderer.material.color == StartColor)
+            if (BlackCubeL.GetComponent<Renderer>().material.color == StartColor)
             {
                 FadeToLightTimer = 0;
             }
 
             FadeToDarkTimer += Time.deltaTime;
-            BlackCubeL.renderer.material.color = Color.Lerp(StartColor, EndColor, FadeToDarkTimer);
-            BlackCubeR.renderer.material.color = Color.Lerp(StartColor, EndColor, FadeToDarkTimer);
+            BlackCubeL.GetComponent<Renderer>().material.color = Color.Lerp(StartColor, EndColor, FadeToDarkTimer);
+            BlackCubeR.GetComponent<Renderer>().material.color = Color.Lerp(StartColor, EndColor, FadeToDarkTimer);
 
-            if (BlackCubeL.renderer.material.color == EndColor && ChangingLevel == false)
+            if (BlackCubeL.GetComponent<Renderer>().material.color == EndColor && ChangingLevel == false)
             {
                //gameObject.transform.position = ResetLocation.transform.position;
                if (ChangeLevelFade == true)
@@ -63,16 +63,16 @@ public class FadeInOut : MonoBehaviour
                    //ChangingLevel = true;
                    //Application.LoadLevel(levelToLoad);
                    Player.transform.position = ResetLocation.transform.position;
-                   BlackCubeL.renderer.material.color = EndColor;
+                   BlackCubeL.GetComponent<Renderer>().material.color = EndColor;
                    
-                   if (BlackCubeL.renderer.material.color == EndColor)
+                   if (BlackCubeL.GetComponent<Renderer>().material.color == EndColor)
                    {
                        Player.GetComponent<OVRPlayerController>().enabled = true;
                       
                        FadeToDarkTimer = 0;
                        FadeToLightTimer += Time.deltaTime;
-                       BlackCubeL.renderer.material.color = Color.Lerp(EndColor, StartColor, FadeToLightTimer);
-                       BlackCubeR.renderer.material.color = Color.Lerp(EndColor, StartColor, FadeToLightTimer);
+                       BlackCubeL.GetComponent<Renderer>().material.color = Color.Lerp(EndColor, StartColor, FadeToLightTimer);
+                       BlackCubeR.GetComponent<Renderer>().material.color = Color.Lerp(EndColor, StartColor, FadeToLightTimer);
                        GameObject.Find("PlayerFallTrigger").GetComponent<PlayerFell>().PlayerFallen = false;
                        ChangeLevelFade = false;   
                    }
@@ -82,14 +82,14 @@ public class FadeInOut : MonoBehaviour
 
         else
         {
-            if (BlackCubeL.renderer.material.color == EndColor)
+            if (BlackCubeL.GetComponent<Renderer>().material.color == EndColor)
             {
                 FadeToDarkTimer = 0;
             }
 
             FadeToLightTimer += Time.deltaTime;
-            BlackCubeL.renderer.material.color = Color.Lerp(EndColor, StartColor, FadeToLightTimer);
-            BlackCubeR.renderer.material.color = Color.Lerp(EndColor, StartColor, FadeToLightTimer);
+            BlackCubeL.GetComponent<Renderer>().material.color = Color.Lerp(EndColor, StartColor, FadeToLightTimer);
+            BlackCubeR.GetComponent<Renderer>().material.color = Color.Lerp(EndColor, StartColor, FadeToLightTimer);
         }
 	}
 }

@@ -1,0 +1,22 @@
+Still: frame 1
+
+Still Idle: frame 3 ~150
+
+Idle2 transition: frame 152 ~190
+
+Idle2: frame 192 ~320
+
+Walking: Frame 322 ~365
+
+
+Looking Around: Frame 367 ~530
+
+Idle to On Guard Stance: Frame 532 ~ 533
+
+On guard stance: Frame 555 ~ 583
+
+Fight: Fram 585 ~ 724
+
+Run: Frame 726 ~ 747
+
+Talk: Frame 749 ~ 840

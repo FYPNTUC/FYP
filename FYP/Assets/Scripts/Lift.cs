@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Lift : MonoBehaviour
 {
+    GameObject Gangster1;
+    GameObject Gangster2;
     GameObject CheckPlayer;
     GameObject Rope;
     public Animator anim;
@@ -24,7 +26,8 @@ public class Lift : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //ShatteredGlass = 
+        Gangster1 = GameObject.Find("Gangster1");
+        Gangster2 = GameObject.Find("Gangster2");
         PlayerNearCraneL = false;
         NoOfScrew = 0;
         anim = GameObject.Find("Lift").GetComponent<Animator>();
@@ -62,8 +65,13 @@ public class Lift : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
+        if (hit.gameObject.name == "L_Palm" || hit.gameObject.name == "R_Wrist 1" || hit.gameObject.name == "L_Feet1" || hit.gameObject.name == "R_Feet1")
+        { 
+            
+        }
         if (StartEvent == true)
         {
+          
             //anim.enabled = true;
             if (LimitReached == false)
             {
@@ -83,6 +91,8 @@ public class Lift : MonoBehaviour
                 }
             }
             Destroy(Rope);
+            Destroy(Gangster1);
+            Destroy(Gangster2);
         }
 
         if (GameObject.Find("PlayerInBuildingTrigger").GetComponent<PlayerEnteredBuilding>().PlayerIsInBuilding == false)

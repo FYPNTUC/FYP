@@ -3,20 +3,12 @@ using System.Collections;
 
 public class TopChecker : MonoBehaviour
 {
-    bool CheckPoint1;
-    bool CheckPoint2;
-    bool CheckPoint3;
-    bool CheckPoint4;
 
     public GameObject MainChecker;
     // Use this for initialization
     void Start()
     {
 
-        CheckPoint1 = false;
-        CheckPoint2 = false;
-        CheckPoint3 = false;
-        CheckPoint4 = false;
         MainChecker = GameObject.Find("FirstChecker");
     }
 

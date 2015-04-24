@@ -35,7 +35,7 @@ public class MoveUpBox : MonoBehaviour
                 //PlayerBox.GetComponent<Renderer>().enabled = true;
                 //waas              
                 //PlayerModel2.animation.PlayQueued("MoveTheBox");
-                PlayerModel2.animation.Play("PickUp");
+                PlayerModel2.GetComponent<Animation>().Play("PickUp");
             }
         }
 	}

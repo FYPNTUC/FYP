@@ -25,7 +25,7 @@
          nextPic = Time.time + PictureRateInSeconds;
          counter += 1;
          if(MakeTexture){
-             renderer.material.mainTexture = pictures[counter];
+             GetComponent.<Renderer>().material.mainTexture = pictures[counter];
          }
      }
      if(counter >= pictures.length){

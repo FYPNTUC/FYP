@@ -22,7 +22,7 @@ public class BoxCheck : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            GUI.renderer.enabled = true;
+            GUI.GetComponent<Renderer>().enabled = true;
             Box.GetComponent<MoveUpBox>().CanMove = true;
         }
     }
@@ -31,7 +31,7 @@ public class BoxCheck : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            GUI.renderer.enabled = false;
+            GUI.GetComponent<Renderer>().enabled = false;
             Box.GetComponent<MoveUpBox>().CanMove = false;
         }
     }
