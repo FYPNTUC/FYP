@@ -196,7 +196,7 @@ public class OVRPlayerController : MonoBehaviour
 		}
 		if (OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.Down))
 		{
-			moveBack  = true;
+			//moveBack  = true;
 			dpad_move = true;
 		}
 
@@ -223,12 +223,12 @@ public class OVRPlayerController : MonoBehaviour
 		{
 			if (moveForward)
 				MoveThrottle += DirXform.TransformDirection(Vector3.forward * moveInfluence * transform.lossyScale.z);
-			if (moveBack)
-				MoveThrottle += DirXform.TransformDirection(Vector3.back * moveInfluence * transform.lossyScale.z) * BackAndSideDampen;
-			if (moveLeft)
-				MoveThrottle += DirXform.TransformDirection(Vector3.left * moveInfluence * transform.lossyScale.x) * BackAndSideDampen;
-			if (moveRight)
-				MoveThrottle += DirXform.TransformDirection(Vector3.right * moveInfluence * transform.lossyScale.x) * BackAndSideDampen;
+            //if (moveBack)
+            //    MoveThrottle += DirXform.TransformDirection(Vector3.back * moveInfluence * transform.lossyScale.z) * BackAndSideDampen;
+            //if (moveLeft)
+            //    MoveThrottle += DirXform.TransformDirection(Vector3.left * moveInfluence * transform.lossyScale.x) * BackAndSideDampen;
+            //if (moveRight)
+            //    MoveThrottle += DirXform.TransformDirection(Vector3.right * moveInfluence * transform.lossyScale.x) * BackAndSideDampen;
 		}
 
 		bool curHatLeft = OVRGamepadController.GPC_GetButton(OVRGamepadController.Button.LeftShoulder);

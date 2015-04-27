@@ -10,6 +10,8 @@ public class CharacterAnim : MonoBehaviour
     GameObject PlayerModel;
     GameObject PlayerModel2;
     // Use this for initialization
+     float timer;
+           
     void Start()
     {
         PlayerModel = GameObject.Find("PlayerModel");
@@ -17,6 +19,7 @@ public class CharacterAnim : MonoBehaviour
         IsBalancing = false;
         IsCarrying = false;
         IsTopBalancing = false;
+        timer = 1;
 
     }
 
@@ -73,6 +76,23 @@ public class CharacterAnim : MonoBehaviour
 
         else if (IsBalancing == true)
         {
+           
+            if (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().isGrounded == false)
+            {
+               
+                timer -= Time.deltaTime;
+                Debug.Log(timer);
+                if (timer <=0)
+                {             
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ChangeLevelFade = true;
+                    timer = 1;
+                }
+            }
+
+            else if (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().isGrounded == true)
+            {
+                timer = 1;
+            }
             if (Input.GetAxis("cVerticalDPad") > 0.001)
             {
                 PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 1;

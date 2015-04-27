@@ -5,18 +5,39 @@ public class CraneCheck3 : MonoBehaviour
 {
 
     GameObject Player;
+    bool IsCrane3;
+    bool HoldIt;
     //GameObject CraneController;
 
     // Use this for initialization
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        IsCrane3 = false;
+        HoldIt = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (HoldIt == true)
+        {
+            if (Input.GetKey("g") || Input.GetButtonDown("cButtonA"))
+            {
+                HoldIt = false;
+                IsCrane3 = true;
+            }
+        }
 
+        else if  (IsCrane3 == true)
+        {
+            Player.transform.position = gameObject.transform.position;
+            if (Input.GetKey("g") || Input.GetButtonDown("cButtonA"))
+            {
+                HoldIt = true;
+                IsCrane3 = false;
+            }
+        }
 
     }
 
@@ -24,7 +45,10 @@ public class CraneCheck3 : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            Player.transform.parent = gameObject.transform;
+            if (HoldIt == false)
+            {
+                IsCrane3 = true;
+            }
             Player.GetComponent<CraneController>().CurrentCrane = Player.GetComponent<CraneController>().Crane1;
             Player.GetComponent<CraneController>().CurrentTrolley = Player.GetComponent<CraneController>().Trolley1;
             Player.GetComponent<CraneController>().CurrentRope = Player.GetComponent<CraneController>().Rope1;
@@ -36,16 +60,20 @@ public class CraneCheck3 : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            Player.transform.parent = gameObject.transform;
+
+            if (HoldIt == false)
+            {
+                Debug.Log("pls");
+                IsCrane3 = true;
+            }
         }
     }
-
 
     void OnTriggerExit(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
-            Player.transform.parent = null;
+            IsCrane3 = false;
         }
     }
 }

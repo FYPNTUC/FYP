@@ -20,6 +20,7 @@ public class BalancingEndCheck : MonoBehaviour {
         {
             GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsBalancing = false;
             GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().Acceleration = 0.1f;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().JumpForce = 0.3f;
         }
     }
 }

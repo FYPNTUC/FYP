@@ -6,7 +6,7 @@ public class TopBalance : MonoBehaviour
     public bool RotateLeft;
     public bool RotateRight;
     Vector3 StoredPos;
-  public  bool BalanceStart;
+    public  bool BalanceStart;
     public GameObject Player;
 
    
@@ -25,13 +25,16 @@ public class TopBalance : MonoBehaviour
     {
         if (BalanceStart == true)
         {
-            if (Player.GetComponent<Transform>().eulerAngles.z > 20 && Player.GetComponent<Transform>().eulerAngles.z < 25)
+            if (GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z > 20 && GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z < 25)
             {
-                BalanceStart = false;              
-              
+                BalanceStart = false;
+                Player.GetComponent<OVRPlayerController>().enabled = true;
+                Player.GetComponent<FadeInOut>().ChangeLevelFade = true;
+                gameObject.transform.position = StoredPos;
+                GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsTopBalancing = false;
             }
 
-            if (Player.GetComponent<Transform>().eulerAngles.z > 330 && Player.GetComponent<Transform>().eulerAngles.z < 340)
+            if (  GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z > 330 &&   GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z < 340)
             {
                 BalanceStart = false;               
                 Player.GetComponent<OVRPlayerController>().enabled = true;
@@ -51,6 +54,7 @@ public class TopBalance : MonoBehaviour
             temp.y -= 0.85f;
             Player.transform.position = gameObject.transform.position;
             GameObject.Find("PlayerModel").transform.position = temp;
+            Player.transform.rotation.Set(0,0,0,0);
 
             if (RotateLeft == true)
             {

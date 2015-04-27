@@ -26,6 +26,7 @@ public class Lift : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Application.targetFrameRate = 75; 
         Gangster1 = GameObject.Find("Gangster1");
         Gangster2 = GameObject.Find("Gangster2");
         PlayerNearCraneL = false;

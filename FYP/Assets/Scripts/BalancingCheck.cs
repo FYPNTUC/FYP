@@ -22,6 +22,7 @@ public class BalancingCheck : MonoBehaviour
         {
             GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsBalancing = true;
             GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().Acceleration = 0.035f;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().JumpForce = 0;
         }
     }
 
