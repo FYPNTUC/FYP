@@ -19,7 +19,7 @@ public class CharacterAnim : MonoBehaviour
         IsBalancing = false;
         IsCarrying = false;
         IsTopBalancing = false;
-        timer = 1;
+        timer = 0.5f;
 
     }
 
@@ -85,13 +85,13 @@ public class CharacterAnim : MonoBehaviour
                 if (timer <=0)
                 {             
                     GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ChangeLevelFade = true;
-                    timer = 1;
+                    timer = 0.5f;
                 }
             }
 
             else if (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().isGrounded == true)
             {
-                timer = 1;
+                timer = 0.5f;
             }
             if (Input.GetAxis("cVerticalDPad") > 0.001)
             {
@@ -141,6 +141,7 @@ public class CharacterAnim : MonoBehaviour
             PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Stop("MoveTheBox");
             if (IsTopBalancing == false)
             {
+                //Debug.Log("wot");
                 PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 0;
             }
             //PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 0;

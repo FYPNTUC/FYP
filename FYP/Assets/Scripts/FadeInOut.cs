@@ -38,9 +38,17 @@ public class FadeInOut : MonoBehaviour
 	void Update ()
     {
 
-        if (Input.GetButtonDown("cButtonStart"))
+        if (Input.GetButtonDown("cButtonStart") || Input.GetKeyDown("escape"))
         {
-            ChangeLevelFade = true;
+            if (GameObject.Find("OVRCameraRig").GetComponent<OVRManager>().monoscopic == true)
+            {
+                GameObject.Find("OVRCameraRig").GetComponent<OVRManager>().monoscopic = false;
+            }
+
+            else if (GameObject.Find("OVRCameraRig").GetComponent<OVRManager>().monoscopic == false)
+            {
+                GameObject.Find("OVRCameraRig").GetComponent<OVRManager>().monoscopic = true;
+            }          
         }
 
         if (fade == true || ChangeLevelFade == true)

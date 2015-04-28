@@ -7,6 +7,7 @@ public class CraneCheck3 : MonoBehaviour
     GameObject Player;
     bool IsCrane3;
     bool HoldIt;
+    bool AllDone;
     //GameObject CraneController;
 
     // Use this for initialization
@@ -15,6 +16,8 @@ public class CraneCheck3 : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         IsCrane3 = false;
         HoldIt = false;
+        AllDone = false;
+        
     }
 
     // Update is called once per frame
@@ -63,7 +66,7 @@ public class CraneCheck3 : MonoBehaviour
 
             if (HoldIt == false)
             {
-                Debug.Log("pls");
+                //Debug.Log("pls");
                 IsCrane3 = true;
             }
         }

@@ -20,25 +20,27 @@ public class CraneCheck2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HoldIt == true)
+        if (Player.GetComponent<CraneController>().CurrentCrane == Player.GetComponent<CraneController>().Crane2)
         {
-            if (Input.GetKey("g") || Input.GetButtonDown("cButtonA"))
+            if (HoldIt == true)
             {
-                HoldIt = false;
-                IsCrane2 = true;
+                if (Input.GetKey("g") || Input.GetButtonDown("cButtonA"))
+                {
+                    HoldIt = false;
+                    IsCrane2 = true;
+                }
             }
-        }
-        else if (IsCrane2 == true)
-        {
-            Player.transform.position = gameObject.transform.position;
-            if (Input.GetKey("g") || Input.GetButtonDown("cButtonA"))
+            else if (IsCrane2 == true)
             {
-                HoldIt = true;
-                IsCrane2 = false;
+                Player.transform.position = gameObject.transform.position;
+                if (Input.GetKey("g") || Input.GetButtonDown("cButtonA"))
+                {
+                    HoldIt = true;
+                    IsCrane2 = false;
+                }
             }
-        }
 
-        
+        }
 
     }
 
@@ -64,7 +66,7 @@ public class CraneCheck2 : MonoBehaviour
 
             if (HoldIt == false)
             {
-                Debug.Log("pls");
+                //Debug.Log("pls");
                 IsCrane2 = true;
             }
         }

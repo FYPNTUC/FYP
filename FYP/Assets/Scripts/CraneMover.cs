@@ -45,7 +45,7 @@ public class CraneMover : MonoBehaviour
                 }
             }
 
-            if (Trolley.transform.position.x < -3)
+            if (Trolley.transform.position.x < -2.9)
             {
                 PlatformDone = false;
                 StopPls = true;

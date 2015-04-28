@@ -1,49 +1,52 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TopBalance : MonoBehaviour 
+public class TopBalance : MonoBehaviour
 {
     public bool RotateLeft;
     public bool RotateRight;
     Vector3 StoredPos;
-    public  bool BalanceStart;
+    public bool BalanceStart;
     public GameObject Player;
 
-   
-	// Use this for initialization
-	void Start () 
+
+    // Use this for initialization
+    void Start()
     {
         StoredPos = gameObject.transform.position;
         BalanceStart = false;
         Player = GameObject.FindGameObjectWithTag("Player");
         RotateRight = false;
         RotateLeft = false;
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         if (BalanceStart == true)
         {
+            //Fail Tracker
             if (GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z > 20 && GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z < 25)
             {
                 BalanceStart = false;
                 Player.GetComponent<OVRPlayerController>().enabled = true;
                 Player.GetComponent<FadeInOut>().ChangeLevelFade = true;
                 gameObject.transform.position = StoredPos;
+                gameObject.transform.localEulerAngles = new Vector3(0, 0, 0);
                 GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsTopBalancing = false;
             }
 
-            if (  GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z > 330 &&   GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z < 340)
+            if (GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z > 330 && GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z < 340)
             {
-                BalanceStart = false;               
+                BalanceStart = false;
                 Player.GetComponent<OVRPlayerController>().enabled = true;
                 Player.GetComponent<FadeInOut>().ChangeLevelFade = true;
                 gameObject.transform.position = StoredPos;
+                gameObject.transform.localEulerAngles = new Vector3(0, 0, 0);
                 GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsTopBalancing = false;
-                          
-            }
 
+            }
+            //Start Tracker
             GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsTopBalancing = true;
             Player.GetComponent<OVRPlayerController>().enabled = false;
 
@@ -53,31 +56,36 @@ public class TopBalance : MonoBehaviour
             temp = gameObject.transform.position;
             temp.y -= 0.85f;
             Player.transform.position = gameObject.transform.position;
+            Player.transform.rotation = gameObject.transform.rotation;
             GameObject.Find("PlayerModel").transform.position = temp;
-            Player.transform.rotation.Set(0,0,0,0);
+            GameObject.Find("PlayerModel").transform.rotation = gameObject.transform.rotation;
 
             if (RotateLeft == true)
             {
-                Player.transform.Rotate(Vector3.forward * Time.deltaTime * 10);
-                GameObject.Find("PlayerModel").transform.Rotate(Vector3.forward * Time.deltaTime * 10);
+                gameObject.transform.Rotate(Vector3.forward * Time.deltaTime * 10);
+                //Player.transform.Rotate(Vector3.forward * Time.deltaTime * 10);
+                //GameObject.Find("PlayerModel").transform.Rotate(Vector3.forward * Time.deltaTime * 10);
             }
 
             if (RotateRight == true)
             {
-                Player.transform.Rotate(Vector3.back * Time.deltaTime * 10);
-                GameObject.Find("PlayerModel").transform.Rotate(Vector3.back * Time.deltaTime * 10);
+                gameObject.transform.Rotate(Vector3.back * Time.deltaTime * 10);
+                //Player.transform.Rotate(Vector3.back * Time.deltaTime * 10);
+                //GameObject.Find("PlayerModel").transform.Rotate(Vector3.back * Time.deltaTime * 10);
             }
 
             if (Input.GetKey("q"))// || Input.GetButtonDown("cButtonA"))
             {
-                Player.transform.Rotate(Vector3.forward * Time.deltaTime * 25);
-                GameObject.Find("PlayerModel").transform.Rotate(Vector3.forward * Time.deltaTime * 25);
+                gameObject.transform.Rotate(Vector3.forward * Time.deltaTime * 25);
+                //Player.transform.Rotate(Vector3.forward * Time.deltaTime * 25);
+                //GameObject.Find("PlayerModel").transform.Rotate(Vector3.forward * Time.deltaTime * 25);
             }
 
             if (Input.GetKey("e"))// || Input.GetButtonDown("cButtonA"))
             {
-                Player.transform.Rotate(Vector3.back * Time.deltaTime * 25);
-                GameObject.Find("PlayerModel").transform.Rotate(Vector3.back * Time.deltaTime * 25);
+                gameObject.transform.Rotate(Vector3.back * Time.deltaTime * 25);
+                //Player.transform.Rotate(Vector3.back * Time.deltaTime * 25);
+                //GameObject.Find("PlayerModel").transform.Rotate(Vector3.back * Time.deltaTime * 25);
             }
             //int random = Random.Range(1, 10);
 
@@ -93,16 +101,24 @@ public class TopBalance : MonoBehaviour
 
 
         }
-	}
+    }
 
     void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Player")
         {
-            BalanceStart = true;
-            RotateLeft = true;
-            Player.GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocationTB");
-           
+            if (gameObject.name == "FirstChecker")
+            {
+                BalanceStart = true;
+                RotateLeft = true;
+            }
+            else if (gameObject.name == "FirstChecker1")
+            {
+                BalanceStart = true;
+                RotateLeft = true;
+                Player.GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocationTB");
+            }
+
         }
     }
 
@@ -110,7 +126,7 @@ public class TopBalance : MonoBehaviour
     //{
     //    if (col.gameObject.tag == "Player")
     //    {
-           
+
     //    }
     //}
 
@@ -118,7 +134,7 @@ public class TopBalance : MonoBehaviour
     //{
     //    if (col.gameObject.tag == "Player")
     //    {
-          
+
     //    }
     //}
 }
