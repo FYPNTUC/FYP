@@ -50,23 +50,23 @@ public class CharacterAnim : MonoBehaviour
 
         if (IsCarrying == true)
         {
-            if (Input.GetAxis("cVerticalDPad") > 0.001)
-            {
-                //PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
-                PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
-            }
+            //if (Input.GetAxis("cVerticalDPad") > 0.001)
+            //{
+            //    //PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
+            //    PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
+            //}
 
-            if (Input.GetKey("w"))
-            {
-                // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
-                PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
-            }
+            //if (Input.GetKey("w"))
+            //{
+            //    // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
+            //    PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
+            //}
 
-            if (Input.GetAxis("cLeftJoystickVerti") < 0)
-            {
-                // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
-                PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
-            }
+            //if (Input.GetAxis("cLeftJoystickVerti") < 0)
+            //{
+            //    // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
+            //    PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
+            //}
         }
         if (IsTopBalancing == true)
         {
@@ -81,7 +81,7 @@ public class CharacterAnim : MonoBehaviour
             {
                
                 timer -= Time.deltaTime;
-                Debug.Log(timer);
+                //Debug.Log(timer);
                 if (timer <=0)
                 {             
                     GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ChangeLevelFade = true;
@@ -138,7 +138,7 @@ public class CharacterAnim : MonoBehaviour
         if (Input.anyKey == false && Input.GetAxis("cLeftJoystickVerti") == 0 && Input.GetAxis("cVerticalDPad") == 0)
         {
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Stop("Walk");
-            PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Stop("MoveTheBox");
+            //PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Stop("MoveTheBox");
             if (IsTopBalancing == false)
             {
                 //Debug.Log("wot");
@@ -158,10 +158,10 @@ public class CharacterAnim : MonoBehaviour
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Idle");
         }
 
-        else if (PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().isPlaying == false)
-        {
-            PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Stop("MoveTheBox");
-        }
+        //else if (PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().isPlaying == false)
+        //{
+        //    //PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Stop("MoveTheBox");
+        //}
     }
 
     //cVerticalDPad cHorizontalDPad

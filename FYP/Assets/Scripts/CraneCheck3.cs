@@ -34,7 +34,10 @@ public class CraneCheck3 : MonoBehaviour
 
         else if  (IsCrane3 == true)
         {
-            Player.transform.position = gameObject.transform.position;
+            Vector3 temp;
+            temp = gameObject.transform.position;
+            temp.y += 0.6f;
+            Player.transform.position = temp;
             if (Input.GetKey("g") || Input.GetButtonDown("cButtonA"))
             {
                 HoldIt = true;

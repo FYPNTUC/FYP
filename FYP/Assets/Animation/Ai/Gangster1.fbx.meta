@@ -157,6 +157,8 @@ ModelImporter:
     100298: Upper_LipCtl
     100300: Waist
     100302: WaistCtl
+    100304: Gangster1Final1:back
+    100306: Gangster1Final1:Gangster1_Animation:back
     400000: back
     400002: Chest
     400004: ChestCtl
@@ -309,6 +311,8 @@ ModelImporter:
     400298: Upper_LipCtl
     400300: Waist
     400302: WaistCtl
+    400304: Gangster1Final1:back
+    400306: Gangster1Final1:Gangster1_Animation:back
     4300000: Gangster1
     4300002: R_Eye
     4300004: L_EYe
@@ -323,7 +327,7 @@ ModelImporter:
     7400016: Fight
     7400018: Run
     7400020: Talk
-    7400022: Take 001
+    7400022: Punch
     9500000: //RootNode
     13700000: Gangster1
     13700002: L_EYe
@@ -3975,7 +3979,7 @@ ModelImporter:
       maskType: 0
       maskSource: {instanceID: 0}
     - serializedVersion: 16
-      name: Take 001
+      name: Punch
       takeName: Take 001
       firstFrame: 585
       lastFrame: 608

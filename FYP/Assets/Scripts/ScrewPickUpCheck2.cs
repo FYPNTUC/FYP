@@ -24,6 +24,7 @@ public class ScrewPickUpCheck2 : MonoBehaviour
         {
             if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
+                GameObject.Find("PlayerModel").GetComponent<Animation>().Play("PickUpHammer");
                 Destroy(Screw);
                 GameObject.Find("PlankCheckS").GetComponent<ShakePlank>().Screw++;
                 //Debug.Log("scew has problem");

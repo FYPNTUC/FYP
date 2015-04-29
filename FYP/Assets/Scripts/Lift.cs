@@ -22,6 +22,7 @@ public class Lift : MonoBehaviour
     public bool LimitReachedL;
     public bool GotKey;
     public int NoOfScrew;
+    Vector3 TempP;
     bool DoOnce;
     // Use this for initialization
     void Start()
@@ -49,17 +50,27 @@ public class Lift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if ( Input.GetButtonDown("cButtonBack"))
+        {
+            OVRManager.display.RecenterPose();
+            Debug.Log("pop");
+        }
         if (GotKey == true)
         {
             if (PlayerInLift == true)
             {
                 if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                 {
+                    GameObject.Find("PlayerModel").GetComponent<Animation>().Play("InsertKey");
+                    TempP= gameObject.transform.position;
                     LiftIsMoving = true;
                     Destroy(CheckPlayer);
                     GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
+                   
                     //Debug.Log("lift has problem");
                 }
+
+         
             }
         }
     }
@@ -126,8 +137,12 @@ public class Lift : MonoBehaviour
 
             if (LiftIsMoving == true)
             {
+                Vector3 temp;
+                temp = GameObject.Find("Lift").transform.position;
+                temp.y += 0.3f;
+                temp.x = TempP.x;
                 MoveTheLift();
-                gameObject.transform.position = GameObject.Find("Lift").transform.position;
+                gameObject.transform.position = temp;
             }
         }
 

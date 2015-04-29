@@ -32,7 +32,10 @@ public class CraneCheck : MonoBehaviour
             }
             else if (IsCrane1 == true)
             {
-                Player.transform.position = gameObject.transform.position;
+                Vector3 temp;
+                temp = gameObject.transform.position;
+                temp.y +=0.6f;
+                Player.transform.position =temp ;
                 if (Input.GetKeyDown("g") || Input.GetButtonDown("cButtonA"))
                 {
                     //Debug.Log("pop");

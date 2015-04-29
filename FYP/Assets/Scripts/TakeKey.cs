@@ -24,6 +24,7 @@ public class TakeKey : MonoBehaviour
             if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
                 //Debug.Log("key has problem");
+                GameObject.Find("PlayerModel").GetComponent<Animation>().Play("PickUpHammer");
                 Destroy(Key);
                 GUI.GetComponent<Renderer>().enabled = false;
                 Player.GetComponent<Lift>().GotKey = true;

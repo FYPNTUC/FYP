@@ -26,10 +26,11 @@ public class LadderScript : MonoBehaviour
         {
             if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
+                GameObject.Find("PlayerModel").GetComponent<Animation>().Play("ClimbLadder2");
                 PlayerMove = true;
                 Player.GetComponent<OVRPlayerController>().enabled = false;
                 temp = Player.transform.position;
-                temp.y += 2;
+                temp.y += 2.2f;
                 IsChecking = true;
                //GameObject.Find("PlayerModel") .GetComponent<CharacterAnim>().
                 //Debug.Log("ladder has problem");
@@ -89,18 +90,18 @@ public class LadderScript : MonoBehaviour
 
     void MoveThePlayer()
     {
-        Player.transform.Translate(Vector3.up * Time.deltaTime *10);
-        Player.transform.Translate(Vector3.forward * Time.deltaTime * 0.05f);
+        Player.transform.Translate(Vector3.up * Time.deltaTime *1.5f);
+        Player.transform.Translate(Vector3.forward * Time.deltaTime * 0.01f);
     }
     void MoveThePlayerL()
     {
-        Player.transform.Translate(Vector3.up * Time.deltaTime *10);
+        Player.transform.Translate(Vector3.up * Time.deltaTime *1);
         Player.transform.Translate(Vector3.forward * Time.deltaTime *0.05f);
     }
 
     void MoveThePlayerC()
     {
-        Player.transform.Translate(Vector3.up * Time.deltaTime * 10);
+        Player.transform.Translate(Vector3.up * Time.deltaTime * 2);
         //Player.transform.Translate(Vector3.forward * Time.deltaTime * 0.05f);
     }
 }
