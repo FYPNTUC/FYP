@@ -24,6 +24,11 @@ public class AICollideManager : MonoBehaviour
             GetComponentInParent<AIScript>().Combat = true;
         }
 
+        if (col.gameObject.tag == "Worker")
+        {
+            GameObject.Find("Worker").GetComponent<WorkerScript>().IsCombat = true;
+        }
+
     }
 
     void OnTriggerExit(Collider col)
@@ -35,6 +40,11 @@ public class AICollideManager : MonoBehaviour
             GetComponentInParent<AIScript>().Combat = false;
             GetComponentInParent<AIScript>().IsFollowing = true;
             GetComponentInParent<AIScript>().MovementSpeed = 1;
+        }
+
+        if (col.gameObject.tag == "Worker")
+        {
+            GameObject.Find("Worker").GetComponent<WorkerScript>().IsCombat = false;
         }
 
     }

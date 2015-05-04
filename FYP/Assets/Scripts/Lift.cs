@@ -53,7 +53,7 @@ public class Lift : MonoBehaviour
         if ( Input.GetButtonDown("cButtonBack"))
         {
             OVRManager.display.RecenterPose();
-            Debug.Log("pop");
+            //Debug.Log("pop");
         }
         if (GotKey == true)
         {
@@ -65,8 +65,7 @@ public class Lift : MonoBehaviour
                     TempP= gameObject.transform.position;
                     LiftIsMoving = true;
                     Destroy(CheckPlayer);
-                    GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
-                   
+                    GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;                   
                     //Debug.Log("lift has problem");
                 }
 
@@ -75,23 +74,22 @@ public class Lift : MonoBehaviour
         }
     }
 
+    //super costly
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.name == "L_Palm" || hit.gameObject.name == "R_Wrist 1" || hit.gameObject.name == "L_Feet1" || hit.gameObject.name == "R_Feet1")
-        { 
+        //if (hit.gameObject.name == "L_Palm" || hit.gameObject.name == "R_Wrist 1" || hit.gameObject.name == "L_Feet1" || hit.gameObject.name == "R_Feet1")
+        //{ 
             
-        }
+        //}
         if (StartEvent == true)
         {
-          
-            //anim.enabled = true;
             if (LimitReached == false)
             {
                 if (hit.gameObject.name == "LiftRight")
                 {
                     IsTurning = true;
                     IsTurnBack = false;
-                }
+                } 
             }
 
             if (LimitReachedL == false)
@@ -128,7 +126,7 @@ public class Lift : MonoBehaviour
                 if (DoOnce == false)
                 {
                     gameObject.transform.Translate(0.1f, 0, 0);
-                    GameObject.Find("PlayerModel").transform.localScale = new Vector3(1,1,1);
+                    //GameObject.Find("PlayerModel").transform.localScale = new Vector3(1,1,1);
                 }
 
                 DoOnce = true;
@@ -141,8 +139,9 @@ public class Lift : MonoBehaviour
                 temp = GameObject.Find("Lift").transform.position;
                 temp.y += 0.3f;
                 temp.x = TempP.x;
+               // gameObject.transform.position = temp;
                 MoveTheLift();
-                gameObject.transform.position = temp;
+                
             }
         }
 
@@ -151,6 +150,7 @@ public class Lift : MonoBehaviour
     void MoveTheLift()
     {
         GameObject.Find("Lift").transform.Translate(Vector3.up * Time.deltaTime * LiftSpeed);
+       gameObject.transform.Translate(Vector3.up * Time.deltaTime * LiftSpeed);
     }
 
 }

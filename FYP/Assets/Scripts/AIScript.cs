@@ -10,6 +10,7 @@ public class AIScript : MonoBehaviour
     public bool Combat;
     public bool IsFollowing;
     public float MovementSpeed;
+    Vector3 Temp;
     //IsFight IsTalking IsWalking IsLookingAround IsGuarding IsRuning
 
 	// Use this for initialization
@@ -22,6 +23,7 @@ public class AIScript : MonoBehaviour
         PlayerModel = GameObject.Find("PlayerModel");
         IsFollowing = false;
         Combat = false;
+        Temp = gameObject.transform.position;
 	}
 	
 	// Update is called once per frame
@@ -38,6 +40,12 @@ public class AIScript : MonoBehaviour
             transform.LookAt(PlayerModel.transform);
             //transform.position = Temp;
             transform.Translate ( Vector3.forward * Time.deltaTime * MovementSpeed);
+            transform.position = new Vector3(transform.position.x, Temp.y,transform.position.z);
+        }
+
+        else if (IsFollowing == false)
+        {
+            gameObject.transform.localEulerAngles = new Vector3(0, 0, 0);
         }
 
         if (Combat == true)
@@ -62,6 +70,8 @@ public class AIScript : MonoBehaviour
         {
             IsFollowing = true;
         }
+
+       
     }
 
     void OnTriggerExit(Collider col)

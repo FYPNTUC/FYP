@@ -6,6 +6,7 @@ public class CharacterAnim : MonoBehaviour
     public bool IsCarrying;
     public bool IsBalancing;
     public bool IsTopBalancing;
+    public bool IsFlyingFox;
 
     GameObject PlayerModel;
     GameObject PlayerModel2;
@@ -19,6 +20,7 @@ public class CharacterAnim : MonoBehaviour
         IsBalancing = false;
         IsCarrying = false;
         IsTopBalancing = false;
+        IsFlyingFox = false;
         timer = 0.5f;
 
     }
@@ -43,31 +45,32 @@ public class CharacterAnim : MonoBehaviour
         //    
         //}
 
-        if (Input.GetAxis("cLeftJoystickVerti") < 0)
+        if (IsFlyingFox == true)
         {
-
+            PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["PreparingFlyingFox"].speed = 4;
+            PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("PreparingFlyingFox");
         }
 
-        if (IsCarrying == true)
-        {
-            //if (Input.GetAxis("cVerticalDPad") > 0.001)
-            //{
-            //    //PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
-            //    PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
-            //}
+        //if (IsCarrying == true)
+        //{
+        //    if (Input.GetAxis("cVerticalDPad") > 0.001)
+        //    {
+        //        //PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
+        //        PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
+        //    }
 
-            //if (Input.GetKey("w"))
-            //{
-            //    // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
-            //    PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
-            //}
+        //    if (Input.GetKey("w"))
+        //    {
+        //        // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
+        //        PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
+        //    }
 
-            //if (Input.GetAxis("cLeftJoystickVerti") < 0)
-            //{
-            //    // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
-            //    PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
-            //}
-        }
+        //    if (Input.GetAxis("cLeftJoystickVerti") < 0)
+        //    {
+        //        // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
+        //        PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
+        //    }
+        //}
         if (IsTopBalancing == true)
         {
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
@@ -93,26 +96,10 @@ public class CharacterAnim : MonoBehaviour
             {
                 timer = 0.5f;
             }
-            if (Input.GetAxis("cVerticalDPad") > 0.001)
-            {
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 1;
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
-            }
-
-            if (Input.GetKey("w"))
-            {
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 1;
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
-            }
-
-            if (Input.GetAxis("cLeftJoystickVerti") < 0)
-            {
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 1;
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
-            }
+            
         }
 
-        else if (IsBalancing == false)
+        else if (IsBalancing == false && IsFlyingFox == false)
         {
             if (Input.GetAxis("cVerticalDPad") > 0.001)
             {

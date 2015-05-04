@@ -34,9 +34,11 @@ public class StartDoorScript : MonoBehaviour
         }
 
         //-80
-        if (gameObject.transform.eulerAngles.y <= 2 && gameObject.transform.eulerAngles.y >=-5)
+        if (gameObject.transform.eulerAngles.y <= 275 && gameObject.transform.eulerAngles.y >=270)
         {
             DoorIsMoving = false;
+            CanOpen = false;
+            //Destroy(gameObject);
         }
     }
 
