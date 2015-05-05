@@ -1,15 +1,22 @@
 fileFormatVersion: 2
-guid: b61128f643b44ae4290abe04ad32b42f
+guid: 5f93aef9416824143a675ef5785c9d94
+timeCreated: 1430819253
+licenseType: Free
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 18
   fileIDToRecycleName:
-    100000: pSphere2_pSphere1SmoothProxyGroup
-    100002: //RootNode
-    400000: pSphere2_pSphere1SmoothProxyGroup
-    400002: //RootNode
-    2300000: pSphere2_pSphere1SmoothProxyGroup
-    3300000: pSphere2_pSphere1SmoothProxyGroup
-    4300000: pSphere2_pSphere1SmoothProxyGroup
+    100000: //RootNode
+    100002: DestructablePlatform 1
+    100004: DestructablePLatform2
+    400000: //RootNode
+    400002: DestructablePlatform 1
+    400004: DestructablePLatform2
+    2300000: DestructablePlatform 1
+    2300002: DestructablePLatform2
+    3300000: DestructablePlatform 1
+    3300002: DestructablePLatform2
+    4300000: DestructablePlatform
+    4300002: DestructablePLatform2
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -38,11 +45,13 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
+    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
@@ -65,3 +74,5 @@ ModelImporter:
   animationType: 2
   additionalBone: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

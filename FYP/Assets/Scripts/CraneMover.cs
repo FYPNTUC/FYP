@@ -29,23 +29,26 @@ public class CraneMover : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
+        //master switch 
         if (StopPls == false)
         {
+            //check if the player is on the platform and allow the player to activate the crane
             if (Platform.GetComponent<CranePlatform>().IsOn == true)
             {
                 if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                 {
                     PlatformMoving = true;
-                   
+                    //change the reset position incase the player falls
+                    Player.GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocation5");
                     Checker.GetComponent<BoxCollider>().enabled = false;
                     GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
                     Platform.GetComponent<CranePlatform>().IsOn = false;
-                    Debug.Log("cranemover has problem");
+                   // Debug.Log("cranemover has problem");
 
                 }
             }
 
-            if (Trolley.transform.position.x < -2.9)
+            if (Trolley.transform.position.x < -3.2)
             {
                 PlatformDone = false;
                 StopPls = true;
@@ -65,7 +68,7 @@ public class CraneMover : MonoBehaviour
         }
 
 
-        if (Rope.transform.position.y > 123.34)
+        if (Rope.transform.position.y > 139.34) //123.34 old
         {
             PlatformMoving = false;
             PlatformDone = true;
@@ -78,7 +81,7 @@ public class CraneMover : MonoBehaviour
 
     void MoveThePlatForm()
     {
-        Rope.transform.Translate(Vector3.up * Time.deltaTime * 0.1f);
+        Rope.transform.Translate(Vector3.up * Time.deltaTime * 100f); //0.1
         Player.transform.position = Platform.transform.position;
        // Player.transform.position.y += 1;
     }

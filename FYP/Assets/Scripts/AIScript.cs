@@ -69,9 +69,7 @@ public class AIScript : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             IsFollowing = true;
-        }
-
-       
+        }     
     }
 
     void OnTriggerExit(Collider col)

@@ -1,0 +1,21 @@
+Frame 001 - 114 Idle (Back twist)
+
+Frame 116 - 176 Idle 2 (Normal)
+
+Frame 178 - 218  Walk
+
+Frame 220 - 228 Hammering 
+
+Frame 230 - 240 Block
+
+Frame 242 - 272 Fall
+
+Frame 274 - 312 Hanging
+
+Frame 314 - 387 Recover
+
+Frame 389 - 413 Fall (From getting smacked)
+
+Frame 415 lying on floor idle
+
+Frame 417 - 500 Talking

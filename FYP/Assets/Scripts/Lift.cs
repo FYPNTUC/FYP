@@ -27,6 +27,7 @@ public class Lift : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //force the application to 75 fps
         Application.targetFrameRate = 75; 
         Gangster1 = GameObject.Find("Gangster1");
         Gangster2 = GameObject.Find("Gangster2");
@@ -50,21 +51,28 @@ public class Lift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //allow the player to recenter the camera
         if ( Input.GetButtonDown("cButtonBack"))
         {
             OVRManager.display.RecenterPose();
             //Debug.Log("pop");
         }
+        //if the player has the key and is in the lift
         if (GotKey == true)
         {
             if (PlayerInLift == true)
             {
                 if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                 {
+                    //play the insert key animation
                     GameObject.Find("PlayerModel").GetComponent<Animation>().Play("InsertKey");
+                    //store the lift's starting position
                     TempP= gameObject.transform.position;
+                    //starts the lift 
                     LiftIsMoving = true;
+                    //destroy the player checker
                     Destroy(CheckPlayer);
+                    //deactivate the gui
                     GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;                   
                     //Debug.Log("lift has problem");
                 }
@@ -74,15 +82,18 @@ public class Lift : MonoBehaviour
         }
     }
 
-    //super costly
+    //super costly do not use if possible as it check with everything the player hit
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         //if (hit.gameObject.name == "L_Palm" || hit.gameObject.name == "R_Wrist 1" || hit.gameObject.name == "L_Feet1" || hit.gameObject.name == "R_Feet1")
         //{ 
             
         //}
+
+        //when the lift has reached the set height
         if (StartEvent == true)
         {
+            //when the max tilt is not reached && standing on the correct area
             if (LimitReached == false)
             {
                 if (hit.gameObject.name == "LiftRight")
@@ -91,7 +102,7 @@ public class Lift : MonoBehaviour
                     IsTurnBack = false;
                 } 
             }
-
+            //when the max tilt is not reached && standing on the correct area
             if (LimitReachedL == false)
             {
                 if (hit.gameObject.name == "LiftLeft")// && IsTurning == true)
@@ -100,6 +111,7 @@ public class Lift : MonoBehaviour
                     IsTurnBack = true;
                 }
             }
+            //destroy the rope make the lift fall on one side and destroy the gangsters as they are not longer needed
             Destroy(Rope);
             Destroy(Gangster1);
             Destroy(Gangster2);
@@ -113,16 +125,13 @@ public class Lift : MonoBehaviour
 
             //}
 
+            //if the lift travel the set distance stop the lift from moving up and start the tilting
             if (GameObject.Find("Lift").transform.position.y >= AmountToTravel)
             {
                 LiftIsMoving = false;
                 StartEvent = true;
-                
-               
-                //gameObject.transform.parent = null;
                 PlayerInLift = false;
-               
-
+                //to make the player not move weirdly
                 if (DoOnce == false)
                 {
                     gameObject.transform.Translate(0.1f, 0, 0);
@@ -132,14 +141,13 @@ public class Lift : MonoBehaviour
                 DoOnce = true;
             
             };
-
+            //move the lift upwards
             if (LiftIsMoving == true)
             {
                 Vector3 temp;
                 temp = GameObject.Find("Lift").transform.position;
                 temp.y += 0.3f;
                 temp.x = TempP.x;
-               // gameObject.transform.position = temp;
                 MoveTheLift();
                 
             }
@@ -149,8 +157,9 @@ public class Lift : MonoBehaviour
 
     void MoveTheLift()
     {
+        //move the lift along with the player so that the player camera wont be bumpy
         GameObject.Find("Lift").transform.Translate(Vector3.up * Time.deltaTime * LiftSpeed);
-       gameObject.transform.Translate(Vector3.up * Time.deltaTime * LiftSpeed);
+        gameObject.transform.Translate(Vector3.up * Time.deltaTime * LiftSpeed);
     }
 
 }

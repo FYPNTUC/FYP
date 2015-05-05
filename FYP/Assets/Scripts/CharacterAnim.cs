@@ -47,6 +47,7 @@ public class CharacterAnim : MonoBehaviour
 
         if (IsFlyingFox == true)
         {
+            //speed up the animation 
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["PreparingFlyingFox"].speed = 4;
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("PreparingFlyingFox");
         }
@@ -79,7 +80,7 @@ public class CharacterAnim : MonoBehaviour
 
         else if (IsBalancing == true)
         {
-           
+           //if the player is not on ground start a timer , if the timer reach 0 reset the player
             if (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().isGrounded == false)
             {
                
@@ -91,15 +92,34 @@ public class CharacterAnim : MonoBehaviour
                     timer = 0.5f;
                 }
             }
-
+                //reset the timer if the player made it to ground in time
             else if (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().isGrounded == true)
             {
                 timer = 0.5f;
             }
-            
+
+            // if the player moves forward play the walking animation
+            if (Input.GetAxis("cVerticalDPad") > 0.001)
+            {
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 1;
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
+            }
+
+            if (Input.GetKey("w"))
+            {
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 1;
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
+            }
+
+            if (Input.GetAxis("cLeftJoystickVerti") < 0)
+            {
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 1;
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
+            }
+
         }
 
-        else if (IsBalancing == false && IsFlyingFox == false)
+        else if (IsBalancing == false && IsFlyingFox == false)//placed so that the flying fox and balancing animation will not be interupted
         {
             if (Input.GetAxis("cVerticalDPad") > 0.001)
             {
@@ -125,30 +145,23 @@ public class CharacterAnim : MonoBehaviour
         if (Input.anyKey == false && Input.GetAxis("cLeftJoystickVerti") == 0 && Input.GetAxis("cVerticalDPad") == 0)
         {
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Stop("Walk");
-            //PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Stop("MoveTheBox");
             if (IsTopBalancing == false)
             {
-                //Debug.Log("wot");
                 PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 0;
             }
-            //PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 0;
         }
-
+        //jumping animation
         if (Input.GetKeyDown("space") || Input.GetButtonDown("cButtonB"))
         {
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Stop("Walk");
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Jump"].speed = 2.5f;
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Jump");
         }
+        //set the animation to idle if no key is pressed
         else if (PlayerModel.GetComponent<Animation>().GetComponent<Animation>().isPlaying == false && IsBalancing == false)
         {
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Idle");
         }
-
-        //else if (PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().isPlaying == false)
-        //{
-        //    //PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Stop("MoveTheBox");
-        //}
     }
 
     //cVerticalDPad cHorizontalDPad

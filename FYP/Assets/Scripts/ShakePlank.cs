@@ -35,14 +35,6 @@ public class ShakePlank : MonoBehaviour
         {
             if (Shake == true)
             {
-                //if (Plank.GetComponent<Transform>().eulerAngles.x > 15) 
-                //{            
-                //    Plank.transform.Rotate(Vector3.back * Time.deltaTime * 150);
-                //}
-                //else if (Plank.GetComponent<Transform>().eulerAngles.x < 15)
-                //{
-                //    Plank.transform.Rotate(Vector3.forward * Time.deltaTime * 150);
-                //}
                 if (ShakeLeft == true)
                 {
                     Plank.transform.Rotate(Vector3.up * Time.deltaTime * 200);
@@ -65,8 +57,31 @@ public class ShakePlank : MonoBehaviour
                 }
             }
         }
-        if (PlayerNear == true && Screw == 2)
+         if (PlayerNear == true && Screw == 2)
         {
+            if (Shake == true)
+            {
+                if (ShakeLeft == true)
+                {
+                    Plank.transform.Rotate(Vector3.up * Time.deltaTime * 200);
+                    if (Plank.GetComponent<Transform>().eulerAngles.y > 95)
+                    {
+                        ShakeLeft = false;
+                        ShakeRight = true;
+                    }
+                }
+
+                if (ShakeRight == true)
+                {
+
+                    Plank.transform.Rotate(Vector3.down * Time.deltaTime * 200);
+                    if (Plank.GetComponent<Transform>().eulerAngles.y < 94)
+                    {
+                        ShakeLeft = true;
+                        ShakeRight = false;
+                    }
+                }
+            }
             if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
                 Plank.GetComponent<MeshCollider>().enabled = true;
@@ -83,6 +98,7 @@ public class ShakePlank : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        //if the player does not have 2 screw shake the plank , and when if the player keeps going ahead remove the collsion 
         if (StopShake == false)
         {
             if (col.gameObject.tag == "Player")
@@ -96,7 +112,7 @@ public class ShakePlank : MonoBehaviour
 
                 if (Screw != 2)
                 {
-                    GUI2.GetComponent<Renderer>().enabled = true;
+                    //GUI2.GetComponent<Renderer>().enabled = true;
                 }
             }
         }

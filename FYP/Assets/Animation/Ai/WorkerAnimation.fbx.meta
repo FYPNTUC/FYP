@@ -317,6 +317,8 @@ ModelImporter:
     7400012: Hanging
     7400014: Recover
     7400016: GotHit
+    7400018: FloorIdle
+    7400020: Talking
     9500000: //RootNode
     13700000: L_EYe
     13700002: R_Eye
@@ -2950,6 +2952,658 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 389
       lastFrame: 412
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: back
+        weight: 0
+      - path: L_LegCtl
+        weight: 0
+      - path: L_LegCtl/ikHandle4
+        weight: 0
+      - path: L_LegCtl/ikHandle5
+        weight: 0
+      - path: L_LegCtl/L_KneeCtl
+        weight: 0
+      - path: left
+        weight: 0
+      - path: locator1
+        weight: 0
+      - path: PelvisCtl
+        weight: 1
+      - path: PelvisCtl/HipCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/EyeCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/EyeCtl/L_Eye
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/EyeCtl/R_Eye 1
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/ForeHeadCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/JawCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_CheekCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_EyeBrownCtl1
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_EyeBrownCtl2
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_LowerEyeLidCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_MiddleEyeBrownCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_MouthCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_NoseCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_UpperEyeLidCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/Lower_LipCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/NoseCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_CheekCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_EyeBrownCtl1
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_EyeBrownCtl2
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_LowerEyeLidCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_MiddleEyeBrownCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_MouthCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_NoseCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_UpperEyeLidCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/Upper_LipCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/L_ShoulderCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/L_ShoulderCtl/L_ElbowCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/L_ShoulderCtl/L_ElbowCtl/L_WristCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/L_ShoulderCtl/L_ElbowCtl/L_WristCtl/L_HandCtlGrp
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/L_ShoulderCtl/L_ElbowCtl/L_WristCtl/L_HandCtlGrp/L_HandCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/R_ShoulderCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/R_ShoulderCtl/R_ElbowCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/R_ShoulderCtl/R_ElbowCtl/R_WristCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/R_ShoulderCtl/R_ElbowCtl/R_WristCtl/R_HandCtlGrp
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/R_ShoulderCtl/R_ElbowCtl/R_WristCtl/R_HandCtlGrp/R_HandCtl
+        weight: 0
+      - path: PelvisCtl/Pelvis
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Index1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Index1/L_Index2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Index1/L_Index2/L_Index3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Index1/L_Index2/L_Index3/L_Index4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Middle1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Middle1/L_Middle2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Middle1/L_Middle2/L_Middle3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Middle1/L_Middle2/L_Middle3/L_Middle4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Pinky1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Pinky1/L_Pinky2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Pinky1/L_Pinky2/L_Pinky3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Pinky1/L_Pinky2/L_Pinky3/L_Pinky4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Ring1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Ring1/L_RIng2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Ring1/L_RIng2/L_Ring3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Ring1/L_RIng2/L_Ring3/L_Ring4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Thumb1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Thumb1/L_Thumb2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Thumb1/L_Thumb2/L_Thumb3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Thumb1/L_Thumb2/L_Thumb3/L_Thumb4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Traps
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/ForeHead
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Jaw
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Jaw/Chin
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Jaw/Lower_Lip
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_CHeek
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeBall
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeBrown1
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeBrown2
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeBrown3
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeLid1
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeLid2
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeLid3
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeLid4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_Lip
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_Nose
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Middle_Upper_Lip
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Nose
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_CHeek
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeBall
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeBrown1
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeBrown2
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeBrown3
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeLid1
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeLid2
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeLid3
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeLid4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_Lip
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_Nose
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Skull
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Index1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Index1/R_Index2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Index1/R_Index2/R_Index3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Index1/R_Index2/R_Index3/R_Index4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Middle1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Middle1/R_Middle2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Middle1/R_Middle2/R_Middle3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Middle1/R_Middle2/R_Middle3/R_Middle4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Pinky1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Pinky1/R_Pinky2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Pinky1/R_Pinky2/R_Pinky3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Pinky1/R_Pinky2/R_Pinky3/R_Pinky4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Ring1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Ring1/R_RIng2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Ring1/R_RIng2/R_Ring3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Ring1/R_RIng2/R_Ring3/R_Ring4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Thumb1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Thumb1/R_Thumb2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Thumb1/R_Thumb2/R_Thumb3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Thumb1/R_Thumb2/R_Thumb3/R_Thumb4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Traps
+        weight: 0
+      - path: PelvisCtl/Pelvis/L_Thigh
+        weight: 1
+      - path: PelvisCtl/Pelvis/L_Thigh/L_Knee
+        weight: 1
+      - path: PelvisCtl/Pelvis/L_Thigh/L_Knee/L_Ankle
+        weight: 1
+      - path: PelvisCtl/Pelvis/L_Thigh/L_Knee/L_Ankle/L_Feet1
+        weight: 1
+      - path: PelvisCtl/Pelvis/L_Thigh/L_Knee/L_Ankle/L_Feet1/L_Feet2
+        weight: 1
+      - path: PelvisCtl/Pelvis/R_Thigh
+        weight: 1
+      - path: PelvisCtl/Pelvis/R_Thigh/R_Knee
+        weight: 1
+      - path: PelvisCtl/Pelvis/R_Thigh/R_Knee/R_Ankle
+        weight: 1
+      - path: PelvisCtl/Pelvis/R_Thigh/R_Knee/R_Ankle/R_Feet1
+        weight: 1
+      - path: PelvisCtl/Pelvis/R_Thigh/R_Knee/R_Ankle/R_Feet1/R_Feet2
+        weight: 1
+      - path: R_LegCtl
+        weight: 0
+      - path: R_LegCtl/ikHandle2
+        weight: 0
+      - path: R_LegCtl/ikHandle3
+        weight: 0
+      - path: R_LegCtl/R_KneeCtl
+        weight: 0
+      - path: Worker1
+        weight: 0
+      - path: Worker1/L_EYe
+        weight: 0
+      - path: Worker1/R_Eye
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: FloorIdle
+      takeName: Take 001
+      firstFrame: 415
+      lastFrame: 415
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: back
+        weight: 0
+      - path: L_LegCtl
+        weight: 0
+      - path: L_LegCtl/ikHandle4
+        weight: 0
+      - path: L_LegCtl/ikHandle5
+        weight: 0
+      - path: L_LegCtl/L_KneeCtl
+        weight: 0
+      - path: left
+        weight: 0
+      - path: locator1
+        weight: 0
+      - path: PelvisCtl
+        weight: 1
+      - path: PelvisCtl/HipCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/EyeCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/EyeCtl/L_Eye
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/EyeCtl/R_Eye 1
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/ForeHeadCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/JawCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_CheekCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_EyeBrownCtl1
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_EyeBrownCtl2
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_LowerEyeLidCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_MiddleEyeBrownCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_MouthCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_NoseCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/L_UpperEyeLidCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/Lower_LipCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/NoseCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_CheekCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_EyeBrownCtl1
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_EyeBrownCtl2
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_LowerEyeLidCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_MiddleEyeBrownCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_MouthCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_NoseCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/R_UpperEyeLidCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/HeadCtl/Upper_LipCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/L_ShoulderCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/L_ShoulderCtl/L_ElbowCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/L_ShoulderCtl/L_ElbowCtl/L_WristCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/L_ShoulderCtl/L_ElbowCtl/L_WristCtl/L_HandCtlGrp
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/L_ShoulderCtl/L_ElbowCtl/L_WristCtl/L_HandCtlGrp/L_HandCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/R_ShoulderCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/R_ShoulderCtl/R_ElbowCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/R_ShoulderCtl/R_ElbowCtl/R_WristCtl
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/R_ShoulderCtl/R_ElbowCtl/R_WristCtl/R_HandCtlGrp
+        weight: 0
+      - path: PelvisCtl/HipCtl/WaistCtl/ChestCtl/R_ShoulderCtl/R_ElbowCtl/R_WristCtl/R_HandCtlGrp/R_HandCtl
+        weight: 0
+      - path: PelvisCtl/Pelvis
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Index1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Index1/L_Index2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Index1/L_Index2/L_Index3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Index1/L_Index2/L_Index3/L_Index4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Middle1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Middle1/L_Middle2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Middle1/L_Middle2/L_Middle3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Middle1/L_Middle2/L_Middle3/L_Middle4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Pinky1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Pinky1/L_Pinky2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Pinky1/L_Pinky2/L_Pinky3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Pinky1/L_Pinky2/L_Pinky3/L_Pinky4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Ring1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Ring1/L_RIng2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Ring1/L_RIng2/L_Ring3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Ring1/L_RIng2/L_Ring3/L_Ring4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Thumb1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Thumb1/L_Thumb2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Thumb1/L_Thumb2/L_Thumb3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Shoulder/L_Elbow/L_Wrist/L_Palm/L_Thumb1/L_Thumb2/L_Thumb3/L_Thumb4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/L_Traps
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/ForeHead
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Jaw
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Jaw/Chin
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Jaw/Lower_Lip
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_CHeek
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeBall
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeBrown1
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeBrown2
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeBrown3
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeLid1
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeLid2
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeLid3
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_EyeLid4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_Lip
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/L_Nose
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Middle_Upper_Lip
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Nose
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_CHeek
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeBall
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeBrown1
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeBrown2
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeBrown3
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeLid1
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeLid2
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeLid3
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_EyeLid4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_Lip
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/R_Nose
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/Mid_shoulder/Neck/Head/Skull
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Index1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Index1/R_Index2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Index1/R_Index2/R_Index3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Index1/R_Index2/R_Index3/R_Index4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Middle1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Middle1/R_Middle2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Middle1/R_Middle2/R_Middle3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Middle1/R_Middle2/R_Middle3/R_Middle4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Pinky1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Pinky1/R_Pinky2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Pinky1/R_Pinky2/R_Pinky3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Pinky1/R_Pinky2/R_Pinky3/R_Pinky4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Ring1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Ring1/R_RIng2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Ring1/R_RIng2/R_Ring3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Ring1/R_RIng2/R_Ring3/R_Ring4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Thumb1
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Thumb1/R_Thumb2
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Thumb1/R_Thumb2/R_Thumb3
+        weight: 1
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Shoulder/R_Elbow/R_Wrist/R_Palm/R_Thumb1/R_Thumb2/R_Thumb3/R_Thumb4
+        weight: 0
+      - path: PelvisCtl/Pelvis/Hip/Waist/Chest/R_Traps
+        weight: 0
+      - path: PelvisCtl/Pelvis/L_Thigh
+        weight: 1
+      - path: PelvisCtl/Pelvis/L_Thigh/L_Knee
+        weight: 1
+      - path: PelvisCtl/Pelvis/L_Thigh/L_Knee/L_Ankle
+        weight: 1
+      - path: PelvisCtl/Pelvis/L_Thigh/L_Knee/L_Ankle/L_Feet1
+        weight: 1
+      - path: PelvisCtl/Pelvis/L_Thigh/L_Knee/L_Ankle/L_Feet1/L_Feet2
+        weight: 1
+      - path: PelvisCtl/Pelvis/R_Thigh
+        weight: 1
+      - path: PelvisCtl/Pelvis/R_Thigh/R_Knee
+        weight: 1
+      - path: PelvisCtl/Pelvis/R_Thigh/R_Knee/R_Ankle
+        weight: 1
+      - path: PelvisCtl/Pelvis/R_Thigh/R_Knee/R_Ankle/R_Feet1
+        weight: 1
+      - path: PelvisCtl/Pelvis/R_Thigh/R_Knee/R_Ankle/R_Feet1/R_Feet2
+        weight: 1
+      - path: R_LegCtl
+        weight: 0
+      - path: R_LegCtl/ikHandle2
+        weight: 0
+      - path: R_LegCtl/ikHandle3
+        weight: 0
+      - path: R_LegCtl/R_KneeCtl
+        weight: 0
+      - path: Worker1
+        weight: 0
+      - path: Worker1/L_EYe
+        weight: 0
+      - path: Worker1/R_Eye
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Talking
+      takeName: Take 001
+      firstFrame: 417
+      lastFrame: 500
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
