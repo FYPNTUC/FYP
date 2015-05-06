@@ -1,20 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AICheckPoint : MonoBehaviour 
+public class AICheckPoint : MonoBehaviour
 {
     public GameObject Worker;
-
-	// Use this for initialization
-	void Start () 
+    int x;
+     float Timer;
+      
+    // Use this for initialization
+    void Start()
     {
+        Timer = 1;
+        x = 0;
         Worker = GameObject.Find("Worker");
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    }
+
+    // Update is called once per frame
+    void Update() 
     {
-	
+       
+        //Timer -= Time.deltaTime;
+        //if (Timer <= 0)
+        //{
+        //    x = (Random.Range(1, 10));      
+        //    Timer = 1;
+        //    Debug.Log(x);      
+        //}
 	}
 
     void OnTriggerEnter(Collider col)
@@ -36,7 +47,19 @@ public class AICheckPoint : MonoBehaviour
     {
         if (col.gameObject.tag == "Worker")
         {
-         
+
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,8 @@ public class StartDoorScript : MonoBehaviour
     GameObject GUI;
     bool CanOpen;
     bool DoorIsMoving;
+    public bool start;
+    bool DoOnce;
 
     // Use this for initialization
     void Start()
@@ -13,6 +15,8 @@ public class StartDoorScript : MonoBehaviour
         GUI = GameObject.Find("GUI");
         CanOpen = false;
         DoorIsMoving = false;
+        start = false;
+        DoOnce = false;
     }
 
     // Update is called once per frame
@@ -36,8 +40,14 @@ public class StartDoorScript : MonoBehaviour
         //-80
         if (gameObject.transform.eulerAngles.y <= 275 && gameObject.transform.eulerAngles.y >=270)
         {
+            if (DoOnce == false)
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = false;
+                DoOnce = true;
+            }
             DoorIsMoving = false;
             CanOpen = false;
+            start = true;
             //Destroy(gameObject);
         }
     }

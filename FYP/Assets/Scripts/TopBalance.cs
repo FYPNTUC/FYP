@@ -82,7 +82,7 @@ public class TopBalance : MonoBehaviour
                 //GameObject.Find("PlayerModel").transform.Rotate(Vector3.forward * Time.deltaTime * 25);
             }
 
-            if (Input.GetKey("e") || Input.GetButton("cButtonY"))// || Input.GetButtonDown("cButtonA"))
+            if (Input.GetKey("e") || Input.GetButton("cButtonB"))// || Input.GetButtonDown("cButtonA"))
             {
                 gameObject.transform.Rotate(Vector3.back * Time.deltaTime * 25);
                 //Player.transform.Rotate(Vector3.back * Time.deltaTime * 25);
