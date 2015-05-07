@@ -8,7 +8,7 @@ public class TopBalance : MonoBehaviour
     Vector3 StoredPos;
     public bool BalanceStart;
     public GameObject Player;
-
+    bool DoOnce;
 
     // Use this for initialization
     void Start()
@@ -18,13 +18,16 @@ public class TopBalance : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         RotateRight = false;
         RotateLeft = false;
+        DoOnce = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         if (BalanceStart == true)
         {
+            //Player.GetComponent<OVRPlayerController>().
             //Fail Tracker
             if (GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z > 20 && GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z < 25)
             {
@@ -34,6 +37,7 @@ public class TopBalance : MonoBehaviour
                 gameObject.transform.position = StoredPos;
                 gameObject.transform.localEulerAngles = new Vector3(0, 0, 0);
                 GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsTopBalancing = false;
+                DoOnce = false;
             }
 
             if (GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z > 330 && GameObject.Find("PlayerModel").GetComponent<Transform>().eulerAngles.z < 340)
@@ -44,6 +48,7 @@ public class TopBalance : MonoBehaviour
                 gameObject.transform.position = StoredPos;
                 gameObject.transform.localEulerAngles = new Vector3(0, 0, 0);
                 GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsTopBalancing = false;
+                DoOnce = false;
 
             }
             //Start Tracker
@@ -53,10 +58,19 @@ public class TopBalance : MonoBehaviour
             GameObject.Find("PlayerModel").transform.parent = null;
             gameObject.transform.Translate(Vector3.forward * Time.deltaTime * 0.5f);
             Vector3 temp;
+            Vector3 TempP;
             temp = gameObject.transform.position;
+            TempP = gameObject.transform.position;
             temp.y -= 0.85f;
-            Player.transform.position = gameObject.transform.position;
-            Player.transform.rotation = gameObject.transform.rotation;
+            TempP.y += 1;
+            TempP.z -= 1;
+            Player.transform.position = TempP;
+            //Player.transform.position = gameObject.transform.position;
+            if (DoOnce == false)
+            {
+                Player.transform.rotation = gameObject.transform.rotation;
+                DoOnce = true;
+            }
             GameObject.Find("PlayerModel").transform.position = temp;
             GameObject.Find("PlayerModel").transform.rotation = gameObject.transform.rotation;
 

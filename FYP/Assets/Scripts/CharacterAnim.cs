@@ -11,8 +11,8 @@ public class CharacterAnim : MonoBehaviour
     GameObject PlayerModel;
     GameObject PlayerModel2;
     // Use this for initialization
-     float timer;
-           
+    float timer;
+
     void Start()
     {
         PlayerModel = GameObject.Find("PlayerModel");
@@ -28,7 +28,7 @@ public class CharacterAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Walk"].speed = -1;
         //horizontal controls incase
         //if (Input.GetAxis("cLeftJoystickHori") > 0.19)
         //{
@@ -80,19 +80,19 @@ public class CharacterAnim : MonoBehaviour
 
         else if (IsBalancing == true)
         {
-           //if the player is not on ground start a timer , if the timer reach 0 reset the player
+            //if the player is not on ground start a timer , if the timer reach 0 reset the player
             if (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().isGrounded == false)
             {
-               
+
                 timer -= Time.deltaTime;
                 //Debug.Log(timer);
-                if (timer <=0)
-                {             
+                if (timer <= 0)
+                {
                     GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ChangeLevelFade = true;
                     timer = 0.5f;
                 }
             }
-                //reset the timer if the player made it to ground in time
+            //reset the timer if the player made it to ground in time
             else if (GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterController>().isGrounded == true)
             {
                 timer = 0.5f;
@@ -153,9 +153,12 @@ public class CharacterAnim : MonoBehaviour
         //jumping animation
         if (Input.GetKeyDown("space") || Input.GetButtonDown("cButtonB"))
         {
-            PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Stop("Walk");
-            PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Jump"].speed = 2.5f;
-            PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Jump");
+            if (IsTopBalancing == false)
+            {
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Stop("Walk");
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Jump"].speed = 2.5f;
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Jump");
+            }
         }
         //set the animation to idle if no key is pressed
         else if (PlayerModel.GetComponent<Animation>().GetComponent<Animation>().isPlaying == false && IsBalancing == false)

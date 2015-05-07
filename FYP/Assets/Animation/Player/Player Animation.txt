@@ -1,0 +1,47 @@
+Frame 1-40 Walk Cycle
+
+Frame 42 Still
+
+Frame 44-167 Idle
+
+Frame 169-193 Jump
+
+Frame 195-267 Balancing walk
+
+Frame Hanging Animation
+
+Frame 276-315 Recover from hanging
+
+Frame 317-350 Pick up hammer
+
+Frame 352-442 Carry Box
+
+Frame 444-504 Walk With Box 
+
+Frame 506-540 Jump with Box 
+
+Frame 542-586 Put Down Box 
+
+Frame 588-625 Pick Up Key 
+
+Frame 627-657 Climb Ladder 1
+
+Frame 659-688 Climb Ladder 2
+
+Frame 690-725 Preparing to fly Flying Fox 
+
+Frame 727-747 Flying Flying Fox
+
+Frame 749-785 Land from Flying Fox 
+
+Frame 787-802 Use Wheelbarrow
+
+Frame 804-834 Walk with Wheelbarrow
+
+Frame 836-900 Unload from Wheelbarrow
+
+Frame 902-916 Put Down WheelBarrow
+
+Frame 918-983 Insert Key 
+
+

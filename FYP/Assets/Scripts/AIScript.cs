@@ -13,7 +13,7 @@ public class AIScript : MonoBehaviour
     Vector3 Temp;
     //IsFight IsTalking IsWalking IsLookingAround IsGuarding IsRuning
 
-	// Use this for initialization
+	// Use this for initializationd
 	void Start () 
     {
         MovementSpeed = 1;

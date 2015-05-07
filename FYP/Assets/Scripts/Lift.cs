@@ -28,7 +28,7 @@ public class Lift : MonoBehaviour
     void Start()
     {
         //force the application to 75 fps
-        Application.targetFrameRate = 75; 
+        Application.targetFrameRate = 75;
         Gangster1 = GameObject.Find("Gangster1");
         Gangster2 = GameObject.Find("Gangster2");
         PlayerNearCraneL = false;
@@ -51,8 +51,11 @@ public class Lift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        
         //allow the player to recenter the camera
-        if ( Input.GetButtonDown("cButtonBack"))
+        if (Input.GetButtonDown("cButtonBack"))
         {
             OVRManager.display.RecenterPose();
             //Debug.Log("pop");
@@ -67,17 +70,17 @@ public class Lift : MonoBehaviour
                     //play the insert key animation
                     GameObject.Find("PlayerModel").GetComponent<Animation>().Play("InsertKey");
                     //store the lift's starting position
-                    TempP= gameObject.transform.position;
+                    TempP = gameObject.transform.position;
                     //starts the lift 
                     LiftIsMoving = true;
                     //destroy the player checker
                     Destroy(CheckPlayer);
                     //deactivate the gui
-                    GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;                   
+                    GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
                     //Debug.Log("lift has problem");
                 }
 
-         
+
             }
         }
     }
@@ -87,7 +90,7 @@ public class Lift : MonoBehaviour
     {
         //if (hit.gameObject.name == "L_Palm" || hit.gameObject.name == "R_Wrist 1" || hit.gameObject.name == "L_Feet1" || hit.gameObject.name == "R_Feet1")
         //{ 
-            
+
         //}
 
         //when the lift has reached the set height
@@ -100,7 +103,7 @@ public class Lift : MonoBehaviour
                 {
                     IsTurning = true;
                     IsTurnBack = false;
-                } 
+                }
             }
             //when the max tilt is not reached && standing on the correct area
             if (LimitReachedL == false)
@@ -139,7 +142,7 @@ public class Lift : MonoBehaviour
                 }
 
                 DoOnce = true;
-            
+
             };
             //move the lift upwards
             if (LiftIsMoving == true)
@@ -149,7 +152,7 @@ public class Lift : MonoBehaviour
                 temp.y += 0.3f;
                 temp.x = TempP.x;
                 MoveTheLift();
-                
+
             }
         }
 
