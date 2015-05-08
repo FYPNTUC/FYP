@@ -6,11 +6,13 @@ public class CraneClimbCheck : MonoBehaviour
     GameObject GUI;
     GameObject Player;
     bool CanClimb;
+    GameObject TBD;
 	// Use this for initialization
 	void Start () 
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         GUI = GameObject.Find("GUI");
+       TBD = GameObject.Find("CraneRope4");
         CanClimb = false;
 	}
 	
@@ -23,6 +25,7 @@ public class CraneClimbCheck : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocationC");
                 GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ChangeLevelFade = true;
+                Destroy(TBD);
             }
         }
 	}

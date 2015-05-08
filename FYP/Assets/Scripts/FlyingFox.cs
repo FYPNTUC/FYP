@@ -24,7 +24,7 @@ public class FlyingFox : MonoBehaviour
             {
                 //Player.transform.parent = gameObject.transform;
 
-
+                GameObject.Find("ZipLine").GetComponent<AudioSource>().Play();
                 Player.GetComponent<OVRPlayerController>().enabled = false;
                 GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
                 Destroy(Checker);
@@ -44,6 +44,7 @@ public class FlyingFox : MonoBehaviour
         if (gameObject.transform.position.z < -24)
         {
             ZipIsMoving = false;
+            GameObject.Find("ZipLine").GetComponent<AudioSource>().Stop();
             //Player.transform.parent = null;
             Player.GetComponent<OVRPlayerController>().enabled = true;
             GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsFlyingFox = false;

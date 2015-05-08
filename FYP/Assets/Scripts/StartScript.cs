@@ -45,7 +45,7 @@ public class StartScript : MonoBehaviour
             {
                 //tio whack
                 GameObject.FindGameObjectWithTag("CSW1").GetComponent<Animator>().SetBool("GetRekt", true);
-                GameObject.FindGameObjectWithTag("CSW1").transform.position = 
+                //GameObject.FindGameObjectWithTag("CSW1").transform.position = 
                 new Vector3(GameObject.FindGameObjectWithTag("CSW1").transform.position.x, -0.12f, GameObject.FindGameObjectWithTag("CSW1").transform.position.z);                     //(0, -0.877f, 0);
                 DoOnce = true;
             }

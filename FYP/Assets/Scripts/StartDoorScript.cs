@@ -42,12 +42,12 @@ public class StartDoorScript : MonoBehaviour
         {
             if (DoOnce == false)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = false;
+                //GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = false;
                 DoOnce = true;
             }
             DoorIsMoving = false;
             CanOpen = false;
-            start = true;
+            //start = true;
             //Destroy(gameObject);
         }
     }
