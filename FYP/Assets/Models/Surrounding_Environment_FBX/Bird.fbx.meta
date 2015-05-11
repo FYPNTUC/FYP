@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: d7c9a3552656f2c42908e19841b4c1e7
+timeCreated: 1431308324
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: back
+    100002: //RootNode
+    100004: Bird
+    100006: Eye1
+    100008: Head
+    100010: L_Wing1
+    100012: L_Wing2
+    100014: L_Wing3
+    100016: left
+    100018: Neck
+    100020: R_Wing1
+    100022: R_Wing2
+    100024: R_Wing3
+    100026: Spine
+    100028: Tail1
+    100030: Tail2
+    400000: back
+    400002: //RootNode
+    400004: Bird
+    400006: Eye1
+    400008: Head
+    400010: L_Wing1
+    400012: L_Wing2
+    400014: L_Wing3
+    400016: left
+    400018: Neck
+    400020: R_Wing1
+    400022: R_Wing2
+    400024: R_Wing3
+    400026: Spine
+    400028: Tail1
+    400030: Tail2
+    4300000: Bird
+    7400000: Fly
+    9500000: //RootNode
+    13700000: Bird
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Fly
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: back
+        weight: 1
+      - path: Bird
+        weight: 1
+      - path: Eye1
+        weight: 1
+      - path: left
+        weight: 1
+      - path: Spine
+        weight: 1
+      - path: Spine/L_Wing1
+        weight: 1
+      - path: Spine/L_Wing1/L_Wing2
+        weight: 1
+      - path: Spine/L_Wing1/L_Wing2/L_Wing3
+        weight: 1
+      - path: Spine/Neck
+        weight: 1
+      - path: Spine/Neck/Head
+        weight: 1
+      - path: Spine/R_Wing1
+        weight: 1
+      - path: Spine/R_Wing1/R_Wing2
+        weight: 1
+      - path: Spine/R_Wing1/R_Wing2/R_Wing3
+        weight: 1
+      - path: Spine/Tail1
+        weight: 1
+      - path: Spine/Tail1/Tail2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

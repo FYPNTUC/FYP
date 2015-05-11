@@ -44,4 +44,48 @@ Frame 902-916 Put Down WheelBarrow
 
 Frame 918-983 Insert Key 
 
+Frame 985 - 1057 Going up vertical plank
+
+Frame 1059 - 1175 save worker
+
+Frame 1177 - 1215 standing to knee position
+
+Frame 1215- 1244 hammering
+
+Frame 1246 - 1282 knee to standing position
+
+Frame 1284 - 1314 take out crane controller
+
+Frame 1315 - 1379 Holding COntroller Idle
+
+Frame 1381 - 1411 put back controller
+
+Frame 1412 - 1442 Take out Tool Box
+
+Frame 1443 - 1500 Holding Tool Box Idle
+
+Frame 1501 - 1531 Put back Tool Box
+
+Frame 1533 - 1554 Idle to Fall 
+
+Frame 1555 - 1576 Falling
+
+Frame 1578 - 1605 Idle to standing board jump position
+
+Frame 1606 - 1635 Standing board jump Idle
+
+Frame 1636 - 1700 Fail Jump 1
+
+Frame 1701 - 1719 Jump
+
+Frame 1720 - 1758 recover from jump to idle position
+
+
+
+
+
+
+
+
+
 

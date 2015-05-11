@@ -33,7 +33,7 @@ public class CranePlatform : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             IsOn = false;
-            GUI.GetComponent<Renderer>().enabled = true;
+            GUI.GetComponent<Renderer>().enabled = false;
         }
     }
 }

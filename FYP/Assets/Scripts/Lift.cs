@@ -52,7 +52,8 @@ public class Lift : MonoBehaviour
     void Update()
     {
 
-
+        //ovrHmd_GetTrackingState
+       
         
         //allow the player to recenter the camera
         if (Input.GetButtonDown("cButtonBack"))

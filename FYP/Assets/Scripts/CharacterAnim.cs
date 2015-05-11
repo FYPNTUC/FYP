@@ -9,14 +9,12 @@ public class CharacterAnim : MonoBehaviour
     public bool IsFlyingFox;
 
     GameObject PlayerModel;
-    GameObject PlayerModel2;
     // Use this for initialization
     float timer;
 
     void Start()
     {
-        PlayerModel = GameObject.Find("PlayerModel");
-        PlayerModel2 = GameObject.Find("PlayerModel2");
+        PlayerModel = GameObject.Find("PlayerModel");     
         IsBalancing = false;
         IsCarrying = false;
         IsTopBalancing = false;
@@ -52,26 +50,25 @@ public class CharacterAnim : MonoBehaviour
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("PreparingFlyingFox");
         }
 
-        //if (IsCarrying == true)
-        //{
-        //    if (Input.GetAxis("cVerticalDPad") > 0.001)
-        //    {
-        //        //PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
-        //        PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
-        //    }
+        if (IsCarrying == true)
+        {
+            if (Input.GetAxis("cVerticalDPad") > 0.001)
+            {
 
-        //    if (Input.GetKey("w"))
-        //    {
-        //        // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
-        //        PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
-        //    }
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("WalkWithBox");
+            }
 
-        //    if (Input.GetAxis("cLeftJoystickVerti") < 0)
-        //    {
-        //        // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
-        //        PlayerModel2.GetComponent<Animation>().GetComponent<Animation>().Play("MoveTheBox");
-        //    }
-        //}
+            if (Input.GetKey("w"))
+            {
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("WalkWithBox");
+            }
+
+            if (Input.GetAxis("cLeftJoystickVerti") < 0)
+            {
+
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("WalkWithBox");
+            }
+        }
         if (IsTopBalancing == true)
         {
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
@@ -119,7 +116,7 @@ public class CharacterAnim : MonoBehaviour
 
         }
 
-        else if (IsBalancing == false && IsFlyingFox == false)//placed so that the flying fox and balancing animation will not be interupted
+        else if (IsBalancing == false && IsFlyingFox == false && IsCarrying == false)//placed so that the flying fox and balancing animation will not be interupted
         {
             if (Input.GetAxis("cVerticalDPad") > 0.001)
             {
@@ -161,7 +158,7 @@ public class CharacterAnim : MonoBehaviour
             }
         }
         //set the animation to idle if no key is pressed
-        else if (PlayerModel.GetComponent<Animation>().GetComponent<Animation>().isPlaying == false && IsBalancing == false)
+        else if (PlayerModel.GetComponent<Animation>().GetComponent<Animation>().isPlaying == false && IsBalancing == false && IsCarrying == false)
         {
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Idle");
         }
