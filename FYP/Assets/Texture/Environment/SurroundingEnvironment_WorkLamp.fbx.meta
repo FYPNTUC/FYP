@@ -1,28 +1,19 @@
 fileFormatVersion: 2
-guid: 83b82558e64fe6e43b36b7ce83d20c99
-timeCreated: 1431315769
+guid: a1858b435946d0f4b8518e2940d5dbd1
+timeCreated: 1431396311
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: Ceiling_Lamp10
-    100002: Ceiling_Lamp:Ceiling_Lamp
-    100004: Ceiling_Lamp:Ceiling_Lamp1
-    100006: Ceiling_Lamp:transform1
-    100008: Ceiling_Lamp:transform2
-    100010: //RootNode
-    400000: Ceiling_Lamp10
-    400002: Ceiling_Lamp:Ceiling_Lamp
-    400004: Ceiling_Lamp:Ceiling_Lamp1
-    400006: Ceiling_Lamp:transform1
-    400008: Ceiling_Lamp:transform2
-    400010: //RootNode
-    2300000: Ceiling_Lamp:Ceiling_Lamp1
-    2300002: //RootNode
-    3300000: Ceiling_Lamp:Ceiling_Lamp1
-    3300002: //RootNode
-    4300000: Ceiling_Lamp:Ceiling_Lamp1
-    4300002: CeilingLamp
+    100000: left
+    100002: //RootNode
+    100004: WorkLamp
+    400000: left
+    400002: //RootNode
+    400004: WorkLamp
+    2300000: WorkLamp
+    3300000: WorkLamp
+    4300000: WorkLamp
     9500000: //RootNode
   materials:
     importMaterials: 1

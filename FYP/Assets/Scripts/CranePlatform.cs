@@ -23,8 +23,11 @@ public class CranePlatform : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            IsOn = true;
-            GUI.GetComponent<Renderer>().enabled = true;
+            if (GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().HasBox == true || GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox == true)
+            {
+                IsOn = true;
+                GUI.GetComponent<Renderer>().enabled = true;
+            }
         }
     }
 

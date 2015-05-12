@@ -63,6 +63,7 @@ public class MoveUpBox : MonoBehaviour
                 //Player.GetComponent<OVRPlayerController>().enabled = false;
                 PlayerModel.GetComponent<CharacterAnim>().IsCarrying = true;
                 gameObject.transform.position = BoxLoc.transform.position;
+                gameObject.transform.rotation = BoxLoc.transform.rotation;
                 gameObject.transform.parent = Player.transform;
                 if (gameObject.name == "MoveAbleBox")
                 {
@@ -91,6 +92,7 @@ public class MoveUpBox : MonoBehaviour
                     //Player.GetComponent<OVRPlayerController>().enabled = false;
                     PlayerModel.GetComponent<CharacterAnim>().IsCarrying = true;
                     gameObject.transform.position = BoxLoc.transform.position;
+                    gameObject.transform.rotation = BoxLoc.transform.rotation;
                     
                     gameObject.transform.parent = Player.transform;
                     if (gameObject.name == "MoveAbleBox")

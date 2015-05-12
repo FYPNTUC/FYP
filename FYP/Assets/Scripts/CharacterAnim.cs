@@ -71,8 +71,8 @@ public class CharacterAnim : MonoBehaviour
         }
         if (IsTopBalancing == true)
         {
-            PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
-            PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 1;
+            PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("2nBal");
+            PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["2nBal"].speed = 1;
         }
 
         else if (IsBalancing == true)
@@ -98,20 +98,20 @@ public class CharacterAnim : MonoBehaviour
             // if the player moves forward play the walking animation
             if (Input.GetAxis("cVerticalDPad") > 0.001)
             {
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 1;
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["2nBal"].speed = 1;
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("2nBal");
             }
 
             if (Input.GetKey("w"))
             {
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 1;
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["2nBal"].speed = 1;
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("2nBal");
             }
 
             if (Input.GetAxis("cLeftJoystickVerti") < 0)
             {
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 1;
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Balancing");
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["2nBal"].speed = 1;
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("2nBal");
             }
 
         }
@@ -144,7 +144,7 @@ public class CharacterAnim : MonoBehaviour
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Stop("Walk");
             if (IsTopBalancing == false)
             {
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["Balancing"].speed = 0;
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["2nBal"].speed = 0;
             }
         }
         //jumping animation

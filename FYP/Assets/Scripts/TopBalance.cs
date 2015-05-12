@@ -64,8 +64,8 @@ public class TopBalance : MonoBehaviour
             temp.y -= 0.85f;
             TempP.y += 1;
             TempP.z -= 1;
-            Player.transform.position = TempP;
-            //Player.transform.position = gameObject.transform.position;
+            //Player.transform.position = TempP;
+            Player.transform.position = gameObject.transform.position;
             if (DoOnce == false)
             {
                 Player.transform.rotation = gameObject.transform.rotation;

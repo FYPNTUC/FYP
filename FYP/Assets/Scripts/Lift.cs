@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Lift : MonoBehaviour
 {
-    GameObject Gangster1;
-    GameObject Gangster2;
+    GameObject CS;
+    //GameObject Gangster2;
     GameObject CheckPlayer;
     GameObject Rope;
     public Animator anim;
@@ -29,8 +29,8 @@ public class Lift : MonoBehaviour
     {
         //force the application to 75 fps
         Application.targetFrameRate = 75;
-        Gangster1 = GameObject.Find("Gangster1");
-        Gangster2 = GameObject.Find("Gangster2");
+        CS = GameObject.Find("CutScene");
+        //Gangster2 = GameObject.Find("Gangster2");
         PlayerNearCraneL = false;
         NoOfScrew = 0;
         anim = GameObject.Find("Lift").GetComponent<Animator>();
@@ -68,6 +68,9 @@ public class Lift : MonoBehaviour
             {
                 if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                 {
+
+                    GameObject.Find("Arrow").GetComponent<Direction>().Done1 = true;
+                    GameObject.Find("Arrow").GetComponent<Direction>().Current =  GameObject.Find("Arrow").GetComponent<Direction>().Point3;
                     //play the insert key animation
                     GameObject.Find("PlayerModel").GetComponent<Animation>().Play("InsertKey");
                     //store the lift's starting position
@@ -117,8 +120,8 @@ public class Lift : MonoBehaviour
             }
             //destroy the rope make the lift fall on one side and destroy the gangsters as they are not longer needed
             Destroy(Rope);
-            Destroy(Gangster1);
-            Destroy(Gangster2);
+            Destroy(CS);
+           
         }
 
         if (GameObject.Find("PlayerInBuildingTrigger").GetComponent<PlayerEnteredBuilding>().PlayerIsInBuilding == false)

@@ -81,6 +81,8 @@ Frame 1701 - 1719 Jump
 Frame 1720 - 1758 recover from jump to idle position
 
 
+60.437
+
 
 
 

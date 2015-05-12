@@ -27,13 +27,14 @@ public class BoxCheck : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
+        
         if (col.gameObject.tag == "Player")
         {
             if (Done1 == false)
             {
                 if (gameObject.name == ("BoxCheck1"))
                 {
-                    if (GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().HasBox == false)
+                    if (GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().HasBox == false && GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox == false)
                     {
                         GUI.GetComponent<Renderer>().enabled = true;
                         Box.GetComponent<MoveUpBox>().CanMove = true;
@@ -46,7 +47,7 @@ public class BoxCheck : MonoBehaviour
             {
                 if (gameObject.name == ("BoxCheck2"))
                 {
-                    if (GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox == false)
+                    if (GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox == false && GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().HasBox == false)
                     {
                         GUI.GetComponent<Renderer>().enabled = true;
                         Box2.GetComponent<MoveUpBox>().CanMove2 = true;

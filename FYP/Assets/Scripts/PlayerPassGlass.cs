@@ -21,6 +21,7 @@ public class PlayerPassGlass : MonoBehaviour
         if (col.gameObject.tag == ("Player"))
         {  
             GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocation3");
+            GameObject.Find("Arrow").GetComponent<Direction>().Current = GameObject.Find("Arrow").GetComponent<Direction>().Point4;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Lift>().LiftIsMoving = false;
             //GameObject.Find("PlayerFallTrigger").GetComponent<PlayerFell>().IsChecking = false;
         }

@@ -21,6 +21,8 @@ public class PlayerPassPlatform : MonoBehaviour
         if (col.gameObject.tag == ("Player"))
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocation4");
+            GameObject.Find("Arrow").GetComponent<Direction>().Current = GameObject.Find("Arrow").GetComponent<Direction>().Point6;
+
             //GameObject.Find("PlayerFallTrigger").GetComponent<PlayerFell>().IsChecking = false;
         }
     }

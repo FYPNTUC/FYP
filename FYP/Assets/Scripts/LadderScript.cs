@@ -32,6 +32,7 @@ public class LadderScript : MonoBehaviour
                 temp = Player.transform.position;
                 temp.y += 2.2f;
                 IsChecking = true;
+                GameObject.Find("Arrow").GetComponent<Direction>().Current = GameObject.Find("Arrow").GetComponent<Direction>().Point5;
                //GameObject.Find("PlayerModel") .GetComponent<CharacterAnim>().
                 //Debug.Log("ladder has problem");
             }

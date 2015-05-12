@@ -15,7 +15,7 @@ public class StartDoorScript : MonoBehaviour
         GUI = GameObject.Find("GUI");
         CanOpen = false;
         DoorIsMoving = false;
-        start = false;
+        start =false;
         DoOnce = false;
     }
 
@@ -47,7 +47,7 @@ public class StartDoorScript : MonoBehaviour
             }
             DoorIsMoving = false;
             CanOpen = false;
-            //start = true;
+            start = true;
             //Destroy(gameObject);
         }
     }

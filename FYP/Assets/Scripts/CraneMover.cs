@@ -97,6 +97,7 @@ public class CraneMover : MonoBehaviour
                         Checker.GetComponent<BoxCollider>().enabled = false;
                         GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
                         Platform.GetComponent<CranePlatform>().IsOn = false;
+                        GameObject.Find("Arrow").GetComponent<Direction>().Current = GameObject.Find("Arrow").GetComponent<Direction>().Point7;
                         // Debug.Log("cranemover has problem");
 
                     }

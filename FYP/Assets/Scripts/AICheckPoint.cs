@@ -37,7 +37,7 @@ public class AICheckPoint : MonoBehaviour
             Worker.GetComponent<WorkerScript>().IsMoving = false;
             Worker.GetComponent<WorkerScript>().IsHammering = true;
         }
-        if (col.gameObject.tag == "CSG1" || col.gameObject.tag == "CSG2")
+        if (col.gameObject.tag == "CSG1" || col.gameObject.tag == "CSG2" || col.gameObject.tag =="CSW2")
         {
             col.GetComponent<StartScript>().Part1Done = true;
         }
