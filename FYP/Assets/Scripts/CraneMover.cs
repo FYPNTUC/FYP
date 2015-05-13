@@ -57,11 +57,15 @@ public class CraneMover : MonoBehaviour
                     Destroy(Checker1);
                     GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
                     GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().CanMove = false;
+                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsBox1 = false;
+                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().DownBox = false;
+                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsUp = false;
+                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().RaisingBox = false;
                 }
-            }   
+            }
         }
 
-        else if (GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox2 == true)
+         if (GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox2 == true)
         {
             if (Platform.GetComponent<CranePlatform>().IsOn == true)
             {
@@ -77,6 +81,10 @@ public class CraneMover : MonoBehaviour
                     Destroy(Checker2);
                     GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
                     GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().CanMove2 = false;
+                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsBox2 = false;
+                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().DownBox = false;
+                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsUp = false;
+                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().RaisingBox = false;
                 }
             }
         }

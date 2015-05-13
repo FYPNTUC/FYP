@@ -7,6 +7,8 @@ public class MoveUpBox : MonoBehaviour
     GameObject Player;
     GameObject BoxLoc;
     GameObject BoxLoc2;
+    GameObject BoxCheck1;
+    GameObject BoxCheck2;
     public bool CanMove;
     public bool CanMove2;
     public bool HasBox;
@@ -24,6 +26,8 @@ public class MoveUpBox : MonoBehaviour
         CanMove2 = false;
         HasBox = false;
         HasBox2 = false;
+        BoxCheck1 = GameObject.Find("BoxCheck1");
+        BoxCheck2 = GameObject.Find("BoxCheck2");
 	}
 	
 	// Update is called once per frame
@@ -74,6 +78,8 @@ public class MoveUpBox : MonoBehaviour
                 {
                     HasBox2 = true;
                 }
+                Destroy(BoxCheck1);
+                //CanMove = false;
                 GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
                 //PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("CarryBox");
                 //gameObject.transform.position = new Vector3(Player.transform.position.x+1, Player.transform.position.y , Player.transform.position.z);
@@ -104,7 +110,8 @@ public class MoveUpBox : MonoBehaviour
                     {
                         HasBox2 = true; 
                     }
-                    CanMove2 = false;
+                    Destroy(BoxCheck2);
+                    //CanMove2 = false;
                     GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
                     //PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("CarryBox");
                     //gameObject.transform.position = new Vector3(Player.transform.position.x+1, Player.transform.position.y , Player.transform.position.z);

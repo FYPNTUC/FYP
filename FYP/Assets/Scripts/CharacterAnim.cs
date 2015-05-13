@@ -8,18 +8,35 @@ public class CharacterAnim : MonoBehaviour
     public bool IsTopBalancing;
     public bool IsFlyingFox;
 
+    GameObject BoxLoc;
+    double Checker;
+    double Checker2;
+    public bool RaisingBox;
+    public bool IsUp;
+    public bool DownBox;
+
+    public bool IsBox1;
+    public bool IsBox2;
     GameObject PlayerModel;
+    bool OAnim;
     // Use this for initialization
     float timer;
 
     void Start()
     {
-        PlayerModel = GameObject.Find("PlayerModel");     
+        BoxLoc = GameObject.Find("BoxLoc");
+        PlayerModel = GameObject.Find("PlayerModel");
         IsBalancing = false;
         IsCarrying = false;
         IsTopBalancing = false;
         IsFlyingFox = false;
         timer = 0.5f;
+        RaisingBox = false;
+        IsUp = false;
+        DownBox = false;
+        IsBox1 = false;
+        IsBox2 = false;
+        OAnim = false;
 
     }
 
@@ -42,7 +59,8 @@ public class CharacterAnim : MonoBehaviour
         //{
         //    
         //}
-
+        Checker = BoxLoc.transform.position.y + 0.65222;
+        Checker2 = BoxLoc.transform.position.y;
         if (IsFlyingFox == true)
         {
             //speed up the animation 
@@ -52,21 +70,112 @@ public class CharacterAnim : MonoBehaviour
 
         if (IsCarrying == true)
         {
-            if (Input.GetAxis("cVerticalDPad") > 0.001)
+            if (OAnim == false && GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled != false)
             {
+                if (Input.GetAxis("cVerticalDPad") > 0.001)
+                {
+                    PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["WalkWithBox"].speed = 1;
+                    PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("WalkWithBox");
+                }
 
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("WalkWithBox");
+                if (Input.GetKey("w"))
+                {
+                    PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["WalkWithBox"].speed = 1;
+                    PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("WalkWithBox");
+                }
+
+                if (Input.GetAxis("cLeftJoystickVerti") < 0)
+                {
+
+                    PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["WalkWithBox"].speed = 1;
+                    PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("WalkWithBox");
+                }
             }
 
-            if (Input.GetKey("w"))
+            if (Input.GetKeyDown("t"))
             {
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("WalkWithBox");
+                if (RaisingBox == false && IsUp == false)
+                {
+
+                    if (GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().HasBox == true)
+                    {
+                        PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("RaiseUpBox");
+                        RaisingBox = true;
+                        IsBox1 = true;
+                        OAnim = true;
+                        GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = false;
+                    }
+
+                    if (GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox2 == true)
+                    {
+                        print("BOX2");
+                        PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("RaiseUpBox");
+                        RaisingBox = true;
+                        OAnim = true;
+                        GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = false;
+                    }
+
+                }
+
+                else if (RaisingBox == false && IsUp == true)
+                {
+
+                    if (GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().HasBox == true)
+                    {
+                        PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("LowerBox");
+                        DownBox = true;
+                    }
+
+
+                    if (GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox2 == true)
+                    {
+                        PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("LowerBox");
+                        DownBox = true;
+                    }
+                }
+            }
+            if (RaisingBox == true)
+            {
+                MoveTheBox();
+            }
+            if (DownBox == true)
+            {
+                MoveTheBoxDown();
+            }
+            if (IsBox1 == true)
+            {
+                if (GameObject.Find("MoveAbleBox").transform.position.y >= Checker)
+                {
+                    RaisingBox = false;
+                    IsUp = true;
+                    OAnim = false;
+                }
+
+                if (GameObject.Find("MoveAbleBox").transform.position.y <= Checker2)
+                {
+                    DownBox = false;
+                    IsUp = false;
+                    OAnim = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = true;
+                }
             }
 
-            if (Input.GetAxis("cLeftJoystickVerti") < 0)
+            if (IsBox2 == true)
             {
+                if (GameObject.Find("MoveAbleBox1").transform.position.y >= Checker)
+                {
+                    RaisingBox = false;
+                    IsUp = true;
+                    OAnim = false;
+                }
 
-                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("WalkWithBox");
+                if (GameObject.Find("MoveAbleBox1").transform.position.y <= Checker2)
+                {
+                    DownBox = false;
+                    IsUp = false;
+                    OAnim = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = true;
+                }
             }
         }
         if (IsTopBalancing == true)
@@ -115,8 +224,8 @@ public class CharacterAnim : MonoBehaviour
             }
 
         }
-
-        else if (IsBalancing == false && IsFlyingFox == false && IsCarrying == false)//placed so that the flying fox and balancing animation will not be interupted
+        //placed so that the flying fox and balancing animation will not be interupted
+        else if (IsBalancing == false && IsFlyingFox == false && IsCarrying == false)
         {
             if (Input.GetAxis("cVerticalDPad") > 0.001)
             {
@@ -142,6 +251,8 @@ public class CharacterAnim : MonoBehaviour
         if (Input.anyKey == false && Input.GetAxis("cLeftJoystickVerti") == 0 && Input.GetAxis("cVerticalDPad") == 0)
         {
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Stop("Walk");
+            PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["WalkWithBox"].speed = 0;
+
             if (IsTopBalancing == false)
             {
                 PlayerModel.GetComponent<Animation>().GetComponent<Animation>()["2nBal"].speed = 0;
@@ -161,6 +272,30 @@ public class CharacterAnim : MonoBehaviour
         else if (PlayerModel.GetComponent<Animation>().GetComponent<Animation>().isPlaying == false && IsBalancing == false && IsCarrying == false)
         {
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Idle");
+        }
+    }
+
+    void MoveTheBox()
+    {
+        if (GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().HasBox == true)
+        {
+            GameObject.Find("MoveAbleBox").transform.Translate(Vector3.up * Time.deltaTime * 0.6f);
+        }
+        if (GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox2 == true)
+        {
+            GameObject.Find("MoveAbleBox1").transform.Translate(Vector3.up * Time.deltaTime * 0.6f);
+        }
+    }
+
+    void MoveTheBoxDown()
+    {
+        if (GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().HasBox == true)
+        {
+            GameObject.Find("MoveAbleBox").transform.Translate(Vector3.down * Time.deltaTime * 0.6f);
+        }
+        if (GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox2 == true)
+        {
+            GameObject.Find("MoveAbleBox1").transform.Translate(Vector3.down * Time.deltaTime * 0.6f);
         }
     }
 

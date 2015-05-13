@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BoxCheck : MonoBehaviour 
+public class BoxCheck : MonoBehaviour
 {
     GameObject GUI;
     GameObject Box;
@@ -9,25 +9,25 @@ public class BoxCheck : MonoBehaviour
     bool Done1;
     bool Done2;
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start()
     {
         GUI = GameObject.Find("GUI");
         Box = GameObject.Find("MoveAbleBox");
         Box2 = GameObject.Find("MoveAbleBox1");
         Done1 = false;
         Done2 = false;
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-	    
-	}
+
+    }
 
     void OnTriggerEnter(Collider col)
     {
-        
+
         if (col.gameObject.tag == "Player")
         {
             if (Done1 == false)
@@ -38,7 +38,7 @@ public class BoxCheck : MonoBehaviour
                     {
                         GUI.GetComponent<Renderer>().enabled = true;
                         Box.GetComponent<MoveUpBox>().CanMove = true;
-                        //print("1");
+                        //print("1pop");
                     }
                 }
             }
@@ -51,7 +51,8 @@ public class BoxCheck : MonoBehaviour
                     {
                         GUI.GetComponent<Renderer>().enabled = true;
                         Box2.GetComponent<MoveUpBox>().CanMove2 = true;
-                        //print("2");
+
+                        //print("2pop");
                     }
                 }
             }
