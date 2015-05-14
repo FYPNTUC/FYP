@@ -7,6 +7,7 @@ public class CharacterAnim : MonoBehaviour
     public bool IsBalancing;
     public bool IsTopBalancing;
     public bool IsFlyingFox;
+    public bool IsLongJump;
 
     GameObject BoxLoc;
     double Checker;
@@ -37,6 +38,7 @@ public class CharacterAnim : MonoBehaviour
         IsBox1 = false;
         IsBox2 = false;
         OAnim = false;
+        IsLongJump = false;
 
     }
 
@@ -61,6 +63,10 @@ public class CharacterAnim : MonoBehaviour
         //}
         Checker = BoxLoc.transform.position.y + 0.65222;
         Checker2 = BoxLoc.transform.position.y;
+        if (IsLongJump == true)
+        {
+            //PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("IdleToJump");
+        }
         if (IsFlyingFox == true)
         {
             //speed up the animation 

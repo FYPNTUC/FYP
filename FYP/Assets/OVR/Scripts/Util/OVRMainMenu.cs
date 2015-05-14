@@ -547,6 +547,7 @@ public class OVRMainMenu : MonoBehaviour
 	/// </summary>
 	void UpdateIPD()
 	{
+
 		if(ShowVRVars == true) // limit gc
 		{	
 			strIPD = System.String.Format("IPD (mm): {0:F4}", OVRManager.profile.ipd * 1000.0f);

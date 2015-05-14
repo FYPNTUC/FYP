@@ -38,7 +38,7 @@ public class StartDoorScript : MonoBehaviour
         }
 
         //-80
-        if (gameObject.transform.eulerAngles.y <= 275 && gameObject.transform.eulerAngles.y >=270)
+        if (gameObject.transform.eulerAngles.y >= 90 && gameObject.transform.eulerAngles.y <=95)
         {
             if (DoOnce == false)
             {
@@ -73,6 +73,6 @@ public class StartDoorScript : MonoBehaviour
 
     void MoveTheDoor()
     {
-        gameObject.transform.Rotate(Vector3.down * Time.deltaTime * 50);
+        gameObject.transform.Rotate(Vector3.up * Time.deltaTime * 50);
     }
 }

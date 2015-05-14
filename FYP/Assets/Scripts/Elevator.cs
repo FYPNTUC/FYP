@@ -88,6 +88,7 @@ public class Elevator : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             MoveDoor = false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().fade = true;
             GameObject.Find("LiftClose").GetComponent<AudioSource>().Play();
         }
     }

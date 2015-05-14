@@ -38,8 +38,8 @@ public class StartScript : MonoBehaviour
 	// Update is called once per frame
     void Update()
     {
-       
-        if (GameObject.Find("DoorPivot").GetComponent<StartDoorScript>().start == true)
+
+        if (GameObject.Find("Building1_KeyOfficeDoor").GetComponent<StartDoorScript>().start == true)
         {
            
             //if (DoOnce == false)
@@ -142,7 +142,7 @@ public class StartScript : MonoBehaviour
                    animator.SetBool("GetRekt", true);
                    if (DoOnce == false)
                    {
-                       gameObject.transform.Translate(0, -0.1156147f, 0);
+                       gameObject.transform.Translate(0, 0.1056147f, 0);
                        DoOnce = true;
                    }
                 }

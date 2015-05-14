@@ -2625,7 +2625,7 @@ ModelImporter:
       name: Recover
       takeName: Take 001
       firstFrame: 314
-      lastFrame: 387
+      lastFrame: 586
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -2950,8 +2950,8 @@ ModelImporter:
     - serializedVersion: 16
       name: GotHit
       takeName: Take 001
-      firstFrame: 389
-      lastFrame: 412
+      firstFrame: 582
+      lastFrame: 612
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -3276,8 +3276,8 @@ ModelImporter:
     - serializedVersion: 16
       name: FloorIdle
       takeName: Take 001
-      firstFrame: 415
-      lastFrame: 415
+      firstFrame: 612
+      lastFrame: 612
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -3602,8 +3602,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Talking
       takeName: Take 001
-      firstFrame: 417
-      lastFrame: 500
+      firstFrame: 616
+      lastFrame: 699
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

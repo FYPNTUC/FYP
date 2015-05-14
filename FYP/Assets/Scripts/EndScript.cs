@@ -21,7 +21,20 @@ public class EndScript : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             //Player.GetComponent<FadeInOut>().fade = true;
-            Player.GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocation6");
+            if (gameObject.name == "End")
+            {
+                Player.GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocation11");
+            }
+
+            if (gameObject.name == "End2")
+            {
+                Player.GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocation12");
+            }
+
+            if (gameObject.name == "End3")
+            {
+                Player.GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocation13");
+            }
         }
     }
 

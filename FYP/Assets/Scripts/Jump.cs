@@ -16,13 +16,13 @@ public class Jump : MonoBehaviour
     GameObject Display;
     GameObject Player;
     public bool DoOnce;
-
-
+    bool DoOnce2;
     // Use this for initialization
     void Start()
     {
         CanJump = false;
         DoOnce = false;
+        DoOnce2 = false;
         Jump1 = false;
         Jump2 = false;
         Jump3 = false;
@@ -38,6 +38,13 @@ public class Jump : MonoBehaviour
     {
         if (CanJump == true)
         {
+            //if (DoOnce2 == false)
+            //{
+            GameObject.Find("PlayerModel").GetComponent<Animation>().GetComponent<Animation>()["JumpIdle"].speed = 0.5f;
+              GameObject.Find("PlayerModel").GetComponent<Animation>().Play("JumpIdle");
+            //  DoOnce2 = true;
+            //}
+      
             if (Jump1 == false && Jump2 == false && Jump3 == false)
             {
                 if (Selection < 3)
@@ -87,8 +94,11 @@ public class Jump : MonoBehaviour
 
                 if (DoOnce == false)
                 {
-                    Player.transform.Translate(Vector3.up * 1);
+                    Player.transform.Translate(Vector3.up * 1f);
                     DoOnce = true;
+                    GameObject.Find("PlayerModel").GetComponent<Animation>().Stop("JumpIdle");
+                    GameObject.Find("PlayerModel").GetComponent<Animation>().Play("FailJump");
+                    GameObject.Find("JumpCheck").GetComponent<JumpCheck>().ResetTime = 2;
                 }
             }
             else if (Jump2 == true)
@@ -98,6 +108,8 @@ public class Jump : MonoBehaviour
                 {
                     Player.transform.Translate(Vector3.forward * 1.5f);
                     DoOnce = true;
+                    GameObject.Find("PlayerModel").GetComponent<Animation>().Play("LJump");
+                    GameObject.Find("JumpCheck").GetComponent<JumpCheck>().ResetTime = 2;
                 }
             }
             else if (Jump3 == true)
@@ -106,6 +118,8 @@ public class Jump : MonoBehaviour
                 {
                     Player.transform.Translate(Vector3.forward * 6);
                     DoOnce = true;
+                    GameObject.Find("PlayerModel").GetComponent<Animation>().Play("LJump");
+                    GameObject.Find("JumpCheck").GetComponent<JumpCheck>().ResetTime = 2;
                 }
             }
         }
