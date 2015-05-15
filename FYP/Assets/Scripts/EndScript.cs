@@ -24,6 +24,8 @@ public class EndScript : MonoBehaviour
             if (gameObject.name == "End")
             {
                 Player.GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocation11");
+                GameObject.FindGameObjectWithTag("CraneC").GetComponent<CraneCheck3>().IsCrane3 = false;
+
             }
 
             if (gameObject.name == "End2")

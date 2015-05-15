@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CraneMover : MonoBehaviour 
 {
+    GameObject GUI;
+    GameObject PlayerModel;
     GameObject Platform;
     GameObject Trolley;
     GameObject Rope;
@@ -12,6 +14,11 @@ public class CraneMover : MonoBehaviour
     GameObject Box2;
     GameObject Checker1;
     GameObject Checker2;
+    GameObject MoveAbleBox1;
+    GameObject MoveAbleBox2;
+    GameObject MovingPlank;
+    GameObject BoxLoc1;
+    GameObject BoxLoc2;
 
     int BoxCount;
     public bool PlatformMoving;
@@ -22,7 +29,13 @@ public class CraneMover : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        GUI = GameObject.Find("GUI");
+        BoxLoc1 = GameObject.Find("BoxLoc1");
+        BoxLoc2 = GameObject.Find("BoxLoc2");
         BoxCount = 0;
+        MoveAbleBox1 = GameObject.Find("MoveAbleBox");
+        MoveAbleBox2 = GameObject.Find("MoveAbleBox1");
+        PlayerModel = GameObject.Find("PlayerModel");
         Box1 = GameObject.Find("MoveAbleBox");
         Box2 = GameObject.Find("MoveAbleBox1");
         Checker1 = GameObject.Find("BoxCheck1");
@@ -36,55 +49,56 @@ public class CraneMover : MonoBehaviour
         Checker = GameObject.Find("CraneTrigger");
         StopPls = false;
         SafeCheck = false;
+        MovingPlank = GameObject.Find("MovingPlank");
 
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-        if (GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().HasBox == true)
+        if (MoveAbleBox1.GetComponent<MoveUpBox>().HasBox == true)
         {
             if (Platform.GetComponent<CranePlatform>().IsOn == true)
             {
                 if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                 {
-                    Box1.transform.position = GameObject.Find("BoxLoc1").transform.position;
-                    GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().HasBox = false;
+                    Box1.transform.position = BoxLoc1.transform.position;
+                    MoveAbleBox1.GetComponent<MoveUpBox>().HasBox = false;
                     BoxCount++;
                     Box1.transform.parent = null;
-                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsCarrying = false;
-                    GameObject.Find("MoveAbleBox").transform.parent = GameObject.Find("MovingPlank").transform;
+                    PlayerModel.GetComponent<CharacterAnim>().IsCarrying = false;
+                    MoveAbleBox1.transform.parent = MovingPlank.transform;
                     Destroy(Checker1);
-                    GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
-                    GameObject.Find("MoveAbleBox").GetComponent<MoveUpBox>().CanMove = false;
-                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsBox1 = false;
-                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().DownBox = false;
-                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsUp = false;
-                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().RaisingBox = false;
+                    GUI.GetComponent<Renderer>().enabled = false;
+                    MoveAbleBox1.GetComponent<MoveUpBox>().CanMove = false;
+                    PlayerModel.GetComponent<CharacterAnim>().IsBox1 = false;
+                    PlayerModel.GetComponent<CharacterAnim>().DownBox = false;
+                    PlayerModel.GetComponent<CharacterAnim>().IsUp = false;
+                    PlayerModel.GetComponent<CharacterAnim>().RaisingBox = false;
                 }
             }
         }
 
-         if (GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox2 == true)
+        if (MoveAbleBox2.GetComponent<MoveUpBox>().HasBox2 == true)
         {
             if (Platform.GetComponent<CranePlatform>().IsOn == true)
             {
                 if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                 {
 
-                    Box2.transform.position = GameObject.Find("BoxLoc2").transform.position;
-                    GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox2 = false;
+                    Box2.transform.position = BoxLoc2.transform.position;
+                    MoveAbleBox2.GetComponent<MoveUpBox>().HasBox2 = false;
                     BoxCount++;
                     Box2.transform.parent = null;
-                    GameObject.Find("MoveAbleBox1").transform.parent = GameObject.Find("MovingPlank").transform;
-                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsCarrying = false;
+                    MoveAbleBox2.transform.parent = MovingPlank.transform;
+                    PlayerModel.GetComponent<CharacterAnim>().IsCarrying = false;
                     Destroy(Checker2);
-                    GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
-                    GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().CanMove2 = false;
-                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsBox2 = false;
-                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().DownBox = false;
-                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsUp = false;
-                    GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().RaisingBox = false;
+                    GUI.GetComponent<Renderer>().enabled = false;
+                    MoveAbleBox2.GetComponent<MoveUpBox>().CanMove2 = false;
+                    PlayerModel.GetComponent<CharacterAnim>().IsBox2 = false;
+                    PlayerModel.GetComponent<CharacterAnim>().DownBox = false;
+                    PlayerModel.GetComponent<CharacterAnim>().IsUp = false;
+                    PlayerModel.GetComponent<CharacterAnim>().RaisingBox = false;
                 }
             }
         }

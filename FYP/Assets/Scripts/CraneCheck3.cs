@@ -5,7 +5,7 @@ public class CraneCheck3 : MonoBehaviour
 {
 
     GameObject Player;
-    bool IsCrane3;
+    public bool IsCrane3;
     bool HoldIt;
     bool AllDone;
     //GameObject CraneController;

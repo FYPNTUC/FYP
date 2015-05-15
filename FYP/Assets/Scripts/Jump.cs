@@ -41,7 +41,7 @@ public class Jump : MonoBehaviour
             //if (DoOnce2 == false)
             //{
             GameObject.Find("PlayerModel").GetComponent<Animation>().GetComponent<Animation>()["JumpIdle"].speed = 0.5f;
-              GameObject.Find("PlayerModel").GetComponent<Animation>().Play("JumpIdle");
+            GameObject.Find("PlayerModel").GetComponent<Animation>().Play("JumpIdle");
             //  DoOnce2 = true;
             //}
       

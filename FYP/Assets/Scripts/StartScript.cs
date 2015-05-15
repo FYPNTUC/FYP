@@ -8,6 +8,14 @@ public class StartScript : MonoBehaviour
     GameObject Gangster2;
     GameObject Worker1;
     GameObject Worker2;
+    GameObject Door;
+    GameObject Player;
+    GameObject CSP1;
+    GameObject CSP2;
+    GameObject CSG2;
+    GameObject Player2M;
+    GameObject CSW1A;
+    GameObject CSG1;
     public bool Part1Done;
     public bool Part2Done;
     public bool Part3Done;
@@ -19,6 +27,14 @@ public class StartScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        CSW1A = GameObject.FindGameObjectWithTag("CSW1A");
+        CSG2 = GameObject.FindGameObjectWithTag("CSG2");
+        CSG1 = GameObject.FindGameObjectWithTag("CSG1");
+        Player2M = GameObject.Find("Worker 2m");
+        CSP1 = GameObject.Find("CSP1");
+        CSP2 = GameObject.Find("CSP2");
+        Player = GameObject.FindGameObjectWithTag("Player");
+        Door = GameObject.Find("Building1_KeyOfficeDoor");
         DoOnce = false;
         Temp = gameObject.transform.position;
         animator = GetComponent<Animator>();
@@ -39,7 +55,7 @@ public class StartScript : MonoBehaviour
     void Update()
     {
 
-        if (GameObject.Find("Building1_KeyOfficeDoor").GetComponent<StartDoorScript>().start == true)
+        if (Door.GetComponent<StartDoorScript>().start == true)
         {
            
             //if (DoOnce == false)
@@ -55,9 +71,9 @@ public class StartScript : MonoBehaviour
             {
                 if (Part1Done == false)
                 {
-                    GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = false;
+                    Player.GetComponent<OVRPlayerController>().enabled = false;
                    // transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
-                    transform.LookAt(GameObject.Find("CSP2").transform);
+                    transform.LookAt(CSP2.transform);
                     gameObject.transform.localEulerAngles = new Vector3(0, gameObject.transform.localEulerAngles.y, gameObject.transform.localEulerAngles.z);
                     animator.SetBool("IsWalking", true);
                     transform.Translate(Vector3.forward * Time.deltaTime * MovementSpeed);
@@ -67,21 +83,21 @@ public class StartScript : MonoBehaviour
                 else if (Part1Done == true && Part2Done == false)
                 {
                     animator.SetBool("IsWalking", false);
-                    transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
+                    transform.LookAt(Player.transform);
                     gameObject.transform.localEulerAngles = new Vector3(0, gameObject.transform.localEulerAngles.y, gameObject.transform.localEulerAngles.z);
                     animator.SetBool("IsTalking", true);
                     Timer -= Time.deltaTime;
                     if (Timer <= 0)
                     {
                         animator.SetBool("IsTalking", false);
-                        GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = true;
+                        Player.GetComponent<OVRPlayerController>().enabled = true;
                         Part2Done = true;
                     }
                 }
                 else if(Part2Done == true && Part3Done ==false)
                 {
                     //transform.LookAt(GameObject.FindGameObjectWithTag("CSW2").transform);
-                    transform.LookAt(GameObject.Find("Worker 2m").transform);
+                    transform.LookAt(Player2M.transform);
                     gameObject.transform.localEulerAngles = new Vector3(0, gameObject.transform.localEulerAngles.y, gameObject.transform.localEulerAngles.z);
                 }
             }
@@ -90,7 +106,7 @@ public class StartScript : MonoBehaviour
             { 
                 if (Part1Done == false)
                 {
-                    transform.LookAt(GameObject.Find("CSP1").transform);
+                    transform.LookAt(CSP1.transform);
                     gameObject.transform.localEulerAngles = new Vector3(0, gameObject.transform.localEulerAngles.y, gameObject.transform.localEulerAngles.z);
                     animator.SetBool("IsWalking", true);
                     transform.Translate(Vector3.forward * Time.deltaTime * MovementSpeed);
@@ -113,7 +129,7 @@ public class StartScript : MonoBehaviour
                 {
 
                     FTimer -= Time.deltaTime;
-                    transform.LookAt(GameObject.FindGameObjectWithTag("CSW1A").transform);
+                    transform.LookAt(CSW1A.transform);
                     gameObject.transform.localEulerAngles = new Vector3(0, gameObject.transform.localEulerAngles.y, gameObject.transform.localEulerAngles.z);
                     animator.SetBool("IsGuarding", true);
                     animator.SetBool("IsFight", true);
@@ -130,14 +146,14 @@ public class StartScript : MonoBehaviour
             //Worker1
             if (gameObject.tag == "CSW1")
             {
-                transform.LookAt(GameObject.FindGameObjectWithTag("CSG2").transform);
+                transform.LookAt(CSG2.transform);
                 gameObject.transform.localEulerAngles = new Vector3(0, gameObject.transform.localEulerAngles.y, gameObject.transform.localEulerAngles.z);
 
-                if (GameObject.FindGameObjectWithTag("CSG2").GetComponent<StartScript>().Part2Done == true)
+                if (CSG2.GetComponent<StartScript>().Part2Done == true)
                 {
                     animator.SetBool("GettingHit", true);
                 }
-                if (GameObject.FindGameObjectWithTag("CSG2").GetComponent<StartScript>().Part3Done == true)
+                if (CSG2.GetComponent<StartScript>().Part3Done == true)
                 {
                    animator.SetBool("GetRekt", true);
                    if (DoOnce == false)
@@ -150,10 +166,10 @@ public class StartScript : MonoBehaviour
             //Worker2
             if (gameObject.tag == "CSW2")
             {
-                if (GameObject.FindGameObjectWithTag("CSG2").GetComponent<StartScript>().Part2Done == true)
+                if (CSG2.GetComponent<StartScript>().Part2Done == true)
                 {
-                    
-                    transform.LookAt(GameObject.FindGameObjectWithTag("CSG1").transform);
+
+                    transform.LookAt(CSG1.transform);
                     gameObject.transform.localEulerAngles = new Vector3(0, gameObject.transform.localEulerAngles.y, gameObject.transform.localEulerAngles.z);
                     if (Part1Done == false)
                     {

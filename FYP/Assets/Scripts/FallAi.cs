@@ -58,7 +58,7 @@ public class FallAi : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = true;
             IsHanging = false;
             BeingHelped = false;
-            gameObject.transform.position = new Vector3(12.67306f, 50.65564f, 36.057fw);
+            gameObject.transform.position = new Vector3(12.67306f, 50.65564f, 36.057f);
         }
     }
 
