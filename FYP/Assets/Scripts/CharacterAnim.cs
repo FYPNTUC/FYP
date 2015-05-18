@@ -98,7 +98,7 @@ public class CharacterAnim : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown("t"))
+            if (Input.GetKeyDown("t") || Input.GetButtonDown("cButtonY"))
             {
                 if (RaisingBox == false && IsUp == false)
                 {
@@ -117,6 +117,7 @@ public class CharacterAnim : MonoBehaviour
                         print("BOX2");
                         PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("RaiseUpBox");
                         RaisingBox = true;
+                        IsBox2 = true;
                         OAnim = true;
                         GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = false;
                     }

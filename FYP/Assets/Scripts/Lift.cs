@@ -68,7 +68,8 @@ public class Lift : MonoBehaviour
             {
                 if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                 {
-
+                    GameObject.Find("LiftStart").GetComponent<AudioSource>().Play();
+                    GameObject.Find("ArrowD").GetComponent<FloatingArrow>().Show = false;
                     GameObject.Find("Arrow").GetComponent<Direction>().Done1 = true;
                     GameObject.Find("Arrow").GetComponent<Direction>().Current =  GameObject.Find("Arrow").GetComponent<Direction>().Point3;
                     //play the insert key animation
@@ -135,6 +136,8 @@ public class Lift : MonoBehaviour
             //if the lift travel the set distance stop the lift from moving up and start the tilting
             if (GameObject.Find("Lift").transform.position.y >= AmountToTravel)
             {
+                GameObject.Find("LiftStart").GetComponent<AudioSource>().Stop();
+                GameObject.Find("LiftSpoil").GetComponent<AudioSource>().Play();
                 LiftIsMoving = false;
                 StartEvent = true;
                 PlayerInLift = false;

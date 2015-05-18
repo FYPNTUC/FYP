@@ -10,6 +10,10 @@ public class Jump : MonoBehaviour
     Material Pic1;
     public Material Pic2;
     public Material Pic3;
+    public GameObject Arrow1;
+    public GameObject Arrow2;
+    public GameObject Arrow3;
+    GameObject Marker;
 
     float Timer;
     int Selection;
@@ -20,6 +24,10 @@ public class Jump : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Marker = GameObject.Find("Marker");
+        Arrow1 = GameObject.Find("Arrow1");
+        Arrow2 = GameObject.Find("Arrow2");
+        Arrow3 = GameObject.Find("Arrow3");
         CanJump = false;
         DoOnce = false;
         DoOnce2 = false;
@@ -40,6 +48,7 @@ public class Jump : MonoBehaviour
         {
             //if (DoOnce2 == false)
             //{
+            Player.transform.rotation = Marker.transform.rotation;
             GameObject.Find("PlayerModel").GetComponent<Animation>().GetComponent<Animation>()["JumpIdle"].speed = 0.5f;
             GameObject.Find("PlayerModel").GetComponent<Animation>().Play("JumpIdle");
             //  DoOnce2 = true;
@@ -62,7 +71,9 @@ public class Jump : MonoBehaviour
                 }
                 if (Selection == 0)
                 {
-                    Display.GetComponent<Renderer>().material = Pic1;
+                    Arrow1.GetComponent<Renderer>().enabled = true;
+                    Arrow2.GetComponent<Renderer>().enabled = false;
+                    Arrow3.GetComponent<Renderer>().enabled = false;
                     if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                     {
                         Jump1 = true;
@@ -71,7 +82,9 @@ public class Jump : MonoBehaviour
 
                 else if (Selection == 1)
                 {
-                    Display.GetComponent<Renderer>().material = Pic2;
+                    Arrow1.GetComponent<Renderer>().enabled = true;
+                    Arrow2.GetComponent<Renderer>().enabled = true;
+                    Arrow3.GetComponent<Renderer>().enabled = false;
                     if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                     {
                         Jump2 = true;
@@ -80,7 +93,9 @@ public class Jump : MonoBehaviour
 
                 else if (Selection == 2)
                 {
-                    Display.GetComponent<Renderer>().material = Pic3;
+                    Arrow1.GetComponent<Renderer>().enabled = true;
+                    Arrow2.GetComponent<Renderer>().enabled = true;
+                    Arrow3.GetComponent<Renderer>().enabled = true;
 
                     if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                     {
@@ -99,6 +114,9 @@ public class Jump : MonoBehaviour
                     GameObject.Find("PlayerModel").GetComponent<Animation>().Stop("JumpIdle");
                     GameObject.Find("PlayerModel").GetComponent<Animation>().Play("FailJump");
                     GameObject.Find("JumpCheck").GetComponent<JumpCheck>().ResetTime = 2;
+                    Arrow1.GetComponent<Renderer>().enabled = false;
+                    Arrow2.GetComponent<Renderer>().enabled = false;
+                    Arrow3.GetComponent<Renderer>().enabled = false;
                 }
             }
             else if (Jump2 == true)
@@ -110,6 +128,9 @@ public class Jump : MonoBehaviour
                     DoOnce = true;
                     GameObject.Find("PlayerModel").GetComponent<Animation>().Play("LJump");
                     GameObject.Find("JumpCheck").GetComponent<JumpCheck>().ResetTime = 2;
+                    Arrow1.GetComponent<Renderer>().enabled = false;
+                    Arrow2.GetComponent<Renderer>().enabled = false;
+                    Arrow3.GetComponent<Renderer>().enabled = false;
                 }
             }
             else if (Jump3 == true)
@@ -120,6 +141,9 @@ public class Jump : MonoBehaviour
                     DoOnce = true;
                     GameObject.Find("PlayerModel").GetComponent<Animation>().Play("LJump");
                     GameObject.Find("JumpCheck").GetComponent<JumpCheck>().ResetTime = 2;
+                       Arrow1.GetComponent<Renderer>().enabled = false;
+                    Arrow2.GetComponent<Renderer>().enabled = false;
+                    Arrow3.GetComponent<Renderer>().enabled = false;
                 }
             }
         }

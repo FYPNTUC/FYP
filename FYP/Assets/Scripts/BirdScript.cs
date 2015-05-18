@@ -3,11 +3,12 @@ using System.Collections;
 
 public class BirdScript : MonoBehaviour
 {
+    public bool CanFly;
 
 	// Use this for initialization
 	void Start () 
     {
-	
+        CanFly = false;
 	}
 	
 	// Update is called once per frame
@@ -20,7 +21,10 @@ public class BirdScript : MonoBehaviour
 
     void MoveTheBird()
     {
-        gameObject.transform.Translate(Vector3.back * Time.deltaTime * 2);
-        
+        if (CanFly == true)
+        {
+            //gameObject.GetComponent<Renderer>().enabled = true;
+            gameObject.transform.Translate(Vector3.back * Time.deltaTime * 5);
+        }       
     }
 }

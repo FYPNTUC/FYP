@@ -22,7 +22,7 @@ public class ThirdPerson : MonoBehaviour
     {
         if (IsThirdPerson == false)
         {
-            if (Input.GetKeyDown("t"))
+            if (Input.GetKeyDown("t") || Input.GetButtonDown("cButtonY"))
             {
                 StartPos = gameObject.transform.position;
                 gameObject.GetComponent<OVRPlayerController>().enabled = false;
@@ -36,7 +36,7 @@ public class ThirdPerson : MonoBehaviour
          
         else if (IsThirdPerson == true)
         {
-            if (Input.GetKeyDown("t"))
+            if (Input.GetKeyDown("t") ||Input.GetButtonDown("cButtonY"))
             {
                 IsThirdPerson = false;
                 IsMoving = false;

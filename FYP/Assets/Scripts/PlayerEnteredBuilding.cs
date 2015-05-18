@@ -27,6 +27,7 @@ public class PlayerEnteredBuilding : MonoBehaviour
         if (col.gameObject.tag ==("Player"))
         {
             Destroy(lift);
+            GameObject.Find("LiftCrash").GetComponent<AudioSource>().Play();
             PlayerIsInBuilding = true;
             //lift.gameObject.transform.Translate(Vector3.down * Time.deltaTime * 10);
             //GameObject.Find("Lift").gameObject.transform.Translate(Vector3.down * Time.deltaTime * 10);

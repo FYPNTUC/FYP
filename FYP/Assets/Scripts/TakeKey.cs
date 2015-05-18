@@ -23,6 +23,7 @@ public class TakeKey : MonoBehaviour
         {
             if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
+                GameObject.Find("ArrowD").GetComponent<FloatingArrow>().Show = true;
                 //Debug.Log("key has problem");
                 //GameObject.Find("Arrow").GetComponent<Direction>().Done1 = true;
                 GameObject.Find("PlayerModel").GetComponent<Animation>().Play("PickUpHammer");

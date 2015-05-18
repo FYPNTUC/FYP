@@ -28,7 +28,7 @@ public class JumpCheck : MonoBehaviour
                 //GameObject.Find("PlayerModel").GetComponent<Animation>().GetComponent<Animation>().Play("IdleToJump");
                 Display.GetComponent<Jump>().CanJump = true;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = false;
-                Display.GetComponent<Renderer>().enabled = true;
+               // Display.GetComponent<Renderer>().enabled = true;
             }
         }
     }

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FallAi : MonoBehaviour
 {
+    GameObject AIF;
     public bool Fall;
     bool IsFalling;
     bool IsHanging;
@@ -12,9 +13,10 @@ public class FallAi : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        AIF = GameObject.FindGameObjectWithTag("AIF");
         DoOnce = false;
         animator = GetComponent<Animator>();
-        Fall = true;
+        Fall = false;
         IsFalling = false;
         IsHanging = false;
         BeingHelped = false;
@@ -27,6 +29,7 @@ public class FallAi : MonoBehaviour
         {
             if (DoOnce == false)
             {
+                Destroy(AIF);
                 IsFalling = true;
                 animator.SetBool("IsFalling", true);
                 DoOnce = true;
@@ -59,6 +62,8 @@ public class FallAi : MonoBehaviour
             IsHanging = false;
             BeingHelped = false;
             gameObject.transform.position = new Vector3(12.67306f, 50.65564f, 36.057f);
+            GameObject.Find("HammerP").GetComponent<GotItem>().ObtainedH = true;
+            print("pop");
         }
     }
 
