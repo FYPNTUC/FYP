@@ -22,7 +22,7 @@ public class GangsterPatrol : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         Door = GameObject.Find("Building2_Door");
-        EventStart = true;
+        EventStart = false;
         DoorIsMoving = false;
         DoOnce = false;
         Point1 = GameObject.Find("B2P1");

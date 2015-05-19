@@ -24,8 +24,9 @@ public class CraneCheck2 : MonoBehaviour
         {
             if (HoldIt == true)
             {
-                if (Input.GetKey("g") || Input.GetButtonDown("cButtonA"))
+                if (Input.GetKeyDown("g") || Input.GetButtonDown("cButtonA"))
                 {
+                    Player.GetComponent<CraneController>().CanBeMoved = true;
                     HoldIt = false;
                     IsCrane2 = true;
                 }
@@ -36,8 +37,9 @@ public class CraneCheck2 : MonoBehaviour
                 temp = gameObject.transform.position;
                 temp.y += 0.6f;
                 Player.transform.position = temp;
-                if (Input.GetKey("g") || Input.GetButtonDown("cButtonA"))
+                if (Input.GetKeyDown("g") || Input.GetButtonDown("cButtonA"))
                 {
+                    Player.GetComponent<CraneController>().CanBeMoved = false;
                     HoldIt = true;
                     IsCrane2 = false;
                 }

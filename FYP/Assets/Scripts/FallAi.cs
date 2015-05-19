@@ -63,7 +63,7 @@ public class FallAi : MonoBehaviour
             BeingHelped = false;
             gameObject.transform.position = new Vector3(12.67306f, 50.65564f, 36.057f);
             GameObject.Find("HammerP").GetComponent<GotItem>().ObtainedH = true;
-            print("pop");
+            //print("pop");
         }
     }
 

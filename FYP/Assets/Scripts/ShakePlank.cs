@@ -87,8 +87,7 @@ public class ShakePlank : MonoBehaviour
                 Plank.GetComponent<MeshCollider>().enabled = true;
                 StopShake = true;
                 Destroy(Checker2);
-                GameObject.Find("GUI3").GetComponent<Renderer>().enabled = false;
-                GameObject.Find("GUI2").GetComponent<Renderer>().enabled = false;
+                GameObject.Find("PlayerModel").GetComponent<Animation>().Play("");
                 GameObject.Find("GUI").GetComponent<Renderer>().enabled = false;
                 //Debug.Log("shaker has problem");
             }

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerToolBox : MonoBehaviour
 {
+    Animator animator;
     GameObject PlankCheckS;
     GameObject Screw1;
     GameObject Screw2;
@@ -11,19 +12,27 @@ public class PlayerToolBox : MonoBehaviour
     GameObject BoxLoc;
     GameObject HammerP;
     Vector3 StartingLoc;
-    bool IsOut;
+    GameObject PlayerModel;
+    public bool IsOut;
+    bool IsCounting;
+
+    float Timer;
     // Use this for initialization
     void Start()
     {
+        PlayerModel = GameObject.Find("PlayerModel");
+        animator = GetComponent<Animator>();
         PlankCheckS = GameObject.Find("PlankCheckS");
         HammerP = GameObject.Find("HammerP");
         Screw1 = GameObject.Find("ScrewTB1");
         Screw2 = GameObject.Find("ScrewTB2");
         HammerTb = GameObject.Find("HammerTB");
-        BoxLoc = GameObject.Find("BoxLoc");
+        BoxLoc = GameObject.Find("BoxLoc2");
         StartingLoc = gameObject.transform.position;
         Player = GameObject.FindGameObjectWithTag("Player");
         IsOut = false;
+        Timer = 1.5f;
+        IsCounting = false;
     }
 
     // Update is called once per frames
@@ -33,6 +42,10 @@ public class PlayerToolBox : MonoBehaviour
         {
             if (Input.GetKeyDown("u") || Input.GetButtonDown("cButtonX"))
             {
+                PlayerModel.GetComponent<Animation>().Play("TakeOutToolBox");
+                PlayerModel.GetComponent<Animation>().PlayQueued("HoldingToolBoxIdle");
+                animator.SetBool("IsOpening", true);
+                animator.SetBool("IsClosing", false);
                 gameObject.transform.position = BoxLoc.transform.position;
                 gameObject.transform.rotation = BoxLoc.transform.rotation;
                 Player.GetComponent<OVRPlayerController>().enabled = false;
@@ -43,10 +56,25 @@ public class PlayerToolBox : MonoBehaviour
         {
             if (Input.GetKeyDown("u") || Input.GetButtonDown("cButtonX"))
             {
-                gameObject.transform.position = StartingLoc;
-                Player.GetComponent<OVRPlayerController>().enabled = true;
-                IsOut = false;
+                PlayerModel.GetComponent<Animation>().Play("PutBackToolBox");
+                //PlayerModel.GetComponent<Animation>().PlayQueued
+                animator.SetBool("IsOpening", false);
+                animator.SetBool("IsClosing", true);         
+                IsCounting = true;
+                
             }
+        }
+        if (IsCounting == true)
+        {
+            Timer -= Time.deltaTime;
+        }
+        if (Timer <= 0)
+        {
+            gameObject.transform.position = StartingLoc;
+            Player.GetComponent<OVRPlayerController>().enabled = true;
+            IsOut = false;
+            Timer = 1.5f;
+            IsCounting = false;
         }
         if (HammerP.GetComponent<GotItem>().ObtainedH == true)
         {

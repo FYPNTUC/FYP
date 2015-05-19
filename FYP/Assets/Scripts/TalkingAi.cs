@@ -29,6 +29,7 @@ public class TalkingAi : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
+            animator.SetBool("IsTalking", false);
         }
     }
 }

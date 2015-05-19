@@ -12,8 +12,11 @@ ModelImporter:
     400002: CarVehicle1
     400004: //RootNode
     2300000: CarVehicle1
+    2300002: //RootNode
     3300000: CarVehicle1
+    3300002: //RootNode
     4300000: CarVehicle1
+    4300002: SurroundingEnvironment_CarWheel:CarVehicle1
     9500000: //RootNode
   materials:
     importMaterials: 1

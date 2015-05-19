@@ -8,6 +8,7 @@ public class CharacterAnim : MonoBehaviour
     public bool IsTopBalancing;
     public bool IsFlyingFox;
     public bool IsLongJump;
+    public bool IsOnCrane;
 
     GameObject BoxLoc;
     double Checker;
@@ -19,12 +20,15 @@ public class CharacterAnim : MonoBehaviour
     public bool IsBox1;
     public bool IsBox2;
     GameObject PlayerModel;
+    GameObject ToolBox;
     bool OAnim;
     // Use this for initialization
     float timer;
 
     void Start()
     {
+        IsOnCrane = false;
+        ToolBox = GameObject.Find("PlayerToolBox");
         BoxLoc = GameObject.Find("BoxLoc");
         PlayerModel = GameObject.Find("PlayerModel");
         IsBalancing = false;
@@ -114,7 +118,7 @@ public class CharacterAnim : MonoBehaviour
 
                     if (GameObject.Find("MoveAbleBox1").GetComponent<MoveUpBox>().HasBox2 == true)
                     {
-                        print("BOX2");
+                        //print("BOX2");
                         PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("RaiseUpBox");
                         RaisingBox = true;
                         IsBox2 = true;
@@ -232,7 +236,7 @@ public class CharacterAnim : MonoBehaviour
 
         }
         //placed so that the flying fox and balancing animation will not be interupted
-        else if (IsBalancing == false && IsFlyingFox == false && IsCarrying == false)
+        else if (IsBalancing == false && IsFlyingFox == false && IsCarrying == false && ToolBox.GetComponent<PlayerToolBox>().IsOut == false && IsOnCrane == false)
         {
             if (Input.GetAxis("cVerticalDPad") > 0.001)
             {
@@ -276,7 +280,7 @@ public class CharacterAnim : MonoBehaviour
             }
         }
         //set the animation to idle if no key is pressed
-        else if (PlayerModel.GetComponent<Animation>().GetComponent<Animation>().isPlaying == false && IsBalancing == false && IsCarrying == false)
+        else if (PlayerModel.GetComponent<Animation>().GetComponent<Animation>().isPlaying == false && IsBalancing == false && IsCarrying == false && ToolBox.GetComponent<PlayerToolBox>().IsOut == false && IsOnCrane == false)
         {
             PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Idle");
         }
