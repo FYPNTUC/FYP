@@ -6,10 +6,12 @@ public class PickUpKey : MonoBehaviour
     GameObject Key;
     public Material HighLight;
     Material Old;
+  
 
 	// Use this for initialization
 	void Start () 
     {
+        
         Key = GameObject.Find("Key");
         Old = Key.GetComponent<Renderer>().material;
 	}
@@ -24,7 +26,7 @@ public class PickUpKey : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             Key.GetComponent<Renderer>().material = HighLight;
-        }
+        }   
     }
 
     void OnTriggerExit(Collider col)

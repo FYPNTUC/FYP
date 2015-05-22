@@ -4,10 +4,14 @@ using System.Collections;
 public class JumpCheck : MonoBehaviour
 {
     GameObject Display;
+    GameObject Player;
+    GameObject PlayerModel;
     // Use this for initialization
     public float ResetTime;
     void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        PlayerModel = GameObject.Find("PlayerModel");
         Display = GameObject.Find("JumpDisplay");
         ResetTime = 2;
     }
@@ -24,10 +28,10 @@ public class JumpCheck : MonoBehaviour
         {
             if (col.gameObject.tag == "Player")
             {
-                GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsLongJump = true;
+                PlayerModel.GetComponent<CharacterAnim>().IsLongJump = true;
                 //GameObject.Find("PlayerModel").GetComponent<Animation>().GetComponent<Animation>().Play("IdleToJump");
                 Display.GetComponent<Jump>().CanJump = true;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = false;
+                Player.GetComponent<OVRPlayerController>().enabled = false;
                // Display.GetComponent<Renderer>().enabled = true;
             }
         }
@@ -37,13 +41,13 @@ public class JumpCheck : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsLongJump = false;
+            PlayerModel.GetComponent<CharacterAnim>().IsLongJump = false;
             Display.GetComponent<Jump>().CanJump = false;
             Display.GetComponent<Jump>().Jump1 = false;
             Display.GetComponent<Jump>().Jump2 = false;
             Display.GetComponent<Jump>().Jump3 = false;
             Display.GetComponent<Jump>().DoOnce = false;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = true;
+            Player.GetComponent<OVRPlayerController>().enabled = true;
             Display.GetComponent<Renderer>().enabled = false;
         }
     }

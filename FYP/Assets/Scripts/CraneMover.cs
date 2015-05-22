@@ -31,7 +31,7 @@ public class CraneMover : MonoBehaviour
     {
         GUI = GameObject.Find("GUI");
         BoxLoc1 = GameObject.Find("BoxLoc1");
-        BoxLoc2 = GameObject.Find("BoxLoc2");
+        BoxLoc2 = GameObject.Find("BoxLoc3");
         BoxCount = 0;
         MoveAbleBox1 = GameObject.Find("MoveAbleBox");
         MoveAbleBox2 = GameObject.Find("MoveAbleBox1");

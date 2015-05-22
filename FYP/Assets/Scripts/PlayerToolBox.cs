@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PlayerToolBox : MonoBehaviour
 {
+    GameObject Box1;
+    GameObject Box2;
     Animator animator;
     GameObject PlankCheckS;
     GameObject Screw1;
@@ -20,6 +22,8 @@ public class PlayerToolBox : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Box1 = GameObject.Find("MoveAbleBox");
+        Box2 = GameObject.Find("MoveAbleBox1");
         PlayerModel = GameObject.Find("PlayerModel");
         animator = GetComponent<Animator>();
         PlankCheckS = GameObject.Find("PlankCheckS");
@@ -38,30 +42,33 @@ public class PlayerToolBox : MonoBehaviour
     // Update is called once per frames
     void Update()
     {
-        if (IsOut == false)
+        if (PlayerModel.GetComponent<CharacterAnim>().IsTopBalancing == false && Box1.GetComponent<MoveUpBox>().HasBox == false && Box2.GetComponent<MoveUpBox>().HasBox2 == false)
         {
-            if (Input.GetKeyDown("u") || Input.GetButtonDown("cButtonX"))
+            if (IsOut == false)
             {
-                PlayerModel.GetComponent<Animation>().Play("TakeOutToolBox");
-                PlayerModel.GetComponent<Animation>().PlayQueued("HoldingToolBoxIdle");
-                animator.SetBool("IsOpening", true);
-                animator.SetBool("IsClosing", false);
-                gameObject.transform.position = BoxLoc.transform.position;
-                gameObject.transform.rotation = BoxLoc.transform.rotation;
-                Player.GetComponent<OVRPlayerController>().enabled = false;
-                IsOut = true;
+                if (Input.GetKeyDown("u") || Input.GetButtonDown("cButtonX"))
+                {
+                    PlayerModel.GetComponent<Animation>().Play("TakeOutToolBox");
+                    PlayerModel.GetComponent<Animation>().PlayQueued("HoldingToolBoxIdle");
+                    animator.SetBool("IsOpening", true);
+                    animator.SetBool("IsClosing", false);
+                    gameObject.transform.position = BoxLoc.transform.position;
+                    gameObject.transform.rotation = BoxLoc.transform.rotation;
+                    Player.GetComponent<OVRPlayerController>().enabled = false;
+                    IsOut = true;
+                }
             }
-        }
-        else if (IsOut == true)
-        {
-            if (Input.GetKeyDown("u") || Input.GetButtonDown("cButtonX"))
+            else if (IsOut == true)
             {
-                PlayerModel.GetComponent<Animation>().Play("PutBackToolBox");
-                //PlayerModel.GetComponent<Animation>().PlayQueued
-                animator.SetBool("IsOpening", false);
-                animator.SetBool("IsClosing", true);         
-                IsCounting = true;
-                
+                if (Input.GetKeyDown("u") || Input.GetButtonDown("cButtonX"))
+                {
+                    PlayerModel.GetComponent<Animation>().Play("PutBackToolBox");
+                    //PlayerModel.GetComponent<Animation>().PlayQueued
+                    animator.SetBool("IsOpening", false);
+                    animator.SetBool("IsClosing", true);
+                    IsCounting = true;
+
+                }
             }
         }
         if (IsCounting == true)

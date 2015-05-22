@@ -4,10 +4,12 @@ using System.Collections;
 public class ResetManager : MonoBehaviour
 {
     GameObject Birds;
+    GameObject Chip;
     // Use this for initialization
     void Start()
     {
         Birds = GameObject.FindGameObjectWithTag("Bird");
+        Chip = GameObject.Find("Chip");
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class ResetManager : MonoBehaviour
             {
                 GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocation8");
                 Birds.GetComponent<BirdScript>().CanFly = true;
+                Chip.GetComponent<AudioSource>().Play();
                 
             }
             else if (gameObject.name == "PlayerPass4")

@@ -71,18 +71,18 @@ public class CraneController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (IsMoving == true)
-        {
-            if (DoOnce == false)
-            {
-                Turning1.GetComponent<AudioSource>().Play();
-                DoOnce = true;
-            }
-            if (Turning1.GetComponent<AudioSource>().isPlaying == false)
-            {
-                DoOnce = false;
-            }
-        }
+        //if (IsMoving == true)
+        //{
+        //    if (DoOnce == false)
+        //    {
+        //        Turning1.GetComponent<AudioSource>().Play();
+        //        DoOnce = true;
+        //    }
+        //    if (Turning1.GetComponent<AudioSource>().isPlaying == false)
+        //    {
+        //        DoOnce = false;
+        //    }
+        //}
         if (CanBeMoved == true)
         {
             if (DoOnce2 == false)

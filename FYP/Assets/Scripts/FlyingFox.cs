@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FlyingFox : MonoBehaviour 
 {
+    GameObject PlayerModel;
     public bool NearZip;
     GameObject Player;
     GameObject Checker;
@@ -11,6 +12,7 @@ public class FlyingFox : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        PlayerModel = GameObject.Find("PlayerModel");
         Player = GameObject.FindGameObjectWithTag("Player");
         Checker = GameObject.Find("FlyingFoxChecker");
 	}
@@ -32,7 +34,7 @@ public class FlyingFox : MonoBehaviour
                 ZipIsMoving = true;                            
                 NearZip = false;
 
-                GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsFlyingFox = true;
+                PlayerModel.GetComponent<CharacterAnim>().IsFlyingFox = true;
                 //Debug.Log("flyingfox has problem");
             }
         }
@@ -47,7 +49,8 @@ public class FlyingFox : MonoBehaviour
             GameObject.Find("ZipLine").GetComponent<AudioSource>().Stop();
             //Player.transform.parent = null;
             Player.GetComponent<OVRPlayerController>().enabled = true;
-            GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsFlyingFox = false;
+            PlayerModel.GetComponent<CharacterAnim>().IsFlyingFox = false;
+            PlayerModel.GetComponent<CharacterAnim>().CurrentFoot = PlayerModel.GetComponent<CharacterAnim>().FootStepG;
         }
     }
 

@@ -6,12 +6,17 @@ public class TopChecker : MonoBehaviour
 
     public GameObject MainChecker;
     public GameObject MainChecker2;
+    GameObject ModelRes;
+    GameObject Player;
+    GameObject PlayerModel;
     // Use this for initialization
     void Start()
     {
-
+        Player = GameObject.FindGameObjectWithTag("Player");
+        PlayerModel = GameObject.Find("PlayerModel");
         MainChecker = GameObject.Find("FirstChecker1");
         MainChecker2 = GameObject.Find("FirstChecker");
+        ModelRes = GameObject.Find("ModelRes");
     }
 
     // Update is called once per frame
@@ -54,10 +59,12 @@ public class TopChecker : MonoBehaviour
                 MainChecker2.GetComponent<TopBalance>().RotateLeft = false;
                 MainChecker2.GetComponent<TopBalance>().RotateRight = false;
                 Destroy(MainChecker2);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = true;
-                GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsTopBalancing = false;
-                GameObject.Find("PlayerModel").transform.parent = GameObject.FindGameObjectWithTag("Player").transform;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ResetLocation = gameObject;
+                Player.GetComponent<OVRPlayerController>().enabled = true;
+                PlayerModel.GetComponent<CharacterAnim>().IsTopBalancing = false;
+                PlayerModel.transform.parent = Player.transform;
+                PlayerModel.transform.rotation = Player.transform.rotation;
+                PlayerModel.transform.position = ModelRes.transform.position;
+                Player.GetComponent<FadeInOut>().ResetLocation = gameObject;
             }
 
             if (gameObject.name == "Checker41")
@@ -65,10 +72,12 @@ public class TopChecker : MonoBehaviour
                 MainChecker.GetComponent<TopBalance>().RotateLeft = false;
                 MainChecker.GetComponent<TopBalance>().RotateRight = false;
                 Destroy(MainChecker);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<OVRPlayerController>().enabled = true;
-                GameObject.Find("PlayerModel").GetComponent<CharacterAnim>().IsTopBalancing = false;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<FadeInOut>().ResetLocation = gameObject;
-                GameObject.Find("PlayerModel").transform.parent = GameObject.FindGameObjectWithTag("Player").transform;
+                Player.GetComponent<OVRPlayerController>().enabled = true;
+                PlayerModel.GetComponent<CharacterAnim>().IsTopBalancing = false;
+                Player.GetComponent<FadeInOut>().ResetLocation = gameObject;
+                PlayerModel.transform.rotation = Player.transform.rotation;
+                PlayerModel.transform.parent = Player.transform;
+                PlayerModel.transform.position = ModelRes.transform.position;
             }
         }
     }

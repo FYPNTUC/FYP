@@ -3,6 +3,7 @@ using System.Collections;
 
 public class TakeKey : MonoBehaviour 
 {
+    GameObject CSG2;
     public bool CanPickUp;
     GameObject Key;
     GameObject Player;
@@ -13,6 +14,7 @@ public class TakeKey : MonoBehaviour
         Key = GameObject.Find("Key");
         GUI = GameObject.Find("GUI");
         Player = GameObject.FindGameObjectWithTag("Player");
+        CSG2 = GameObject.FindGameObjectWithTag("CSG2");
         
 	}
 
@@ -23,6 +25,7 @@ public class TakeKey : MonoBehaviour
         {
             if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
             {
+                CSG2.GetComponent<AIScript>().Whack = true;
                 GameObject.Find("ArrowD").GetComponent<FloatingArrow>().Show = true;
                 //Debug.Log("key has problem");
                 //GameObject.Find("Arrow").GetComponent<Direction>().Done1 = true;

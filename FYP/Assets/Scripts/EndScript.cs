@@ -6,9 +6,18 @@ public class EndScript : MonoBehaviour
     GameObject Player;
     bool CantJump;
     float Timer;
+    GameObject PlayerModel;
+    GameObject CraneA;
+    GameObject CraneB;
+    GameObject CraneC;
+
 	// Use this for initialization
 	void Start () 
     {
+        CraneA = GameObject.FindGameObjectWithTag("CraneA");
+        CraneB = GameObject.FindGameObjectWithTag("CraneB");
+        CraneC = GameObject.FindGameObjectWithTag("CraneC");
+        PlayerModel = GameObject.Find("PlayerModel");
         Player = GameObject.FindGameObjectWithTag("Player");
         CantJump = false;
         Timer = 0.6f;
@@ -46,8 +55,12 @@ public class EndScript : MonoBehaviour
             if (gameObject.name == "End")
             {
                 Player.GetComponent<FadeInOut>().ResetLocation = GameObject.Find("ResetLocation11");
-                GameObject.FindGameObjectWithTag("CraneC").GetComponent<CraneCheck3>().IsCrane3 = false;
+                CraneC.GetComponent<CraneCheck3>().IsCrane3 = false;
                 CantJump = true;
+                Destroy(CraneA);
+                Destroy(CraneB);
+                Destroy(CraneC);
+                PlayerModel.GetComponent<CharacterAnim>().CurrentFoot = PlayerModel.GetComponent<CharacterAnim>().FootStepW;
 
             }
 

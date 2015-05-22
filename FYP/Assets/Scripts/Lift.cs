@@ -24,12 +24,14 @@ public class Lift : MonoBehaviour
     public int NoOfScrew;
     Vector3 TempP;
     bool DoOnce;
+    GameObject CSW2;
     // Use this for initialization
     void Start()
     {
         //force the application to 75 fps
         Application.targetFrameRate = 75;
         CS = GameObject.Find("CutScene");
+        CSW2 = GameObject.FindGameObjectWithTag("CSW2");
         //Gangster2 = GameObject.Find("Gangster2");
         PlayerNearCraneL = false;
         NoOfScrew = 0;
@@ -68,6 +70,7 @@ public class Lift : MonoBehaviour
             {
                 if (Input.GetKey("e") || Input.GetButtonDown("cButtonA"))
                 {
+                    CSW2.GetComponent<StartScript>().IsDown = true;
                     GameObject.Find("LiftStart").GetComponent<AudioSource>().Play();
                     GameObject.Find("ArrowD").GetComponent<FloatingArrow>().Show = false;
                     GameObject.Find("Arrow").GetComponent<Direction>().Done1 = true;

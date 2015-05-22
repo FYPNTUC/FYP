@@ -3,6 +3,9 @@ using System.Collections;
 
 public class FallAi : MonoBehaviour
 {
+    GameObject FallSound;
+    GameObject WorkerThank;
+    GameObject WorkerGive;
     GameObject AIF;
     public bool Fall;
     bool IsFalling;
@@ -13,6 +16,9 @@ public class FallAi : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        FallSound = GameObject.Find("WorkerFell");
+        WorkerThank = GameObject.Find("WorkerThank");
+        WorkerGive = GameObject.Find("WorkerGive");
         AIF = GameObject.FindGameObjectWithTag("AIF");
         DoOnce = false;
         animator = GetComponent<Animator>();
@@ -32,6 +38,7 @@ public class FallAi : MonoBehaviour
                 Destroy(AIF);
                 IsFalling = true;
                 animator.SetBool("IsFalling", true);
+                FallSound.GetComponent<AudioSource>().Play();
                 DoOnce = true;
             }
         }
@@ -63,6 +70,7 @@ public class FallAi : MonoBehaviour
             BeingHelped = false;
             gameObject.transform.position = new Vector3(12.67306f, 50.65564f, 36.057f);
             GameObject.Find("HammerP").GetComponent<GotItem>().ObtainedH = true;
+            WorkerThank.GetComponent<AudioSource>().Play();
             //print("pop");
         }
     }

@@ -9,6 +9,11 @@ public class CharacterAnim : MonoBehaviour
     public bool IsFlyingFox;
     public bool IsLongJump;
     public bool IsOnCrane;
+    public GameObject FootStepG;
+    public GameObject FootStepW;
+    public GameObject FootStepS;
+    public GameObject CurrentFoot;
+    bool IsWalking;
 
     GameObject BoxLoc;
     double Checker;
@@ -16,7 +21,7 @@ public class CharacterAnim : MonoBehaviour
     public bool RaisingBox;
     public bool IsUp;
     public bool DownBox;
-
+    bool DoOnce;
     public bool IsBox1;
     public bool IsBox2;
     GameObject PlayerModel;
@@ -27,6 +32,12 @@ public class CharacterAnim : MonoBehaviour
 
     void Start()
     {
+        DoOnce = false;
+        FootStepG = GameObject.Find("FootStepG");
+        FootStepW = GameObject.Find("FootStepW");
+        FootStepS = GameObject.Find("FootStepS");
+        CurrentFoot = FootStepG;
+        IsWalking = false;
         IsOnCrane = false;
         ToolBox = GameObject.Find("PlayerToolBox");
         BoxLoc = GameObject.Find("BoxLoc");
@@ -238,22 +249,46 @@ public class CharacterAnim : MonoBehaviour
         //placed so that the flying fox and balancing animation will not be interupted
         else if (IsBalancing == false && IsFlyingFox == false && IsCarrying == false && ToolBox.GetComponent<PlayerToolBox>().IsOut == false && IsOnCrane == false)
         {
+            if (IsWalking == true && DoOnce == false)
+            {
+                
+                CurrentFoot.GetComponent<AudioSource>().Play();
+                DoOnce = true;
+
+            }
+            else if (IsWalking == false)
+            {
+                CurrentFoot.GetComponent<AudioSource>().Stop();
+                FootStepG.GetComponent<AudioSource>().Stop();
+                FootStepS.GetComponent<AudioSource>().Stop();
+                FootStepW.GetComponent<AudioSource>().Stop();
+                DoOnce = false;
+            }
             if (Input.GetAxis("cVerticalDPad") > 0.001)
             {
                 //PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
                 PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Walk");
+                IsWalking = true;
             }
 
             if (Input.GetKey("w"))
             {
                 // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
                 PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Walk");
+                IsWalking = true;
             }
 
             if (Input.GetAxis("cLeftJoystickVerti") < 0)
             {
                 // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
                 PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Walk");
+                IsWalking = true;
+            }
+            if (Input.GetAxis("cLeftJoystickVerti") >= 0)
+            {
+                // PlayerModel.GetComponent<Animation>().animation["Walk"].speed = 1;
+                PlayerModel.GetComponent<Animation>().GetComponent<Animation>().Play("Walk");
+                IsWalking = false;
             }
         }
 

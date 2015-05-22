@@ -41,7 +41,6 @@ public class CraneCheck : MonoBehaviour
                 if (Input.GetKeyDown("g") || Input.GetButtonDown("cButtonA"))
                 {
                     Player.GetComponent<CraneController>().CanBeMoved = false;
-                    //Debug.Log("pop");
                     HoldIt = true;
                     IsCrane1 = false;
                 }

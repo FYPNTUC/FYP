@@ -7,11 +7,15 @@ public class CraneCheck2 : MonoBehaviour
     GameObject Player;
     bool IsCrane2;
     bool HoldIt;
+    bool DoOnce;
+    GameObject ResetLocationC2;
     //GameObject CraneController;
 
     // Use this for initialization
     void Start()
     {
+        ResetLocationC2 = GameObject.Find("ResetLocationC2");
+        DoOnce = false;
         Player = GameObject.FindGameObjectWithTag("Player");
         IsCrane2 = false;
         HoldIt = false;
@@ -35,7 +39,7 @@ public class CraneCheck2 : MonoBehaviour
             {
                 Vector3 temp;
                 temp = gameObject.transform.position;
-                temp.y += 0.6f;
+                temp.y += 0.8f;
                 Player.transform.position = temp;
                 if (Input.GetKeyDown("g") || Input.GetButtonDown("cButtonA"))
                 {
@@ -57,10 +61,15 @@ public class CraneCheck2 : MonoBehaviour
             {
                 IsCrane2 = true;
             }
+            if (DoOnce == false)
+            {
+                Player.GetComponent<CraneController>().CanBeMoved = true;
+                DoOnce = true;
+            }
             Player.GetComponent<CraneController>().CurrentCrane = Player.GetComponent<CraneController>().Crane2;
             Player.GetComponent<CraneController>().CurrentTrolley = Player.GetComponent<CraneController>().Trolley2;
             Player.GetComponent<CraneController>().CurrentRope = Player.GetComponent<CraneController>().Rope2;
-
+            Player.GetComponent<FadeInOut>().ResetLocation = ResetLocationC2;
         }
     }
 
